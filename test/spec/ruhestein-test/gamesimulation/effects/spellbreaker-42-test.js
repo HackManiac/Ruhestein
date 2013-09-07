@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('Spellbreaker42', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Spellbreaker'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Spellbreaker'), 0, '{}');
+
         // TODO
     });
 

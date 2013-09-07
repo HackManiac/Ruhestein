@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('InjuredBlademaster209', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Injured Blademaster'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Injured Blademaster'), 0, '{}');
+
         // TODO
     });
 

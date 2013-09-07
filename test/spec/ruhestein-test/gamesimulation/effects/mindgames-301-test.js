@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('Mindgames301', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Mindgames'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Mindgames'), 0, '{}');
+
         // TODO
     });
 

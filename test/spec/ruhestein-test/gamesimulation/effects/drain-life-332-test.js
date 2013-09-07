@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('DrainLife332', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Drain Life'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Drain Life'), 0, '{}');
+
         // TODO
     });
 

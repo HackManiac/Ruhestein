@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('ManaWraith197', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Mana Wraith'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Mana Wraith'), 0, '{}');
+
         // TODO
     });
 

@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('PintSizedSummoner54', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Pint-Sized Summoner'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Pint-Sized Summoner'), 0, '{}');
+
         // TODO
     });
 

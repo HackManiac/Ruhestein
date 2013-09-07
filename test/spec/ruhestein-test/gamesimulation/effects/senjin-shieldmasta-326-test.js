@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('SenjinShieldmasta326', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Sen\'jin Shieldmasta'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Sen\'jin Shieldmasta'), 0, '{}');
+
         // TODO
     });
 

@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('RagnarosTheFirelord503', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Ragnaros the Firelord'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Ragnaros the Firelord'), 0, '{}');
+
         // TODO
     });
 

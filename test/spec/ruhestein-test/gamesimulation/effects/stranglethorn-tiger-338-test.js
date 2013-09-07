@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('StranglethornTiger338', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Stranglethorn Tiger'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Stranglethorn Tiger'), 0, '{}');
+
         // TODO
     });
 

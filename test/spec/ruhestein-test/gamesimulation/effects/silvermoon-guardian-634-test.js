@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('SilvermoonGuardian634', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Silvermoon Guardian'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Silvermoon Guardian'), 0, '{}');
+
         // TODO
     });
 

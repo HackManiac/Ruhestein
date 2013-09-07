@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('GladiatorsLongbow278', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Gladiator\'s Longbow'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Gladiator\'s Longbow'), 0, '{}');
+
         // TODO
     });
 

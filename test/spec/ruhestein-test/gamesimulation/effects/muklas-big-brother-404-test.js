@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('MuklasBigBrother404', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Mukla\'s Big Brother'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Mukla\'s Big Brother'), 0, '{}');
+
         // TODO
     });
 

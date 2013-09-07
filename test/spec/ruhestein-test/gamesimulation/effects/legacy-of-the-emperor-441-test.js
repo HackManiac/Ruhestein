@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('LegacyOfTheEmperor441', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Legacy of the Emperor'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Legacy of the Emperor'), 0, '{}');
+
         // TODO
     });
 

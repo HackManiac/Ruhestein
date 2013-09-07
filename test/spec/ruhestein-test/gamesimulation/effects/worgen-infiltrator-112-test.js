@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('WorgenInfiltrator112', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Worgen Infiltrator'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Worgen Infiltrator'), 0, '{}');
+
         // TODO
     });
 

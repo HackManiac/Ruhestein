@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('FrostwolfGrunt663', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Frostwolf Grunt'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Frostwolf Grunt'), 0, '{}');
+
         // TODO
     });
 

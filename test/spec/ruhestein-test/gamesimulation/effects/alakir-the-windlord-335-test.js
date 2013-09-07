@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('AlAkirTheWindlord335', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Al\'Akir the Windlord'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Al\'Akir the Windlord'), 0, '{}');
+
         // TODO
     });
 

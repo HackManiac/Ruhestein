@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('AcidicSwampOoze74', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Acidic Swamp Ooze'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Acidic Swamp Ooze'), 0, '{}');
+
         // TODO
     });
 

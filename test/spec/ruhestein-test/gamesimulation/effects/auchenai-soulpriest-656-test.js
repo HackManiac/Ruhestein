@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('AuchenaiSoulpriest656', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Auchenai Soulpriest'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Auchenai Soulpriest'), 0, '{}');
+
         // TODO
     });
 

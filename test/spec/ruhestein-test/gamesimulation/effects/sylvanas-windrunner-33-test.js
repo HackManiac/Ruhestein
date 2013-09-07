@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('SylvanasWindrunner33', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Sylvanas Windrunner'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Sylvanas Windrunner'), 0, '{}');
+
         // TODO
     });
 

@@ -17,9 +17,19 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('MogushanWarden346', function() {
 
-    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
+    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     xit('should work correctly', function() {
+        var g = setupDefaultGameTestEngine({
+            player2: {
+                deck: [
+                    '1 Mogu\'shan Warden'
+                ],
+            }
+        });
+
+        g.play(g.hand(0, 'Mogu\'shan Warden'), 0, '{}');
+
         // TODO
     });
 
