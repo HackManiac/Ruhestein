@@ -10,13 +10,27 @@
 
 var RazorfenHunter47 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Boar',
+            attack: 1,
+            health: 1,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Battlecry: Summon a 1/1 Boar.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "RazorfenHunter47"');
+        // nop
     },
+
+    castBattlecry: function() {
+        var card = this.createNamedCard('summon');
+        this.summonCard(card);
+    }
 
 };
 
