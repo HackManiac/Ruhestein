@@ -225,6 +225,8 @@ var setupGameTestEngine = function(info) {
         },
 
         test: {
+            expectCard: testUtils.expectCard,
+            
             silence: function(gcCard) {
                 var gmCard = getGmCard(gcCard);
                 gmCard.silence();
