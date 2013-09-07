@@ -79,7 +79,7 @@ var Card = {
                 result += '(' + this.getCurrentCost() + ') ';
             }
         }
-        if (this.isHero() || this.isMinion()) {
+        if (this.isHero() || this.isMinion() || this.isWeapon()) {
             result += this.getCurrentAttack() + '/' + this.getCurrentHealth() + ' ';
         }
         if (this.isHero() && (this.getCurrentArmor() > 0)) {
