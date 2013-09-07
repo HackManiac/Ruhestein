@@ -5,6 +5,7 @@ var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
+var UmdWrapper = require('./lib/umd-wrapper');
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -53,6 +54,14 @@ module.exports = function (grunt) {
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
+            },
+            umd: {
+                files: ['src/**/*.js'],
+                tasks: ['concat:umd', 'notify:umd']
+            },
+            testUmd: {
+                files: ['test/spec/**/*.js'],
+                tasks: ['concat:testUmd', 'notify:umd'],
             }
         },
         connect: {
@@ -119,6 +128,8 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
+                'src/**/*.js',
+                '!src/ruhestein/gamemaster/database/raw-database.js',
                 'test/spec/{,*/}*.js'
             ]
         },
@@ -190,9 +201,35 @@ module.exports = function (grunt) {
         },
         // not used since Uglify task does concat,
         // but still available if needed
-        /*concat: {
-            dist: {}
-        },*/
+        concat: {
+            dist: {},
+            umd: {
+                files: [{
+                    src: 'src/ruhestein{,/**/*}.js',
+                    dest: '.tmp/scripts/ruhestein.js',
+                }],
+                options: {
+                    banner: UmdWrapper.getBanner(),
+                    footer: UmdWrapper.getFooter('ruhestein', 'Ruhestein', {}),
+                    process: function(content, path) {
+                        return UmdWrapper.wrapSingleFile(content, path, /^src\/(.*)\.js$/);
+                    }
+                }
+            },
+            testUmd: {
+                files: [{
+                    src: 'test/spec/ruhestein-test{,/**/*}.js',
+                    dest: '.tmp/scripts/ruhestein-test.js',
+                }],
+                options: {
+                    banner: UmdWrapper.getBanner(),
+                    footer: UmdWrapper.getFooter('ruhestein-test', 'RuhesteinTest', { ruhestein: 'Ruhestein' }),
+                    process: function(content, path) {
+                        return UmdWrapper.wrapSingleFile(content, path, /^test\/spec\/(.*)\.js$/);
+                    }
+                }
+            },
+        },
         requirejs: {
             dist: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
@@ -354,6 +391,13 @@ module.exports = function (grunt) {
             all: {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
+        },
+        notify: {
+            umd: {
+                options: {
+                    message: 'UMD build completed!'
+                }
+            }
         }
     });
 
@@ -374,6 +418,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
+        'concat:umd',
+        'concat:testUmd',
         'concurrent:test',
         'autoprefixer',
         'connect:test',
