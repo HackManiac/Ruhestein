@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('DeadlyPoison87', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'rogue',
                 deck: [
                     '1 Deadly Poison'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Deadly Poison'), 0, '{}');
-
-        // TODO
+        g.play(g.heroPower('Dagger Mastery'));
+        g.weapon('1/2 Wicked Knife');
+        g.play(g.hand(0, 'Deadly Poison'), 0, '{Dead}');
+        g.weapon('3/2 Wicked Knife');
     });
 
 });

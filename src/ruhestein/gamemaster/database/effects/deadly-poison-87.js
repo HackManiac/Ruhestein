@@ -15,8 +15,12 @@ var DeadlyPoison87 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DeadlyPoison87"');
+        this.castBuff(this.getPlayer().getWeapon());
     },
+
+    buff: {
+        currentAttack: 2
+    }
 
 };
 
