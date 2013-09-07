@@ -205,10 +205,10 @@ var expectCard = function(card, expectedName) {
             if (name) {
                 name += ' ';
             }
-            name += (actualMd [5] || '???');
+            name += (actualMd [5] || '???').trim();
         }
         if (expectedMd [6] !== undefined) {
-            name += '; ' + (actualMd [6] || '???');
+            name += '; ' + (actualMd [6] || '???').trim();
         }
         if (expectedMd [7] !== undefined) {
             if (name) {
@@ -223,7 +223,7 @@ var expectCard = function(card, expectedName) {
     if (name === expectedName) {
         expect(name).to.equal(expectedName);
     } else {
-        expect(actualName).to.equal(expectedName);
+        expect('"' + name + '" (short for: "' + actualName + '")').to.equal(expectedName);
     }
 };
 
