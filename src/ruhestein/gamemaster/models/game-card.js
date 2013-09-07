@@ -571,13 +571,13 @@ var GameCard = Card.extend({
                 }
 
                 if (this.isMinion()) {
-                    if (!this.hasCharge()) {
-                        this.setIsAsleep(true);
-                    }
-
                     this.moveTo('battlefield', battlefieldIndex);
 
                     this.castEffects(info);
+
+                    if (!this.hasCharge()) {
+                        this.setIsAsleep(true);
+                    }
                 } else if (this.isWeapon()) {
                     this.moveTo('weapon');
 
