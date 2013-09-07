@@ -232,6 +232,16 @@ var setupGameTestEngine = function(info) {
                 gmCard.silence();
             },
 
+            dealDamage: function(damage, gcCard) {
+                var gmCard = getGmCard(gcCard);
+                gmCard.dealDamage(damage);
+            },
+
+            healDamage: function(healing, gcCard) {
+                var gmCard = getGmCard(gcCard);
+                gmCard.healDamage(healing);
+            },
+            
             kill: function(gcCard) {
                 var gmCard = getGmCard(gcCard);
                 gmCard.kill();
