@@ -10,12 +10,22 @@
 
 var DragonlingMechanic472 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Mechanical Dragonling',
+            attack: 2,
+            health: 1,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Battlecry: Summon a 2/1 Mechanical Dragonling.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "DragonlingMechanic472"');
+    castBattlecry: function() {
+        var card = this.createNamedCard('summon');
+        this.summonCard(card);
     },
 
 };
