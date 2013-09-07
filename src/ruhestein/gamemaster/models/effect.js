@@ -20,7 +20,7 @@ var Buff = require('./buff');
 
 var Effect = Model.extend({
 
-    power: null,
+    basePower: null,
 
     defaults: function() {
         return {
@@ -54,12 +54,12 @@ var Effect = Model.extend({
 
     formatDescription: function() {
         var description = this.getDescription();
-        description = description.replace(/\{P\}/, this.getPower());
+        description = description.replace(/\{P\}/, this.getCurrentPower());
         return description;
     },
 
-    getPower: function() {
-        var power = this.power;
+    getCurrentPower: function() {
+        var power = this.basePower;
         if (_.isNumber(power)) {
             power += this.getPlayer().getSpellPower();
         }
@@ -174,7 +174,7 @@ var Effect = Model.extend({
     },
 
     stopListeningToGame: function(eventName, handler) {
-        this.stopListening(this.getName(), eventName, handler);
+        this.stopListening(this.getGame(), eventName, handler);
     },
 
     updateEffectCard: function(cards, added, removed) {
@@ -285,7 +285,7 @@ var Effect = Model.extend({
             return this.collectCardsByLocation(locations, filter);
         };
 
-        return this._buffCards(getCards);
+        return this.buffCards(getCards);
     },
 
     buffAdjacentCards: function() {
@@ -293,13 +293,13 @@ var Effect = Model.extend({
             return this.collectAdjacentBattlefieldCardsByCard(this.getCard());
         };
 
-        return this._buffCards(getCards);
+        return this.buffCards(getCards);
     },
 
 
     // player helper methods
 
-    createCardFromNamedFilter: function(name) {
+    createNamedCard: function(name) {
         var filter = this.cardFilters [name];
         if (filter === undefined) {
             throw new Error('Unknown card filter "' + name + '"');
@@ -326,6 +326,11 @@ var Effect = Model.extend({
 
 
     // card helper methods
+
+    summonCard: function(card, target, bfIndex) {
+        card.moveTo('spawningCards');
+        card.play(target, bfIndex);
+    },
 
     dealDamage: function(damage, card) {
         card.dealDamage(damage, this.getCard());
