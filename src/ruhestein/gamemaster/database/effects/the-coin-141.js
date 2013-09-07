@@ -15,7 +15,8 @@ var TheCoin141 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "TheCoin141"');
+        this.getPlayer().modifyMaxMana(1);
+        this.getPlayer().modifyCurrentMana(1);
     },
 
 };
