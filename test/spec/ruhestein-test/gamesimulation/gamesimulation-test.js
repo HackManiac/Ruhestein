@@ -79,6 +79,205 @@ describe('GameSimulation', function() {
 
     });
 
+    describe('Noxious #1: Priest vs Mage', function() {
+        var g, tmpCard, tmpCards;
+
+        it('should play the game correctly', function() {
+            // P2-T1
+            g.endTurn();
+
+            // P1-T1
+            g.endTurn();
+
+            // P2-T2
+            g.play(g.hand(1, '3/2 Bloodfen Raptor'), 0);
+            g.endTurn();
+
+            // P1-T2
+            g.play(g.hand(0, '1/3 Northshire Cleric'), 0);
+            g.endTurn();
+
+            // P2-T3
+            tmpCard = g.oBattlefield(0, '1/3 Northshire Cleric');
+            g.gm.predictRoll(2);  // 2 = Battlefield #0
+            g.gm.predictRoll(2);
+            g.gm.predictRoll(2);
+            g.play(g.hand(3, 'Arcane Missiles'));
+            g.test.expectCard(tmpCard, '{Dead}');
+            g.play(g.heroPower('Fireblast'), g.oHero('0/30'), null, '0/29');
+            g.play(g.battlefield(0, '3/2 Bloodfen Raptor'), g.oHero('0/29'), '3/2', '0/26');
+            g.endTurn();
+
+            // P1-T3
+            g.play(g.hand(0, '1/3 Northshire Cleric'), 0);
+            g.endTurn();
+
+            // P2-T4
+            g.play(g.battlefield(0, '3/2 Bloodfen Raptor'), g.oBattlefield(0, '1/3 Northshire Cleric'), '3/1', '{Dead}');
+            g.play(g.hand(3, '2/7 Oasis Snapjaw'), 1);
+            g.endTurn();
+
+            // P1-T4
+            g.play(g.hand(0, '2/2 Frostwolf Grunt'), 0);
+            g.play(g.hand(0, '3/2 Bloodfen Raptor'), 0);
+            g.play(g.hand(0, 'The Coin'));
+            g.endTurn();
+
+            // P2-T5
+            g.oBattlefield(0, '3/2 Bloodfen Raptor');
+            g.oBattlefield(1, '2/2 Frostwolf Grunt');
+            g.play(g.hand(0, 'Arcane Explosion'));
+            g.oBattlefield(0, '3/1 Bloodfen Raptor');
+            g.oBattlefield(1, '2/1 Frostwolf Grunt');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(1, '2/1 Frostwolf Grunt'), null, '{Dead}');
+            g.play(g.battlefield(1, '2/7 Oasis Snapjaw'), g.oBattlefield(0, '3/1 Bloodfen Raptor'), '2/4', '{Dead}');
+            g.play(g.battlefield(0, '3/1 Bloodfen Raptor'), g.oHero('0/26'), null, '0/23');
+            g.endTurn();
+
+            // P1-T5
+            g.play(g.hand(0, '2/7 Gurubashi Berserker'), 0);
+            g.endTurn();
+
+            // P2-T6
+            g.play(g.hand(4, '1/2 Novice Engineer'), 2);
+            g.hand(4, '3/5 Sen\'jin Shieldmasta');
+            g.play(g.battlefield(1, '2/4 Oasis Snapjaw'), g.oHero('0/23'), null, '0/21');
+            g.play(g.battlefield(0, '3/1 Bloodfen Raptor'), g.oHero('0/21'), null, '0/18');
+            g.play(g.hand(3, '3/2 Bloodfen Raptor'), 3);
+            g.play(g.heroPower('Fireblast'), g.oHero('0/18'), null, '0/17');
+            g.endTurn();
+
+            // P1-T6
+            g.play(g.battlefield(0, '2/7 Gurubashi Berserker'), g.oBattlefield(0, '3/1 Bloodfen Raptor'), '5/4', '{Dead}');
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/17'), null, '0/19');
+            g.play(g.hand(0, '4/5 Chillwind Yeti'), 0);
+            g.endTurn();
+
+            // P2-T7
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(1, '5/4 Gurubashi Berserker'), null, '8/3');
+            g.play(g.battlefield(2, '3/2 Bloodfen Raptor'), g.oBattlefield(1, '8/3 Gurubashi Berserker'), '{Dead}', '{Dead}');
+            g.oHero('0/19');
+            g.play(g.hand(2, '4/4 Nightblade'), 2);
+            g.oHero('0/16');
+            g.play(g.battlefield(1, '1/2 Novice Engineer'), g.oHero('0/16'), null, '0/15');
+            g.play(g.battlefield(0, '2/4 Oasis Snapjaw'), g.oHero('0/15'), null, '0/13');
+            g.endTurn();
+
+            // P1-T7
+            g.play(g.battlefield(0, '4/5 Chillwind Yeti'), g.oBattlefield(2, '4/4 Nightblade'), '4/1', '{Dead}');
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/13'), null, '0/15');
+            g.play(g.hand(0, '2/1 Voodoo Doctor'), g.hero('0/15'), 1, null, '0/17');
+            g.play(g.hand(0, '3/3 Shattered Sun Cleric'), g.battlefield(0, '4/1 Chillwind Yeti'), 0, null, '5/2');
+            g.play(g.hand(0, '1/1 Elven Archer'), g.oBattlefield(0, '2/4 Oasis Snapjaw'), 3, null, '2/3');
+            g.endTurn();
+
+            // P2-T8
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(2, '2/1 Voodoo Doctor'), null, '{Dead}');
+            g.play(g.battlefield(1, '1/2 Novice Engineer'), g.oBattlefield(2, '1/1 Elven Archer'), '1/1', '{Dead}');
+            g.oHero('0/17');
+            g.oBattlefield(1, '5/2 Chillwind Yeti');
+            g.gm.predictRoll(3);
+            g.gm.predictRoll(3);
+            g.gm.predictRoll(1);
+            g.play(g.hand(4, 'Arcane Missiles'));
+            g.oHero('0/16');
+            g.oBattlefield(1, null);
+            g.play(g.hand(2, '3/5 Sen\'jin Shieldmasta'), 2);
+            g.play(g.battlefield(0, '2/3 Oasis Snapjaw'), g.oHero('0/16'), null, '0/14');
+            g.endTurn();
+
+            // P1-T8
+            g.play(g.hand(0, 'Shadow Word: Pain'), g.oBattlefield(2, '3/5 Sen\'jin Shieldmasta'), null, '{Dead}');
+            g.play(g.battlefield(0, '3/3 Shattered Sun Cleric'), g.oBattlefield(0, '2/3 Oasis Snapjaw'), '3/1', '{Dead}');
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/14'), null, '0/16');
+            g.play(g.hand(0, '1/1 Elven Archer'), g.oBattlefield(0, '1/1 Novice Engineer'), null, '{Dead}');
+            g.endTurn();
+
+            // P2-T9
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '3/1 Shattered Sun Cleric'), null, '{Dead}');
+            g.play(g.hand(3, '3/5 Sen\'jin Shieldmasta'), 0);
+            g.play(g.hand(0, 'Arcane Intellect'));
+            g.endTurn();
+
+            // P1-T9
+            g.play(g.hand(0, 'Shadow Word: Pain'), g.oBattlefield(0, '3/5 Sen\'jin Shieldmasta'), null, '{Dead}');
+            g.play(g.hand(0, '9/5 Core Hound'), 0);
+            g.play(g.battlefield(1, '1/1 Elven Archer'), g.oHero('0/30'), null, '0/29');
+            g.endTurn();
+
+            // P2-T10
+            g.play(g.hand(3, 'Polymorph'), g.oBattlefield(0, '9/5 Core Hound'), null, '1/1 Sheep');
+            g.oHero('0/16');
+            g.play(g.hand(0, '4/4 Nightblade'), 0);
+            g.oHero('0/13');
+            g.endTurn();
+
+            // P1-T10
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/13'), null, '0/15');
+            g.play(g.hand(0, 'Power Word: Shield'), g.battlefield(0, '1/1 Sheep'), null, '1/4');
+            g.play(g.battlefield(0, '1/4 Sheep'), g.oBattlefield(0, '4/4 Nightblade'), '{Dead}', '4/3');
+            g.play(g.battlefield(0, '1/1 Elven Archer'), g.oBattlefield(0, '4/3 Nightblade'), '{Dead}', '4/2');
+            g.endTurn();
+
+            // P2-T11
+            g.battlefield(0, '4/2 Nightblade');
+            g.play(g.hand(3, '2/2 Raid Leader'), 1);
+            g.battlefield(0, '5/2 Nightblade');
+            g.play(g.hand(2, 'Fireball'), g.oHero('0/15'), null, '0/9');
+            g.play(g.hand(1, '3/1 Wolfrider'), 2, '4/1');
+            g.play(g.battlefield(2, '4/1 Wolfrider'), g.oHero('0/9'), null, '0/5');
+            g.play(g.battlefield(0, '5/2 Nightblade'), g.oHero('0/5'), null, '{Dead}');
+        });
+
+        g = setupGameTestEngine({
+            startingPlayer: 2,
+
+            player1: {
+                'class': 'Priest',
+                deck: [
+                    '1 Northshire Cleric',
+                    '1 Northshire Cleric',
+                    '1 Frostwolf Grunt',
+                    '1 Bloodfen Raptor',
+                    '1 Gurubashi Berserker',
+                    '1 Chillwind Yeti',
+                    '1 Voodoo Doctor',
+                    '1 Shattered Sun Cleric',
+                    '1 Elven Archer',
+                    '1 Shadow Word: Pain',
+                    '1 Elven Archer',
+                    '1 Shadow Word: Pain',
+                    '1 Core Hound',
+                    '1 Power Word: Shield',
+                ],
+            },
+
+            player2: {
+                'class': 'Mage',
+                deck: [
+                    '1 Arcane Explosion',
+                    '1 Bloodfen Raptor',
+                    '1 Arcane Intellect',
+                    '1 Nightblade',
+                    '1 Arcane Missiles',
+                    '1 Oasis Snapjaw',
+                    '1 Nightblade',
+                    '1 Bloodfen Raptor',
+                    '1 Novice Engineer',
+                    '1 Sen\'jin Shieldmasta',
+                    '1 River Crocolisk',
+                    '1 Arcane Missiles',
+                    '1 Sen\'jin Shieldmasta',
+                    '1 Wolfrider',
+                    '1 Polymorph',
+                    '1 Fireball',
+                    '1 Raid Leader',
+                ],
+            }
+        });
+
+    });
+
     describe('Noxious #2: Rogue vs Mage', function() {
         var g;
 
