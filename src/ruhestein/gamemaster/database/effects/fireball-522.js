@@ -10,12 +10,17 @@
 
 var Fireball522 = {
 
+    basePower: 6,
+
     getDescription: function() {
-        return this.formatDescription('Deal 6 damage.');
+        return this.formatDescription('Deal {P} damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Fireball522"');
+    targetLocations: 'allCharacters',
+    
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
     },
 
 };
