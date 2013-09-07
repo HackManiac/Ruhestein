@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('ArcaneShot167', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Arcane Shot'
+                    '2 Arcane Shot'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Arcane Shot'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Arcane Shot'), g.oHero('0/30'), null, '0/28');
+        g.test.playSpellPowerPlus5();
+        g.play(g.hand(0, 'Arcane Shot'), g.oHero('0/28'), null, '0/21');
     });
 
 });

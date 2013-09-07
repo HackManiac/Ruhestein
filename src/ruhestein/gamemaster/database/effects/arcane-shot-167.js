@@ -10,12 +10,17 @@
 
 var ArcaneShot167 = {
 
+    basePower: 2,
+
     getDescription: function() {
-        return this.formatDescription('Deal 2 damage.');
+        return this.formatDescription('Deal {P} damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "ArcaneShot167"');
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
     },
 
 };
