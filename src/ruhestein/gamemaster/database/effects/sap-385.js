@@ -14,8 +14,10 @@ var Sap385 = {
         return this.formatDescription('Return an enemy minion to its owner\'s hand.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Sap385"');
+    targetLocations: 'opponentBattlefield',
+
+    cast: function(target) {
+        target.moveTo('hand');
     },
 
 };
