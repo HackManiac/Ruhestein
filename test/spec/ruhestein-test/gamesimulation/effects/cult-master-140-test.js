@@ -19,7 +19,7 @@ describe('CultMaster140', function() {
 
     var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;
 
-    xit('should be implemented', function() {
+    xit('should work correctly', function() {
         // TODO
     });
 
