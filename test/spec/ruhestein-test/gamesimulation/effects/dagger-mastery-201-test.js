@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,29 @@ describe('DaggerMastery201', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'rogue',
                 deck: [
-                    '1 Dagger Mastery'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Dagger Mastery'), 0, '{}');
+        g.weapon(null);
+        g.play(g.heroPower('Dagger Mastery'), 0, '{}');
+        g.weapon('1/2 Wicked Knife');
 
-        // TODO
+        g.endTurn();
+        g.endTurn();
+
+        g.play(g.heroPower('Dagger Mastery'), 0, '{}');
+        g.weapon('2/2 Wicked Knife');
+
+        g.endTurn();
+        g.endTurn();
+
+        g.weapon('1/2 Wicked Knife');
     });
 
 });

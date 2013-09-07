@@ -10,13 +10,36 @@
 
 var DaggerMastery201 = {
 
+    cardFilters: {
+        weapon: {
+            name: 'Wicked Knife',
+            attack: 1,
+            health: 2,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Hero Power  Equip a 1/2 Dagger; or Give your weapon +1 Attack this turn.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DaggerMastery201"');
+        var weapon = this.getPlayer().getWeapon();
+        if (weapon) {
+            var buff = this.buffCard(weapon);
+
+            this.onEndOfPlayerTurn(function() {
+                buff.uncast();
+            });
+        } else {
+            var card = this.createNamedCard('weapon');
+            this.summonCard(card);
+        }
     },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 
