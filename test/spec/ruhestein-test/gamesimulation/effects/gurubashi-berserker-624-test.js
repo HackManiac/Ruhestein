@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('GurubashiBerserker624', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,11 @@ describe('GurubashiBerserker624', function() {
             }
         });
 
-        g.play(g.hand(0, 'Gurubashi Berserker'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Gurubashi Berserker'), 0, '2/7 {ZZZ}');
+        g.test.dealDamage(1, g.battlefield(0, '2/7'), '5/6');
+        g.test.dealDamage(1, g.battlefield(0, '5/6'), '8/5');
+        g.test.silence(g.battlefield(0, '8/5'), '2/5 {Silenced,ZZZ}');
+        g.test.dealDamage(1, g.battlefield(0, '2/5'), '2/4');
     });
 
 });

@@ -15,8 +15,42 @@ var GurubashiBerserker624 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "GurubashiBerserker624"');
+        var didDealDamage = function(info) {
+            if (info.card === this.getCard()) {
+                this._updateBuff();
+            }
+        };
+
+        this.listenToGame('didDealDamage', didDealDamage);
     },
+
+    uncast: function() {
+        if (this._buff) {
+            this._buff.uncast();
+            this._buff = null;
+        }
+        if (this._currentModifier < 0) {
+            this.getCard().modifyCurrentAttack(this._currentModifier);
+            this._currentModifier = 0;
+        }
+    },
+
+    _currentModifier: 0,
+
+    _buff: null,
+
+    _updateBuff: function() {
+        if (!this._buff) {
+            this._buff = this.buffCard(this.getCard());
+        }
+        
+        this.getCard().modifyCurrentAttack(3);
+        this._currentModifier -= 3;
+    },
+
+    castBuff: function() {
+        // nop
+    }
 
 };
 
