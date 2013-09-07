@@ -15,7 +15,7 @@ var Wolfrider174 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Wolfrider174"');
+        this.castCharge();
     },
 
 };
