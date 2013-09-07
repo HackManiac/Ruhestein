@@ -98,6 +98,7 @@ var Card = {
                 'isDiscarded': 'Dead',
                 'isFrozen': 'Frozen',
                 'isImmune': 'Immune',
+                'isSilenced': 'Silenced',
                 'hasCharge': 'Charge',
                 'hasDeathrattle': 'Deathrattle',
                 'hasDivineShield': 'Divine Shield',
