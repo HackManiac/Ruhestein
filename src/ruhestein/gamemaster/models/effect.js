@@ -89,7 +89,9 @@ var Effect = Model.extend({
     canCast: true,
 
     cast: function() {
-        throw new Error('(' + this.getId() + '): cast() must be overriden by sub-class');
+        if (!this.castBattlecry) {
+            throw new Error('(' + this.getId() + '): cast() must be overriden by sub-class');
+        }
     },
 
     uncast: function() {
