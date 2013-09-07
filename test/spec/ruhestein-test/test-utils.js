@@ -216,7 +216,7 @@ var expectCard = function(card, expectedName) {
             if (name) {
                 name += ' ';
             }
-            name += '{' + (actualMd [7] || '???') + '}';
+            name += '{' + (actualMd [7] || '') + '}';
         }
     } else {
         actualName = name = card;
