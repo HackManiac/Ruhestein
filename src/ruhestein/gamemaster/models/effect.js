@@ -103,8 +103,8 @@ var Effect = Model.extend({
     castBuff: function(target) {
         if (this.buff) {
             _.forEach(this.buff, function(value, key) {
-                target.set(key, target.get(key) + value);
-            });
+                this._modifyProperty(target, key, value);
+            }, this);
         } else {
             throw new Error('(' + this.getId() + '): castBuff() must be overriden by sub-class');
         }
@@ -113,9 +113,21 @@ var Effect = Model.extend({
     uncastBuff: function(target) {
         if (this.buff) {
             _.forEach(this.buff, function(value, key) {
-                target.set(key, target.get(key) - value);
-            });
+                this._modifyProperty(target, key, - value);
+            }, this);
         }
+    },
+
+    _modifyProperty: function(target, key, delta) {
+        var capitalizedKey = key [0].toUpperCase() + key.substring(1), getter, setter;
+        if (/^(is|has)/.test(key)) {
+            getter = key;
+        } else {
+            getter = 'get' + capitalizedKey;
+        }
+        setter = 'set' + capitalizedKey;
+        var value = target [getter].call(target);
+        target [setter].call(target, value + delta);
     },
 
     castCommonEffects: function() {
