@@ -113,7 +113,7 @@ var Card = {
                 }
             });
             if (attributes.length > 0) {
-                result += ' {' + attributes.join(',') + '}';
+                result += ' {' + attributes.sort().join(',') + '}';
             }
         }
         return result;
