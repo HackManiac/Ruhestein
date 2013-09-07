@@ -340,6 +340,10 @@ var Effect = Model.extend({
         card.dealDamage(damage, this.getCard());
     },
 
+    killCard: function(card) {
+        card.kill(this.getCard());
+    },
+
 
     // cast helper methods
 
