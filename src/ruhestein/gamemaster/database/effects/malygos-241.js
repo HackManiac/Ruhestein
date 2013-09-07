@@ -15,8 +15,16 @@ var Malygos241 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Malygos241"');
+        this.buffCard(null);
     },
+
+    castBuff: function() {
+        this.getPlayer().modifySpellPower(5);
+    },
+
+    uncastBuff: function() {
+        this.getPlayer().modifySpellPower(-5);
+    }
 
 };
 

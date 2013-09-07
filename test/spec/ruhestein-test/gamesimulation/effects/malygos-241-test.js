@@ -19,18 +19,30 @@ describe('Malygos241', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Malygos'
+                    '2 Malygos'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Malygos'), 0, '{}');
+        expect(g.game.getSpellPower()).to.equal(0);
+        g.play(g.hand(0, 'Malygos'), 0, '{ZZZ}');
+        expect(g.game.getSpellPower()).to.equal(5);
+        g.test.kill(g.battlefield(0, 'Malygos'));
+        expect(g.game.getSpellPower()).to.equal(0);
 
-        // TODO
+        g.test.replenishMana();
+
+        expect(g.game.getSpellPower()).to.equal(0);
+        g.play(g.hand(0, 'Malygos'), 0, '{ZZZ}');
+        expect(g.game.getSpellPower()).to.equal(5);
+        g.test.silence(g.battlefield(0, 'Malygos'));
+        expect(g.game.getSpellPower()).to.equal(0);
+        g.test.kill(g.battlefield(0, 'Malygos'));
+        expect(g.game.getSpellPower()).to.equal(0);
     });
 
 });
