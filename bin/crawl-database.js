@@ -55,6 +55,8 @@ var didComplete = function() {
 
     var effectsDir = path.join(__dirname, '../src/ruhestein/gamemaster/database/effects');
 
+    var effectTestsDir = path.join(__dirname, '../test/spec/ruhestein-test/gamesimulation/effects');
+
     _.forEach(rawCardIds, function(rawCardId) {
         var rawCard = rawCardSetMap [rawCardId];
 
@@ -91,7 +93,7 @@ var didComplete = function() {
 
     var allEffectKeys = _.keys(allEffects).sort();
 
-    var requireLines = [];
+    var requireLines = [], requireTestLines = [];
 
     _.forEach(allEffectKeys, function(effectId) {
         var effectInfo = allEffects [effectId];
@@ -125,14 +127,51 @@ var didComplete = function() {
             ''
         ].join('\n');
 
+        var testLines = [
+            '/**',
+            ' * @license',
+            ' * Ruhestein - A Hearthstone game mechanics simulator',
+            ' */',
+            '\'use strict\';',
+            '',
+            '',
+            '',
+            'var Ruhestein = require(\'ruhestein\');',
+            '',
+            '',
+            'var GameSimulationTestUtils = require(\'../gamesimulation-test-utils\');',
+            '',
+            '',
+            '',
+            '// From ' + effectInfo.type + ' card: ' + effectInfo.summary,
+            '',
+            'describe(' + escape(effectId, true) + ', function() {',
+            '',
+            '    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;',
+            '',
+            '    xit(\'should be implemented\', function() {',
+            '        // TODO',
+            '    });',
+            '',
+            '});',
+            ''
+        ].join('\n');
+
         var filenameId = effectInfo.filenameId;
 
         requireLines.push('    require(\'./effects/' + filenameId + '\'),');
+        requireTestLines.push('    require(\'./effects/' + filenameId + '-test\');');
 
         var filename = path.join(effectsDir, filenameId + '.js');
 
         if (!fs.existsSync(filename)) {
             fs.writeFileSync(filename, lines);
+        }
+
+        filename = path.join(effectTestsDir, filenameId + '-test.js');
+
+        if (!fs.existsSync(filename)) {
+            fs.writeFileSync(filename, testLines);
         }
     });
 
@@ -164,9 +203,34 @@ var didComplete = function() {
         '',
     ].join('\n');
 
+    var testLines = [
+        '/**',
+        ' * @license',
+        ' * Ruhestein - A Hearthstone game mechanics simulator',
+        ' */',
+        '\'use strict\';',
+        '',
+        '',
+        '',
+        '// auto-generated on ' + new Date(),
+        '',
+        '',
+        '',
+        'describe(\'Effects\', function() {',
+        '',
+        requireTestLines.join('\n'),
+        '',
+        '});',
+        '',
+    ].join('\n');
+
     var filename = path.join(effectsDir, '../raw-database.js');
 
     fs.writeFileSync(filename, lines);
+
+    filename = path.join(effectTestsDir, '../effects-test.js');
+
+    fs.writeFileSync(filename, testLines);
 
     console.log('Database crawl completed!');
 };
