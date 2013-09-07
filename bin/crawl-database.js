@@ -85,7 +85,13 @@ var didComplete = function() {
             }
             summary += rawCard.name + '; ' + rawCard.description;
 
-            allEffects [nameId] = { filenameId: filenameId, desc: desc, summary: summary, type: rawCard.type };
+            allEffects [nameId] = {
+                filenameId: filenameId,
+                desc: desc,
+                summary: summary,
+                type: rawCard.type,
+                name: rawCard.name
+            };
 
             rawCard.effectId = nameId;
         }
@@ -147,9 +153,19 @@ var didComplete = function() {
             '',
             'describe(' + escape(effectId, true) + ', function() {',
             '',
-            '    var setupGameTestEngine = GameSimulationTestUtils.setupGameTestEngine;',
+            '    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;',
             '',
             '    xit(\'should work correctly\', function() {',
+            '        var g = setupDefaultGameTestEngine({',
+            '            player2: {',
+            '                deck: [',
+            '                    ' + escape('1 ' + effectInfo.name, true),
+            '                ],',
+            '            }',
+            '        });',
+            '',
+            '        g.play(g.hand(0, ' + escape(effectInfo.name, true) + '), 0, \'{}\');',
+            '',
             '        // TODO',
             '    });',
             '',
