@@ -435,7 +435,7 @@ var GameCard = Card.extend({
             }
         }
 
-        var needsTarget, i, n;
+        var needsTarget, allowsTarget, i, n;
         if (!info.failReason) {
             if ((info.location === 'battlefield') || (info.location === 'hero')) {
                 needsTarget = true;
@@ -451,6 +451,21 @@ var GameCard = Card.extend({
                     var effect = effects.at(i);
 
                     var effectNeedsTarget = _.result(effect, 'needsTarget');
+                    allowsTarget = allowsTarget || effectNeedsTarget;
+
+                    if (effect.targetLocations || effect.targetFilter) {
+                        var candidates = effect.collectTargetCards();
+
+                        if (effect.castBattlecry && (candidates.length === 0) && !info.targetCard) {
+                            effectNeedsTarget = false;
+                        } else if (info.targetCard && !info.failReason) {
+                            var index = candidates.indexOf(info.targetCard);
+                            if (index < 0) {
+                                info.failReason = 'Invalid target';
+                            }
+                        }
+                    }
+
                     needsTarget = needsTarget || effectNeedsTarget;
 
                     if (effectNeedsTarget && !info.targetCard) {
@@ -476,6 +491,9 @@ var GameCard = Card.extend({
                 }
             }
         }
+        if (needsTarget) {
+            allowsTarget = true;
+        }
 
         if (!info.failReason && needsTarget && !info.targetCard) {
             info.failReason = 'Card needs target';
@@ -494,7 +512,7 @@ var GameCard = Card.extend({
         }
 
         if (!info.failReason && info.targetCard) {
-            if (!needsTarget) {
+            if (!allowsTarget) {
                 info.failReason = 'Card cannot target something';
             } else if (info.card.isSpell()) {
                 // valid target
