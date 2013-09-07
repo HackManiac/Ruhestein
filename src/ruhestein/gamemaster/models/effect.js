@@ -83,7 +83,7 @@ var Effect = Model.extend({
     targetFilter: null,
 
     needsTarget: function() {
-        return this.targetLocations || this.targetFilter;
+        return (this.targetLocations || this.targetFilter);
     },
     
     canCast: true,
@@ -140,7 +140,9 @@ var Effect = Model.extend({
         if (info.card === this.getCard()) {
             this.stopListeningToGame('didPlayCardFromHand', this._battlecryDidPlayCard);
 
-            this.castBattlecry();
+            if (!this.needsTarget() || info.targetCard) {
+                this.castBattlecry(info.targetCard);
+            }
         }
     },
 
