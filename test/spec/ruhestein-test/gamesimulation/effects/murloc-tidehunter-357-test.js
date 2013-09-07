@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('MurlocTidehunter357', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,8 @@ describe('MurlocTidehunter357', function() {
             }
         });
 
-        g.play(g.hand(0, 'Murloc Tidehunter'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Murloc Tidehunter'), 0, '{ZZZ}');
+        g.battlefield(1, '1/1 Murloc Scout {ZZZ}');
     });
 
 });

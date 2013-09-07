@@ -10,13 +10,27 @@
 
 var MurlocTidehunter357 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Murloc Scout',
+            attack: 1,
+            health: 1,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Battlecry: Summon a 1/1 Murloc Scout.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MurlocTidehunter357"');
+        // nop
     },
+
+    castBattlecry: function() {
+        var card = this.createNamedCard('summon');
+        this.summonCard(card);
+    }
 
 };
 
