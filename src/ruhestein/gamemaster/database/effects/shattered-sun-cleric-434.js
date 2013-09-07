@@ -14,9 +14,15 @@ var ShatteredSunCleric434 = {
         return this.formatDescription('Battlecry: Give a friendly minion +1/+1.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "ShatteredSunCleric434"');
+    targetLocations: 'battlefield',
+
+    castBattlecry: function(target) {
+        this.castBuff(target);
     },
+
+    castBuff: function(target) {
+        target.modifyAttackAndHealth(1, 1);
+    }
 
 };
 
