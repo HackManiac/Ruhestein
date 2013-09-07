@@ -15,7 +15,13 @@ var NorthshireCleric600 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "NorthshireCleric600"');
+        var didHealDamage = function(info) {
+            if (info.card.isMinion()) {
+                this.getPlayer().drawCard();
+            }
+        };
+
+        this.listenToGame('didHealDamage', didHealDamage);
     },
 
 };
