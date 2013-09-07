@@ -674,8 +674,15 @@ var GameCard = Card.extend({
     },
 
     silence: function() {
+        var currentHealth = this.getCurrentHealth();
+
         this.reset();
 
+        var delta = this.getCurrentHealth() - currentHealth;
+        if (delta > 0) {
+            this.modifyDamage(delta);
+        }
+        
         var effects = this.getEffects();
         effects.reset([]);
 
