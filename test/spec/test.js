@@ -3,6 +3,8 @@
 
     window.mocha.setup('bdd');
 
+    window.chai.Assertion.includeStack = true;
+    
     window.expect = window.chai.expect;
 
     window._$jscoverage = {};
@@ -20,7 +22,12 @@
             bootstrapScrollspy: '../bower_components/sass-bootstrap/js/scrollspy',
             bootstrapTab: '../bower_components/sass-bootstrap/js/tab',
             bootstrapTooltip: '../bower_components/sass-bootstrap/js/tooltip',
-            bootstrapTransition: '../bower_components/sass-bootstrap/js/transition'
+            bootstrapTransition: '../bower_components/sass-bootstrap/js/transition',
+            underscore: '../bower_components/underscore/underscore',
+            backbone: '../bower_components/backbone/backbone',
+            chaplin: '../bower_components/chaplin/chaplin',
+            ruhestein: '../scripts/ruhestein',
+            'ruhestein-test': '../scripts/ruhestein-test'
         },
         shim: {
             bootstrapAffix: {
@@ -52,11 +59,18 @@
             },
             bootstrapTransition: {
                 deps: ['jquery']
+            },
+            underscore: {
+                exports: '_'
+            },
+            backbone: {
+                exports: 'Backbone',
+                deps: ['underscore']
             }
         }
     });
 
-    require(['spec-test'], function () {
+    require(['ruhestein-test'], function () {
         var runner = window.mocha.run();
 
         if (!window.PHANTOMJS) {
