@@ -70,6 +70,7 @@ var outputGameState = function(game, skipOpponentState) {
     if (!skipOpponentState) {
         lines.push(game.getOpponentAccountName() + ':');
         lines.push('    Mana       : ' + game.getOpponentCurrentMana() + '/' + game.getOpponentMaxMana());
+        lines.push('    Spell Power: ' + game.getOpponentSpellPower());
         appendCardLine(game.getOpponentHero(),      '    Hero       : ');
         appendCardLine(game.getOpponentHeroPower(), '    Hero Power : ', true);
         appendCardLine(game.getOpponentWeapon(),    '    Weapon     : ');
@@ -84,6 +85,7 @@ var outputGameState = function(game, skipOpponentState) {
 
     lines.push(game.getAccountName() + ':');
     lines.push('    Mana       : ' + game.getCurrentMana() + '/' + game.getMaxMana());
+    lines.push('    Spell Power: ' + game.getSpellPower());
     appendCardLine(game.getHero(),      '    Hero       : ');
     appendCardLine(game.getHeroPower(), '    Hero Power : ', true);
     appendCardLine(game.getWeapon(),    '    Weapon     : ');
