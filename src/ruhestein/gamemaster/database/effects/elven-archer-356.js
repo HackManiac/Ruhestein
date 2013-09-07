@@ -14,8 +14,10 @@ var ElvenArcher356 = {
         return this.formatDescription('Battlecry: Deal 1 damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "ElvenArcher356"');
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.dealDamage(1, target);
     },
 
 };
