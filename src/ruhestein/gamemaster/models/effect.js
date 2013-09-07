@@ -228,7 +228,7 @@ var Effect = Model.extend({
 
     buffCard: function(card, uncastOnEffectReset) {
         if (uncastOnEffectReset === undefined) {
-            uncastOnEffectReset = this.getCard().isMinion();
+            uncastOnEffectReset = (this.getCard().isMinion() && !this.castBattlecry);
         }
 
         var buff = this.getBuffByCard(card);
