@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,31 @@ describe('ArcaneExplosion56', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Wisp',
+                    '1 Malygos'
+                ],
+                playCards: 2
+            },
             player2: {
                 deck: [
-                    '1 Arcane Explosion'
+                    '2 Arcane Explosion'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Arcane Explosion'), 0, '{}');
+        g.oBattlefield(0, '1/1');
+        g.oBattlefield(1, '4/12');
+        g.play(g.hand(0, 'Arcane Explosion'), null, '{Dead}');
+        g.oBattlefield(0, '4/11');
 
-        // TODO
+        g.test.playSpellPowerPlus5();
+
+        g.play(g.hand(0, 'Arcane Explosion'), null, '{Dead}');
+        g.oBattlefield(0, '4/5');
     });
 
 });

@@ -10,12 +10,18 @@
 
 var ArcaneExplosion56 = {
 
+    basePower: 1,
+
     getDescription: function() {
-        return this.formatDescription('Deal 1 damage to all enemy minions.');
+        return this.formatDescription('Deal {P} damage to all enemy minions.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ArcaneExplosion56"');
+        var damage = this.getCurrentPower();
+        var cards = this.collectCardsByLocation('opponentBattlefield');
+        cards.forEach(function(card) {
+            this.dealDamage(damage, card);
+        }, this);
     },
 
 };
