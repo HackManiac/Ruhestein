@@ -692,19 +692,33 @@ var GameCard = Card.extend({
     },
 
     silence: function() {
-        var currentHealth = this.getCurrentHealth();
-
-        this.reset();
-
-        var delta = this.getCurrentHealth() - currentHealth;
-        if (delta > 0) {
-            this.modifyDamage(delta);
-        }
+        var buffs = this.getBuffs().toArray();
+        _.forEach(buffs, function(buff) {
+            buff.uncast();
+        });
         
-        var effects = this.getEffects();
-        effects.reset([]);
+        var effects = this.getEffects().toArray();
+        _.forEach(effects, function(effect) {
+            effect.reset();
+        });
+        this.getEffects().reset([]);
 
+        var attack = this.getBaseAttack();
+        this.setCurrentAttack(attack);
+
+        var health = this.getBaseHealth();
+        this.setMaxHealth(health);
+
+        this.setIsFrozen(false);
+        this.setIsImmune(false);
         this.setIsSilenced(true);
+        this.setHasCharge(false);
+        this.setHasDeathrattle(false);
+        this.setHasDivineShield(false);
+        this.setHasEffectTrigger(false);
+        this.setHasStealth(false);
+        this.setHasTaunt(false);
+        this.setHasWindfury(false);
     },
 
     dealDamage: function(damage, source) {
