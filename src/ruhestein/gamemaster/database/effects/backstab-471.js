@@ -10,12 +10,17 @@
 
 var Backstab471 = {
 
+    basePower: 2,
+
     getDescription: function() {
-        return this.formatDescription('Deal 2 damage to an enemy minion.');
+        return this.formatDescription('Deal {P} damage to an enemy minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Backstab471"');
+    targetLocations: 'opponentBattlefield',
+
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
     },
 
 };
