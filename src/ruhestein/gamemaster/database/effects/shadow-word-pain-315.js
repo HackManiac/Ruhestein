@@ -14,8 +14,14 @@ var ShadowWordPain315 = {
         return this.formatDescription('Destroy a minion with 3 or less Attack.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "ShadowWordPain315"');
+    targetLocations: 'allBattlefields',
+
+    targetFilter: function(card) {
+        return (card.getCurrentAttack() <= 3);
+    },
+
+    cast: function(target) {
+        this.killCard(target);
     },
 
 };

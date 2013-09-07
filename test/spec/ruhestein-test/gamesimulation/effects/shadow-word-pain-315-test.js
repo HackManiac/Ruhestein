@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('ShadowWordPain315', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Bloodfen Raptor'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Shadow Word: Pain'
@@ -28,9 +31,7 @@ describe('ShadowWordPain315', function() {
             }
         });
 
-        g.play(g.hand(0, 'Shadow Word: Pain'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Shadow Word: Pain'), g.oBattlefield(0, '3/2 Bloodfen Raptor'), '{Dead}', '{Dead}');
     });
 
 });
