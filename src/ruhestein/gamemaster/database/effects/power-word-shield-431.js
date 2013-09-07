@@ -14,9 +14,15 @@ var PowerWordShield431 = {
         return this.formatDescription('Give a minion +3 Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "PowerWordShield431"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    buff: {
+        maxHealth: 3
+    }
 
 };
 
