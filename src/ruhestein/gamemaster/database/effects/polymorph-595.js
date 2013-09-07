@@ -10,12 +10,24 @@
 
 var Polymorph595 = {
 
+    cardFilters: {
+        sheep: {
+            name: 'Sheep',
+            attack: 1,
+            health: 1,
+            isToken: true
+        }
+    },
+    
     getDescription: function() {
         return this.formatDescription('Transform a minion into a 1/1 Sheep.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Polymorph595"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        var card = this.createNamedCard('sheep');
+        target.transformTo(card);
     },
 
 };

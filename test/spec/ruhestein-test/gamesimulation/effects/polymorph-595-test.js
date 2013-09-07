@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('Polymorph595', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos',
+                ],
+                playCards: 1,
+            },
             player2: {
                 deck: [
                     '1 Polymorph'
@@ -28,7 +31,7 @@ describe('Polymorph595', function() {
             }
         });
 
-        g.play(g.hand(0, 'Polymorph'), 0, '{}');
+        g.play(g.hand(0, 'Polymorph'), g.oBattlefield(0, '4/12 Malygos'), '{Dead}', '1/1 Sheep');
 
         // TODO
     });
