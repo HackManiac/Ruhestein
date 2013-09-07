@@ -32,8 +32,6 @@ describe('Polymorph595', function() {
         });
 
         g.play(g.hand(0, 'Polymorph'), g.oBattlefield(0, '4/12 Malygos'), '{Dead}', '1/1 Sheep');
-
-        // TODO
     });
 
 });
