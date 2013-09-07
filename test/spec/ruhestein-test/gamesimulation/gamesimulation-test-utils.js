@@ -237,4 +237,28 @@ var setupGameTestEngine = function(info) {
 
 
 
+var setupDefaultGameTestEngine = function(info) {
+    info = _.defaults(info, {
+        startingPlayer: 2,
+
+        player1: {},
+        player2: {},
+    });
+
+    var setupPlayer = function(key) {
+        info [key] = _.defaults(info [key], {
+            'class': 'mage',
+            deck: []
+        });
+    };
+
+    setupPlayer('player1');
+    setupPlayer('player2');
+
+    return setupGameTestEngine(info);
+};
+
+
+
 exports.setupGameTestEngine = setupGameTestEngine;
+exports.setupDefaultGameTestEngine = setupDefaultGameTestEngine;
