@@ -193,7 +193,7 @@ var Effect = Model.extend({
         this.stopListening(this.getGame(), eventName, handler);
     },
 
-    updateEffectCard: function(cards, added, removed) {
+    updateEffectedCards: function(cards, added, removed) {
         var _this = this;
 
         if (cards === undefined) {
