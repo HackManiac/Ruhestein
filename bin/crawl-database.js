@@ -68,6 +68,10 @@ var didComplete = function() {
             return input.substring(0, 1).toUpperCase() + input.substring(1);
         }).join('').replace(/[^A-Za-z0-9]/g, '') + idNr;
 
+        var filenameId = name.split(/[\s]+/g).map(function(input) {
+            return input.toLowerCase();
+        }).join('-').replace(/[^A-Za-z0-9-]/g, '') + '-' + idNr;
+
         if (desc != '') {
             if (allEffects [nameId] !== undefined) {
                 reportError('Duplicate name ID "' + nameId + '"');
@@ -79,7 +83,7 @@ var didComplete = function() {
             }
             summary += rawCard.name + '; ' + rawCard.description;
 
-            allEffects [nameId] = { desc: desc, summary: summary, type: rawCard.type };
+            allEffects [nameId] = { filenameId: filenameId, desc: desc, summary: summary, type: rawCard.type };
 
             rawCard.effectId = nameId;
         }
@@ -121,9 +125,11 @@ var didComplete = function() {
             ''
         ].join('\n');
 
-        requireLines.push('    require(\'./effects/' + effectId + '\'),');
+        var filenameId = effectInfo.filenameId;
 
-        var filename = path.join(effectsDir, effectId + '.js');
+        requireLines.push('    require(\'./effects/' + filenameId + '\'),');
+
+        var filename = path.join(effectsDir, filenameId + '.js');
 
         if (!fs.existsSync(filename)) {
             fs.writeFileSync(filename, lines);
@@ -161,6 +167,8 @@ var didComplete = function() {
     var filename = path.join(effectsDir, '../raw-database.js');
 
     fs.writeFileSync(filename, lines);
+
+    console.log('Database crawl completed!');
 };
 
 
