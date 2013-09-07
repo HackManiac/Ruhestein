@@ -15,7 +15,7 @@ var GoldshireFootman564 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "GoldshireFootman564"');
+        this.castTaunt();
     },
 
 };

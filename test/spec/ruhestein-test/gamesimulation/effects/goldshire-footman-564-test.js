@@ -19,7 +19,7 @@ describe('GoldshireFootman564', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,7 +28,7 @@ describe('GoldshireFootman564', function() {
             }
         });
 
-        g.play(g.hand(0, 'Goldshire Footman'), 0, '{}');
+        g.play(g.hand(0, 'Goldshire Footman'), 0, '{Taunt,ZZZ}');
 
         // TODO
     });
