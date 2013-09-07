@@ -61,6 +61,34 @@ var setupGameTestEngine = function(info) {
 
     var gte, gcGame;
 
+    var getGmCard = function(gcCard) {
+        if (!gcCard) {
+            return gcCard;
+        }
+
+        var location = gcCard.getLocation();
+
+        var gmPlayer = gmPlayer1;
+        var gcCards = gcGame1.collectCardsByLocation(location);
+        var index = gcCards.indexOf(gcCard);
+        if (index < 0) {
+            gmPlayer = gmPlayer2;
+            gcCards = gcGame2.collectCardsByLocation(location);
+            index = gcCards.indexOf(gcCard);
+            if (index < 0) {
+                gmPlayer = null;
+            }
+        }
+
+        var gmCard;
+        if (gmPlayer) {
+            var gmCards = gmPlayer.collectCardsByLocation(location);
+            gmCard = gmCards.at(index);
+        }
+
+        return gmCard;
+    };
+
     var getCardHandler = function(callback) {
         return function(index, expected) {
             try {
@@ -194,6 +222,35 @@ var setupGameTestEngine = function(info) {
             gmPlayer2: gmPlayer2,
             gcGame1: gcGame1,
             gcGame2: gcGame2,
+        },
+
+        test: {
+            silence: function(gcCard) {
+                var gmCard = getGmCard(gcCard);
+                gmCard.silence();
+            },
+
+            kill: function(gcCard) {
+                var gmCard = getGmCard(gcCard);
+                gmCard.kill();
+                gmGame.handleKilledCards();
+            },
+
+            replenishMana: function() {
+                var gmPlayer = gte.debug.gmGame.getCurrentPlayer();
+                testUtils.setMana(gmPlayer, 10, 10);
+            },
+
+            playSpellPowerPlus5: function() {
+                var gmPlayer = gte.debug.gmGame.getCurrentPlayer();
+                var gmCard = gmPlayer.createCardFromFilter({
+                    name: 'Malygos'
+                });
+                gmCard.moveTo('hand');
+                gte.test.replenishMana();
+                gte.play(gte.hand(gte.game.getHandCardCount() - 1, 'Malygos'));
+                gte.test.replenishMana();
+            }
         }
     };
 
@@ -248,7 +305,10 @@ var setupDefaultGameTestEngine = function(info) {
     var setupPlayer = function(key) {
         info [key] = _.defaults(info [key], {
             'class': 'mage',
-            deck: []
+            deck: [],
+
+            maxMana: 10,
+            currentMana: 10,
         });
     };
 
