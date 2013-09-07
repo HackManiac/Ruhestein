@@ -15,7 +15,7 @@ var SenjinShieldmasta326 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "SenjinShieldmasta326"');
+        this.castTaunt();
     },
 
 };
