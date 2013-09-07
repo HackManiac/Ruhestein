@@ -15,8 +15,42 @@ var FrostwolfWarlord604 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FrostwolfWarlord604"');
+        this.onBattlefieldChange(function() {
+            this._updateBuff();
+        });
+
+        this.buffCard(this.getCard());
     },
+
+    castBuff: function() {
+        this._updateBuff();
+    },
+
+    uncastBuff: function() {
+        this._updateBuff([]);
+    },
+    
+    _currentModifier: 0,
+
+    _updateBuff: function(cards) {
+        var target = this.getCard();
+
+        if (cards === undefined) {
+            cards = this.collectCardsByLocation('battlefield', function(card) {
+                return card !== target;
+            });
+        }
+
+        var newModifier = cards.length;
+
+        var delta = newModifier - this._currentModifier;
+        if (delta) {
+            target.modifyAttackAndHealth(delta, delta);
+
+            this._currentModifier = newModifier;
+        }
+
+    }
 
 };
 
