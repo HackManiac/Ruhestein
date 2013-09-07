@@ -14,8 +14,9 @@ var Nightblade184 = {
         return this.formatDescription('Battlecry: Deal 3 damage to the enemy hero.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Nightblade184"');
+    castBattlecry: function() {
+        var target = this.getPlayer().getOpponent().getHero();
+        this.dealDamage(3, target);
     },
 
 };

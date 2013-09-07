@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('Nightblade184', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,9 @@ describe('Nightblade184', function() {
             }
         });
 
-        g.play(g.hand(0, 'Nightblade'), 0, '{}');
-
-        // TODO
+        g.oHero('0/30');
+        g.play(g.hand(0, 'Nightblade'), 0, '{ZZZ}');
+        g.oHero('0/27');
     });
 
 });
