@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,16 +16,21 @@ describe('ArcaneMissiles589', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Arcane Missiles'
+                    '2 Arcane Missiles',
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Arcane Missiles'), 0, '{}');
+        g.oHero('0/30');
+        g.play(g.hand(0, 'Arcane Missiles'), 0, '{Dead}');
+        g.oHero('0/27');
+        g.test.playSpellPowerPlus5();
+        g.play(g.hand(0, 'Arcane Missiles'), 0, '{Dead}');
+        g.oHero('0/19');
 
         // TODO
     });

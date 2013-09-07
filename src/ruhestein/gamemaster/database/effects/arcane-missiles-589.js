@@ -10,12 +10,18 @@
 
 var ArcaneMissiles589 = {
 
+    basePower: 3,
+
     getDescription: function() {
-        return this.formatDescription('Shoot 3 missiles at random enemies for 1 damage each.');
+        return this.formatDescription('Shoot {P} missiles at random enemies for 1 damage each.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ArcaneMissiles589"');
+        var count = this.getCurrentPower(), damage = 1;
+        for (var i = 0; i < count; i++) {
+            var card = this.getRandomCardByLocation('opponentCharacters');
+            this.dealDamage(damage, card);
+        }
     },
 
 };
