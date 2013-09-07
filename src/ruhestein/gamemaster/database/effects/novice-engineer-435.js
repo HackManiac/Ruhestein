@@ -15,8 +15,12 @@ var NoviceEngineer435 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "NoviceEngineer435"');
+        // nop
     },
+
+    castBattlecry: function() {
+        this.getPlayer().drawCard();
+    }
 
 };
 
