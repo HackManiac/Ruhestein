@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,27 @@ describe('LesserHeal126', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'priest',
                 deck: [
-                    '1 Lesser Heal'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Lesser Heal'), 0, '{}');
+        g.test.dealDamage(3, g.hero('0/30'), '0/27');
+        g.play(g.heroPower('Lesser Heal'), g.hero('0/27'), '{}', '0/29');
 
-        // TODO
+        g.endTurn();
+        g.endTurn();
+
+        g.play(g.heroPower('Lesser Heal'), g.hero('0/29'), '{}', '0/30');
+
+        g.endTurn();
+        g.endTurn();
+
+        g.play(g.heroPower('Lesser Heal'), g.hero('0/30'), '{}', '0/30');
     });
 
 });

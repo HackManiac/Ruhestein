@@ -14,8 +14,10 @@ var LesserHeal126 = {
         return this.formatDescription('Hero Power  Restore 2 Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "LesserHeal126"');
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.healDamage(2, target);
     },
 
 };
