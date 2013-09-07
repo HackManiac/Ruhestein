@@ -236,9 +236,12 @@ var setupGameTestEngine = function(info) {
                 gmGame.handleKilledCards();
             },
 
-            replenishMana: function() {
+            replenishMana: function(mana) {
+                if (mana === undefined) {
+                    mana = 10;
+                }
                 var gmPlayer = gte.debug.gmGame.getCurrentPlayer();
-                testUtils.setMana(gmPlayer, 10, 10);
+                testUtils.setMana(gmPlayer, mana, mana);
             },
 
             playSpellPowerPlus5: function() {
