@@ -15,7 +15,7 @@ var FrostwolfGrunt663 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FrostwolfGrunt663"');
+        this.castTaunt();
     },
 
 };
