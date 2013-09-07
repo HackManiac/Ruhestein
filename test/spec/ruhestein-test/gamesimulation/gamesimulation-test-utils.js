@@ -227,19 +227,28 @@ var setupGameTestEngine = function(info) {
         test: {
             expectCard: testUtils.expectCard,
             
-            silence: function(gcCard) {
+            silence: function(gcCard, expected) {
                 var gmCard = getGmCard(gcCard);
                 gmCard.silence();
+                if (expected !== undefined) {
+                    testUtils.expectCard(gcCard, expected);
+                }
             },
 
-            dealDamage: function(damage, gcCard) {
+            dealDamage: function(damage, gcCard, expected) {
                 var gmCard = getGmCard(gcCard);
                 gmCard.dealDamage(damage);
+                if (expected !== undefined) {
+                    testUtils.expectCard(gcCard, expected);
+                }
             },
 
-            healDamage: function(healing, gcCard) {
+            healDamage: function(healing, gcCard, expected) {
                 var gmCard = getGmCard(gcCard);
                 gmCard.healDamage(healing);
+                if (expected !== undefined) {
+                    testUtils.expectCard(gcCard, expected);
+                }
             },
             
             kill: function(gcCard) {
