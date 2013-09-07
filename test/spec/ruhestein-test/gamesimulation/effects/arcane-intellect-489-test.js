@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('ArcaneIntellect489', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,9 @@ describe('ArcaneIntellect489', function() {
             }
         });
 
-        g.play(g.hand(0, 'Arcane Intellect'), 0, '{}');
-
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.play(g.hand(0, 'Arcane Intellect'), 0, '{Dead}');
+        expect(g.game.getHandCardCount()).to.equal(5);
     });
 
 });

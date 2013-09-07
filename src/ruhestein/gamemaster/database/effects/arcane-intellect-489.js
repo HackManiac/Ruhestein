@@ -15,7 +15,7 @@ var ArcaneIntellect489 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ArcaneIntellect489"');
+        this.getPlayer().drawCards(2);
     },
 
 };
