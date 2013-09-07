@@ -15,7 +15,7 @@ var StormwindKnight603 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "StormwindKnight603"');
+        this.castCharge();
     },
 
 };
