@@ -96,7 +96,7 @@ var setupGameTestEngine = function(info) {
                     expected = index;
                     index = null;
                 }
-                var card = gcGame [callback].call(gcGame, index);
+                var card = gcGame [callback].call(gcGame, index) || null;
                 if (expected !== undefined) {
                     if (card) {
                         testUtils.expectCard(card, expected);
