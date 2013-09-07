@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('VoodooDoctor410', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,8 @@ describe('VoodooDoctor410', function() {
             }
         });
 
-        g.play(g.hand(0, 'Voodoo Doctor'), 0, '{}');
-
-        // TODO
+        g.test.dealDamage(3, g.hero('0/30'), '0/27');
+        g.play(g.hand(0, 'Voodoo Doctor'), g.hero('0/27'), '{ZZZ}', '0/29');
     });
 
 });

@@ -14,8 +14,10 @@ var VoodooDoctor410 = {
         return this.formatDescription('Battlecry: Restore 2 Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "VoodooDoctor410"');
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.healDamage(2, target);
     },
 
 };
