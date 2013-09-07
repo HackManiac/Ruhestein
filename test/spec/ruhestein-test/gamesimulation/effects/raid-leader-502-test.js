@@ -19,18 +19,25 @@ describe('RaidLeader502', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '2 Wisp',
                     '1 Raid Leader'
                 ],
+                playCards: 2
             }
         });
 
-        g.play(g.hand(0, 'Raid Leader'), 0, '{}');
-
-        // TODO
+        g.battlefield(0, '1/1');
+        g.battlefield(1, '1/1');
+        g.play(g.hand(0, '2/2 Raid Leader'), 2, '2/2 {ZZZ}');
+        g.battlefield(0, '2/1');
+        g.battlefield(1, '2/1');
+        g.test.silence(g.battlefield(2, '2/2'), '2/2 {Silenced,ZZZ}');
+        g.battlefield(0, '1/1');
+        g.battlefield(1, '1/1');
     });
 
 });

@@ -15,8 +15,16 @@ var RaidLeader502 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "RaidLeader502"');
+        var source = this.getCard();
+
+        this.buffCardsByLocation('battlefield', function(card) {
+            return (card !== source);
+        });
     },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 
