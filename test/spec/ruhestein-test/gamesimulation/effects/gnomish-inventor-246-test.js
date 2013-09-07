@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('GnomishInventor246', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,9 @@ describe('GnomishInventor246', function() {
             }
         });
 
-        g.play(g.hand(0, 'Gnomish Inventor'), 0, '{}');
-
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.play(g.hand(0, 'Gnomish Inventor'), 0, '{ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(4);
     });
 
 });

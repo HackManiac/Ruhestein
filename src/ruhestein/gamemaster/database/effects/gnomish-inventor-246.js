@@ -15,8 +15,12 @@ var GnomishInventor246 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "GnomishInventor246"');
+        // nop
     },
+
+    castBattlecry: function() {
+        this.getPlayer().drawCard();
+    }
 
 };
 
