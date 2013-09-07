@@ -14,8 +14,10 @@ var Fireblast677 = {
         return this.formatDescription('Hero Power  Deal 1 damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Fireblast677"');
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.dealDamage(1, target);
     },
 
 };

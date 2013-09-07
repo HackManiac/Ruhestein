@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,16 @@ describe('Fireblast677', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'mage',
                 deck: [
-                    '1 Fireblast'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Fireblast'), 0, '{}');
-
-        // TODO
+        g.play(g.heroPower('Fireblast'), g.oHero('0/30'), '{}', '0/29');
     });
 
 });
