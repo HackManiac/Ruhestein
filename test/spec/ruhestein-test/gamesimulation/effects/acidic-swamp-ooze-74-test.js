@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,15 @@ describe('AcidicSwampOoze74', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                class: 'warrior',
+                deck: [
+                    '1 Arcanite Reaper'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Acidic Swamp Ooze'
@@ -28,9 +32,9 @@ describe('AcidicSwampOoze74', function() {
             }
         });
 
-        g.play(g.hand(0, 'Acidic Swamp Ooze'), 0, '{}');
-
-        // TODO
+        g.oWeapon('5/2 Arcanite Reaper');
+        g.play(g.hand(0, 'Acidic Swamp Ooze'), 0, '{ZZZ}');
+        g.oWeapon(null);
     });
 
 });

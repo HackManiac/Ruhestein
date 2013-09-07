@@ -15,7 +15,7 @@ var AcidicSwampOoze74 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "AcidicSwampOoze74"');
+        this.killCard(this.getPlayer().getOpponent().getWeapon());
     },
 
 };
