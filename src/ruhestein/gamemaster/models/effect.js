@@ -386,6 +386,14 @@ var Effect = Model.extend({
         this.onEndOfPlayerTurn(function() {
             this.uncast();
         });
+    },
+
+    onBattlefieldChange: function(callback) {
+        var didMoveCard = function(info) {
+            callback.call(this, info);
+        };
+
+        this.listenToGame('didMoveCard', didMoveCard);
     }
 
 });
