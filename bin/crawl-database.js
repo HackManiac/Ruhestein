@@ -73,7 +73,13 @@ var didComplete = function() {
                 reportError('Duplicate name ID "' + nameId + '"');
             }
 
-            allEffects [nameId] = { desc: desc };
+            var summary = '(' + rawCard.cost + ') ';
+            if ((rawCard.type === 'hero') || (rawCard.type === 'minion') || (rawCard.type === 'weapon')) {
+                summary += rawCard.attack + '/' + rawCard.health + ' ';
+            }
+            summary += rawCard.name + '; ' + rawCard.description;
+
+            allEffects [nameId] = { desc: desc, summary: summary, type: rawCard.type };
 
             rawCard.effectId = nameId;
         }
@@ -94,6 +100,8 @@ var didComplete = function() {
             '\'use strict\';',
             '',
             '',
+            '',
+            '// From ' + effectInfo.type + ' card: ' + effectInfo.summary,
             '',
             'var ' + effectId + ' = {',
             '',
