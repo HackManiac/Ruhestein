@@ -327,7 +327,10 @@ var Effect = Model.extend({
         return candidates.at(index);
     },
 
-
+    collectTargetCards: function() {
+        return this.collectCardsByLocation(this.targetLocations, this.targetFilter);
+    },
+    
 
     // card helper methods
 
