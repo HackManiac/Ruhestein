@@ -15,7 +15,8 @@ var SteadyShot481 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "SteadyShot481"');
+        var target = this.getPlayer().getOpponentHero();
+        this.dealDamage(2, target);
     },
 
 };

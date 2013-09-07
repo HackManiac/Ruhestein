@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('SteadyShot481', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'hunter',
                 deck: [
-                    '1 Steady Shot'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Steady Shot'), 0, '{}');
-
-        // TODO
+        g.oHero('0/30');
+        g.play(g.heroPower('Steady Shot'), null);
+        g.oHero('0/28');
     });
 
 });
