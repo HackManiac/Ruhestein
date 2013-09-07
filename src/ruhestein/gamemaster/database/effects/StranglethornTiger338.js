@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/5 Stranglethorn Tiger; Stealth
+
 var StranglethornTiger338 = {
 
     getDescription: function() {

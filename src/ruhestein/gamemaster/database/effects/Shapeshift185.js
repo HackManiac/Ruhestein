@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Shapeshift; Hero Power +1 Attack this turn.  +1 Armor.
+
 var Shapeshift185 = {
 
     getDescription: function() {

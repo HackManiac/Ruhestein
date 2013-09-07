@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Tauren Warrior; Taunt. Enrage: +3 Attack
+
 var TaurenWarrior477 = {
 
     getDescription: function() {

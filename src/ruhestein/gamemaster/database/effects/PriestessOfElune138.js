@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 5/4 Priestess of Elune; Battlecry: Restore 4 Health to your hero.
+
 var PriestessOfElune138 = {
 
     getDescription: function() {

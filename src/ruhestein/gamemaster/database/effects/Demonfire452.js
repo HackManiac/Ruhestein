@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Demonfire; Deal 2 damage to a minion.   If it’s a friendly Demon, give it +2/+2 instead.
+
 var Demonfire452 = {
 
     getDescription: function() {

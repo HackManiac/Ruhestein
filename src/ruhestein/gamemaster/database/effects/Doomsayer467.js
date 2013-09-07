@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 0/7 Doomsayer; At the start of your turn, destroy ALL minions.
+
 var Doomsayer467 = {
 
     getDescription: function() {

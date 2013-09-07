@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/1 Scarlet Crusader; Divine Shield
+
 var ScarletCrusader475 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 6/6 Tirion Fordring; Divine Shield. Taunt. Deathrattle: Equip a 5/3 Ashbringer.
+
 var TirionFordring391 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Arcane Shot; Deal 2 damage.
+
 var ArcaneShot167 = {
 
     getDescription: function() {

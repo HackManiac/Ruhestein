@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Shadowflame; Destroy a friendly minion and deal its Attack damage to all enemy minions.
+
 var Shadowflame673 = {
 
     getDescription: function() {

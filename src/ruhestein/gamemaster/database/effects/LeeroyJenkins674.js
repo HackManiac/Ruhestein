@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 6/2 Leeroy Jenkins; Charge. Battlecry: Summon two 1/1 Whelps for your opponent.
+
 var LeeroyJenkins674 = {
 
     getDescription: function() {

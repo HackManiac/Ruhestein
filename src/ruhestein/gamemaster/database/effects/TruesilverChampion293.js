@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (4) 4/2 Truesilver Champion; Whenever your hero attacks, restore 2 Health to it.
+
 var TruesilverChampion293 = {
 
     getDescription: function() {

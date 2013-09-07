@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 Aldor Peacekeeper; Battlecry: Change an enemy minion's Attack to 1.
+
 var AldorPeacekeeper23 = {
 
     getDescription: function() {

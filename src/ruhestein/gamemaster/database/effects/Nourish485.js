@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Nourish; Draw 3 cards.
+
 var Nourish485 = {
 
     getDescription: function() {

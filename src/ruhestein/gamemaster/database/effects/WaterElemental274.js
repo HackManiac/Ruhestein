@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/6 Water Elemental; Freeze any character that Water Elemental damages.
+
 var WaterElemental274 = {
 
     getDescription: function() {

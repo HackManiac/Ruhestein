@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Fireball; Deal 6 damage.
+
 var Fireball522 = {
 
     getDescription: function() {

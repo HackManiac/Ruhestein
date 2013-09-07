@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Uproot; +5 Attack.
+
 var Uproot262 = {
 
     getDescription: function() {

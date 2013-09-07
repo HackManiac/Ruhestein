@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 6/6 Dread Infernal; Battlecry: Deal 1 damage to ALL other characters.
+
 var DreadInfernal36 = {
 
     getDescription: function() {

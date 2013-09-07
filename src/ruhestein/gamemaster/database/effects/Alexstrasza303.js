@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (9) 8/8 Alexstrasza; Battlecry: Set a hero's remaining Health to 15.
+
 var Alexstrasza303 = {
 
     getDescription: function() {

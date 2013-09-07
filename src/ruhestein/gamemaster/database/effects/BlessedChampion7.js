@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Blessed Champion; Double a minion's Attack.
+
 var BlessedChampion7 = {
 
     getDescription: function() {

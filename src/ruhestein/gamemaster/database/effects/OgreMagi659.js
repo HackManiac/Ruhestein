@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 4/4 Ogre Magi; Spell Power +1
+
 var OgreMagi659 = {
 
     getDescription: function() {

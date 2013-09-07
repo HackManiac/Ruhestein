@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 4/3 Succubus; Battlecry: Discard a random card.
+
 var Succubus208 = {
 
     getDescription: function() {

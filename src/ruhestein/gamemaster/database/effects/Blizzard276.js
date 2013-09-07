@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Blizzard; Deal 2 damage to all enemy minions and Freeze them.
+
 var Blizzard276 = {
 
     getDescription: function() {

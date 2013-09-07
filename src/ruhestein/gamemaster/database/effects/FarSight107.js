@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Far Sight; Draw a card. That card costs (3) less.
+
 var FarSight107 = {
 
     getDescription: function() {

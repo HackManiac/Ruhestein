@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Betrayal; An enemy minion deals its damage to the minions next to it.
+
 var Betrayal198 = {
 
     getDescription: function() {

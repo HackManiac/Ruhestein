@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 2/5 Tundra Rhino; Your Beasts have Charge.
+
 var TundraRhino162 = {
 
     getDescription: function() {

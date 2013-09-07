@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Blessing of Wisdom; Choose a minion.  Whenever it attacks, draw a card.
+
 var BlessingOfWisdom100 = {
 
     getDescription: function() {

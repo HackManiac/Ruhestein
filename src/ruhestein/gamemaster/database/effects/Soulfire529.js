@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Soulfire; Deal 4 damage. Discard a random card.
+
 var Soulfire529 = {
 
     getDescription: function() {

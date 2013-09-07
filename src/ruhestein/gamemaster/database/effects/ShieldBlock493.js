@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Shield Block; Gain 5 Armor.  Draw a card.
+
 var ShieldBlock493 = {
 
     getDescription: function() {

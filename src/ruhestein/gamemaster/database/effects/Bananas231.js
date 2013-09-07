@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Bananas; Give a minion +1/+1.
+
 var Bananas231 = {
 
     getDescription: function() {

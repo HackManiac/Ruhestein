@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Lightning Storm; Deal 2-3 damage to all enemy minions. Overload: (2)
+
 var LightningStorm676 = {
 
     getDescription: function() {

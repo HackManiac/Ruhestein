@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 2/4 Keeper of the Grove; Choose One - Deal 2 damage; or Silence a minion.
+
 var KeeperOfTheGrove459 = {
 
     getDescription: function() {

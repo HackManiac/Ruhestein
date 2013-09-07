@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Nightmare; Give a minion +5/+5.  At the start of your next turn, destroy it.
+
 var Nightmare334 = {
 
     getDescription: function() {

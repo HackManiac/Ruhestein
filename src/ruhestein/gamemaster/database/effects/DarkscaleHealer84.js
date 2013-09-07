@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/5 Darkscale Healer; Battlecry: Restore 2 Health to all friendly characters.
+
 var DarkscaleHealer84 = {
 
     getDescription: function() {

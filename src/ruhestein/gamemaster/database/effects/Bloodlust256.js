@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Bloodlust; Give your minions +3 Attack this turn.
+
 var Bloodlust256 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Unleash the Hounds; Give your Beasts +1 Attack and Charge.
+
 var UnleashTheHounds317 = {
 
     getDescription: function() {

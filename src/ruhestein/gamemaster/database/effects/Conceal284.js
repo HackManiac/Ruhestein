@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Conceal; Give your minions Stealth until your next turn.
+
 var Conceal284 = {
 
     getDescription: function() {

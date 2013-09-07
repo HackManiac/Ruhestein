@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 7/6 Venture Co. Mercenary; Your minions cost (3) more.
+
 var VentureCoMercenary509 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Bananas; Give a friendly minion +1/+1. (+1 Attack/+1 Health)
+
 var Bananas156 = {
 
     getDescription: function() {

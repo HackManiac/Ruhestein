@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 2/4 Gnomish Inventor; Battlecry: Draw a card.
+
 var GnomishInventor246 = {
 
     getDescription: function() {

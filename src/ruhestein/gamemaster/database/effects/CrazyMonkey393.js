@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Crazy Monkey; Battlecry: Throw Bananas.
+
 var CrazyMonkey393 = {
 
     getDescription: function() {

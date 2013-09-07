@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (10) 12/12 Deathwing; Battlecry: Destroy all other minions and discard your hand.
+
 var Deathwing474 = {
 
     getDescription: function() {

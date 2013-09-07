@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Druid of the Claw; Choose One - Charge; or +2 Health and Taunt.
+
 var DruidOfTheClaw587 = {
 
     getDescription: function() {

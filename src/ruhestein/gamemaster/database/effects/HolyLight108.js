@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Holy Light; Restore #6 Health.
+
 var HolyLight108 = {
 
     getDescription: function() {

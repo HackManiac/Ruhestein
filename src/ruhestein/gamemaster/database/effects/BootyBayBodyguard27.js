@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/4 Booty Bay Bodyguard; Taunt
+
 var BootyBayBodyguard27 = {
 
     getDescription: function() {

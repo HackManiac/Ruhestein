@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Excess Mana; Draw a card. (You can only have 10 Mana in your tray.)
+
 var ExcessMana520 = {
 
     getDescription: function() {

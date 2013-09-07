@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/3 Mana Wraith; ALL minions cost (1) more.
+
 var ManaWraith197 = {
 
     getDescription: function() {

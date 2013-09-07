@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Summon a Panther; Summon a 3/2 Panther.
+
 var SummonAPanther219 = {
 
     getDescription: function() {

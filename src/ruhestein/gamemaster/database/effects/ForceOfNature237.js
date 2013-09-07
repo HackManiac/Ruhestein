@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (6) Force of Nature; Summon three 2/2 Treants with Charge that die at the end of the turn.
+
 var ForceOfNature237 = {
 
     getDescription: function() {

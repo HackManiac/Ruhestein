@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/5 Felguard; Taunt. Battlecry: Destroy one of your Mana Crystals.
+
 var Felguard236 = {
 
     getDescription: function() {

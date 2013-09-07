@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/5 Auchenai Soulpriest; Your cards and powers that restore Health now deal damage instead.
+
 var AuchenaiSoulpriest656 = {
 
     getDescription: function() {

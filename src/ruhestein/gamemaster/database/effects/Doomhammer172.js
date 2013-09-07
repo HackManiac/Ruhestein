@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (5) 2/8 Doomhammer; Windfury, Overload: (2)
+
 var Doomhammer172 = {
 
     getDescription: function() {

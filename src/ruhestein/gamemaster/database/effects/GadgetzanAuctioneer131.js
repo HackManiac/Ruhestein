@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Gadgetzan Auctioneer; Whenever you cast a spell, draw a card.
+
 var GadgetzanAuctioneer131 = {
 
     getDescription: function() {

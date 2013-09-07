@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/3 Northshire Cleric; Whenever a minion is healed, draw a card.
+
 var NorthshireCleric600 = {
 
     getDescription: function() {

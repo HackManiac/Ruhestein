@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/5 DEBUG; Debug text
+
 var DEBUG682 = {
 
     getDescription: function() {

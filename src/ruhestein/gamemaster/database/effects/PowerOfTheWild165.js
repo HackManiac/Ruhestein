@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Power of the Wild; Choose One - Give your minions +1/+1; or Summon a 3/2 Panther.
+
 var PowerOfTheWild165 = {
 
     getDescription: function() {

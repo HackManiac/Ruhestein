@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Starfall; Deal 2 damage to all enemies.
+
 var Starfall653 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Mark of Nature; Choose One - Give a minion +4 Attack; or +4 Health and Taunt.
+
 var MarkOfNature149 = {
 
     getDescription: function() {

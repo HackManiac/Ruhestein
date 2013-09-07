@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Nourish; Choose One - Gain 2 Mana Crystals; or Draw 3 cards.
+
 var Nourish120 = {
 
     getDescription: function() {

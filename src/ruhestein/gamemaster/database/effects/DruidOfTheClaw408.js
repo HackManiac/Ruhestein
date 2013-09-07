@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Druid of the Claw; Charge
+
 var DruidOfTheClaw408 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/7 Injured Blademaster; Battlecry: Deal 4 damage to HIMSELF.
+
 var InjuredBlademaster209 = {
 
     getDescription: function() {

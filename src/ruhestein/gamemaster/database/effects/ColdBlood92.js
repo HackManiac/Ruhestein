@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Cold Blood; Give a minion +2 Attack. Combo: +4 Attack instead.
+
 var ColdBlood92 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (0) 0/1 Frog; Taunt
+
 var Frog115 = {
 
     getDescription: function() {

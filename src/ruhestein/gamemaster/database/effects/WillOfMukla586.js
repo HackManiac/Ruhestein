@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Will of Mukla; Restore 8 Health.
+
 var WillOfMukla586 = {
 
     getDescription: function() {

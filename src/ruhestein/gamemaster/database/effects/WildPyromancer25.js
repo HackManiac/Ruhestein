@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 3/2 Wild Pyromancer; After you cast a spell, deal 1 damage to ALL minions.
+
 var WildPyromancer25 = {
 
     getDescription: function() {

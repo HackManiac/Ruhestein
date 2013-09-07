@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/3 Ethereal Arcanist; If you control a Secret at the end of your turn, gain +2/+2.
+
 var EtherealArcanist125 = {
 
     getDescription: function() {

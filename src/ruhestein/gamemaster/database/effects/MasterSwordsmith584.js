@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/3 Master Swordsmith; At the end of your turn, give another random friendly minion +1 Attack.
+
 var MasterSwordsmith584 = {
 
     getDescription: function() {

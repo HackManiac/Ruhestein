@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/4 Hogger; At the end of your turn, summon a 2/2 Gnoll with Taunt.
+
 var Hogger39 = {
 
     getDescription: function() {

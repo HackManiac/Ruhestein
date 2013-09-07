@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/4 Harrison Jones; Battlecry: Destroy your opponent's weapon and draw cards equal to its Durability.
+
 var HarrisonJones602 = {
 
     getDescription: function() {

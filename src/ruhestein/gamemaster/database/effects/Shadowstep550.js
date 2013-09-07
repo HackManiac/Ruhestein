@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Shadowstep; Return a friendly minion to your hand. It costs (2) less.
+
 var Shadowstep550 = {
 
     getDescription: function() {

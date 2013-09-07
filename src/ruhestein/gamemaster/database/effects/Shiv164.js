@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Shiv; Deal 1 damage. Draw a card.
+
 var Shiv164 = {
 
     getDescription: function() {

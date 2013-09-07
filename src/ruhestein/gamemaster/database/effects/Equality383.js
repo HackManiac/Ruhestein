@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Equality; Change the Health of ALL minions to 1.
+
 var Equality383 = {
 
     getDescription: function() {

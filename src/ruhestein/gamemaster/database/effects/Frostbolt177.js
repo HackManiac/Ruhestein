@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Frostbolt; Deal 3 damage to a character and Freeze it.
+
 var Frostbolt177 = {
 
     getDescription: function() {

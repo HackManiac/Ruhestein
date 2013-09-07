@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/4 Armorsmith; Whenever a friendly minion takes damage, gain 1 Armor.
+
 var Armorsmith644 = {
 
     getDescription: function() {

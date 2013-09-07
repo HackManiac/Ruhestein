@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Heroic Strike; Give your hero +4 Attack this turn.
+
 var HeroicStrike1 = {
 
     getDescription: function() {

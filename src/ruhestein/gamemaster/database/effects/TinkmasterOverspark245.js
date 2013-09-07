@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/2 Tinkmaster Overspark; Battlecry: Transform a minion into a 5/5 Devilsaur or a 1/1 Squirrel at random.
+
 var TinkmasterOverspark245 = {
 
     getDescription: function() {

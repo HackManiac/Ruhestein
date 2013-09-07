@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 0/4 Summoning Portal; Your minions cost (2) less, but not less than (1).
+
 var SummoningPortal566 = {
 
     getDescription: function() {

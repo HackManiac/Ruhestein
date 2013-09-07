@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Flame Burst; Shoot 5 missiles at random enemies for 1 damage each.
+
 var FlameBurst622 = {
 
     getDescription: function() {

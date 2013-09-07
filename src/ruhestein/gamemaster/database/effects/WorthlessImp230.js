@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Worthless Imp; You are out of demons! At least there are always imps...
+
 var WorthlessImp230 = {
 
     getDescription: function() {

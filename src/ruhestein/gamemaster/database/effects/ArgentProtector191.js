@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Argent Protector; Battlecry: Give a friendly minion Divine Shield.
+
 var ArgentProtector191 = {
 
     getDescription: function() {

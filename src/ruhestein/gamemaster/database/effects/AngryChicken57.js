@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Angry Chicken; Enrage: +5 Attack.
+
 var AngryChicken57 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 3/4 Cabal Shadow Priest; Battlecry: Take control of an enemy minion that has 2 or less Attack.
+
 var CabalShadowPriest147 = {
 
     getDescription: function() {

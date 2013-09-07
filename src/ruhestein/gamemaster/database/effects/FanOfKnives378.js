@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Fan of Knives; Deal 1 damage to all enemy minions. Draw a card.
+
 var FanOfKnives378 = {
 
     getDescription: function() {

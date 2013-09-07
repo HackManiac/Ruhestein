@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Claw; Give your hero +2 Attack this turn and 2 Armor.
+
 var Claw532 = {
 
     getDescription: function() {

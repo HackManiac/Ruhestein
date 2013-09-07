@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Rooted; +5 Health and Taunt.
+
 var Rooted375 = {
 
     getDescription: function() {

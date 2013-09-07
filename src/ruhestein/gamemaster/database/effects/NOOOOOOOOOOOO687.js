@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) NOOOOOOOOOOOO; Somehow, the card you USED to have has been deleted.  Here, have this one instead!
+
 var NOOOOOOOOOOOO687 = {
 
     getDescription: function() {

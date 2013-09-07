@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Power Word: Shield; Give a minion +3 Health.
+
 var PowerWordShield431 = {
 
     getDescription: function() {

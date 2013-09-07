@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Bloodsail Corsair; Battlecry: Remove 1 Durability from your opponent's weapon.
+
 var BloodsailCorsair453 = {
 
     getDescription: function() {

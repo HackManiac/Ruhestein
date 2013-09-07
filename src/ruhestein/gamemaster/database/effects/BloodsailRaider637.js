@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/3 Bloodsail Raider; Battlecry: Gain Attack equal to the Attack of your weapon.
+
 var BloodsailRaider637 = {
 
     getDescription: function() {

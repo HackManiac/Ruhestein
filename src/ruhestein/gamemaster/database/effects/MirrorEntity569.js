@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Mirror Entity; Secret: When your opponent plays a minion, summon a copy of it.
+
 var MirrorEntity569 = {
 
     getDescription: function() {

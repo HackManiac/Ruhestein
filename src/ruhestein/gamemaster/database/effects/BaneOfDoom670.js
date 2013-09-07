@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Bane of Doom; Deal 2 damage to a character.  If that kills it, summon a random Demon.
+
 var BaneOfDoom670 = {
 
     getDescription: function() {

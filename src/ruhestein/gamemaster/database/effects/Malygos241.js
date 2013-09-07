@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (9) 4/12 Malygos; Spell Power +5
+
 var Malygos241 = {
 
     getDescription: function() {

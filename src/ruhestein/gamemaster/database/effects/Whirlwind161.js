@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Whirlwind; Deal 1 damage to ALL minions.
+
 var Whirlwind161 = {
 
     getDescription: function() {

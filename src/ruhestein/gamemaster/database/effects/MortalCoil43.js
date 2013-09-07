@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Mortal Coil; Deal 1 damage to a minion. If that kills it, draw a card.
+
 var MortalCoil43 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Stonetusk Boar; Charge
+
 var StonetuskBoar76 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Deadly Poison; Give your weapon +2 Attack.
+
 var DeadlyPoison87 = {
 
     getDescription: function() {

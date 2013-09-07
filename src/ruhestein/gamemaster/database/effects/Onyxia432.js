@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (9) 8/8 Onyxia; Battlecry: Summon 1/1 Whelps until your side of the battlefield is full.
+
 var Onyxia432 = {
 
     getDescription: function() {

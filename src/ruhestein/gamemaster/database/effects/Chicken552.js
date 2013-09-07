@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (0) 1/1 Chicken; Hey Chicken!
+
 var Chicken552 = {
 
     getDescription: function() {

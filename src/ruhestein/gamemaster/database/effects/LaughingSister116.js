@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/5 Laughing Sister; Can't be targeted by Spells or Hero Powers.
+
 var LaughingSister116 = {
 
     getDescription: function() {

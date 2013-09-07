@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (0) 0/1 Shadow of Nothing; Mindgames whiffed! Your opponent had no minions!
+
 var ShadowOfNothing582 = {
 
     getDescription: function() {

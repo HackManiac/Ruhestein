@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Naturalize; Destroy a minion. Your opponent draws 2 cards.
+
 var Naturalize154 = {
 
     getDescription: function() {

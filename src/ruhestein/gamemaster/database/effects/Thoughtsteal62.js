@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Thoughtsteal; Copy 2 cards from your opponent's deck and put them into your hand.
+
 var Thoughtsteal62 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 4/3 Kor'kron Elite; Charge
+
 var KorkronElite130 = {
 
     getDescription: function() {

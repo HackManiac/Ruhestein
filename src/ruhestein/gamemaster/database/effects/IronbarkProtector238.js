@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 8/8 Ironbark Protector; Taunt
+
 var IronbarkProtector238 = {
 
     getDescription: function() {

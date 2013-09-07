@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Crazed Alchemist; Battlecry: Swap the Attack and Health of a minion.
+
 var CrazedAlchemist612 = {
 
     getDescription: function() {

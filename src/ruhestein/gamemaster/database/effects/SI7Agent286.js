@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 SI:7 Agent; Combo: Deal 2 damage.
+
 var SI7Agent286 = {
 
     getDescription: function() {

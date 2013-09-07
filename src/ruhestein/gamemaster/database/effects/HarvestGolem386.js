@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Harvest Golem; Deathrattle: Summon a 2/1 Damaged Golem.
+
 var HarvestGolem386 = {
 
     getDescription: function() {

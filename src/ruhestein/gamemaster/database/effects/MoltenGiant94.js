@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (20) 8/8 Molten Giant; Costs (1) less for each damage your hero has taken.
+
 var MoltenGiant94 = {
 
     getDescription: function() {

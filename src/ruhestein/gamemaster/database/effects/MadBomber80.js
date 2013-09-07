@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 3/2 Mad Bomber; Battlecry: Deal 3 damage randomly split between all other characters.
+
 var MadBomber80 = {
 
     getDescription: function() {

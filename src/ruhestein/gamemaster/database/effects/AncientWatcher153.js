@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 4/5 Ancient Watcher; Can't Attack.
+
 var AncientWatcher153 = {
 
     getDescription: function() {

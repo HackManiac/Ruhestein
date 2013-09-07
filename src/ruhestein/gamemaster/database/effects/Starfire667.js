@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (6) Starfire; Deal 5 damage.  Draw a card.
+
 var Starfire667 = {
 
     getDescription: function() {

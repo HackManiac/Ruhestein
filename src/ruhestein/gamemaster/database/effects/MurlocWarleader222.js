@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 Murloc Warleader; ALL other Murlocs have +2/+1.
+
 var MurlocWarleader222 = {
 
     getDescription: function() {

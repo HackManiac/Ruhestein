@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/3 Sunfury Protector; Battlecry: Your other minions gain Taunt.
+
 var SunfuryProtector372 = {
 
     getDescription: function() {

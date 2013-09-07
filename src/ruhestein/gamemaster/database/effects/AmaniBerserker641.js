@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/3 Amani Berserker; Enrage: +3 Attack
+
 var AmaniBerserker641 = {
 
     getDescription: function() {

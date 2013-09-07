@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (9) 8/8 Nozdormu; Players only have 15 seconds to take their turns.
+
 var Nozdormu285 = {
 
     getDescription: function() {

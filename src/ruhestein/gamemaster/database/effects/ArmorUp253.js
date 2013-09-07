@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Armor Up!; Hero Power  Gain 2 Armor.
+
 var ArmorUp253 = {
 
     getDescription: function() {

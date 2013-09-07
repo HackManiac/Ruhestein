@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Dream; Return a minion to its owner's hand.
+
 var Dream561 = {
 
     getDescription: function() {

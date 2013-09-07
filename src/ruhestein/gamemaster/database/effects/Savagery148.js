@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Savagery; Deal damage equal to your hero's Attack to all enemy minions.
+
 var Savagery148 = {
 
     getDescription: function() {

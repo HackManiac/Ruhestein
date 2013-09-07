@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 5/3 Kidnapper; Combo: Return a minion to its owner's hand.
+
 var Kidnapper562 = {
 
     getDescription: function() {

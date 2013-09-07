@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 4/2 Huffer; Charge
+
 var Huffer369 = {
 
     getDescription: function() {

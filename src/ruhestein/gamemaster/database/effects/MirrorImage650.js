@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (0) 0/1 Mirror Image; Taunt
+
 var MirrorImage650 = {
 
     getDescription: function() {

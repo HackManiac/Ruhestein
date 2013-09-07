@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Hex; Transform a minion into a 0/1 Frog with Taunt.
+
 var Hex270 = {
 
     getDescription: function() {

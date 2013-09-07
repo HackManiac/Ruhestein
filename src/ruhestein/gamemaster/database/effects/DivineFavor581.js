@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Divine Favor; Draw cards until you have as many in hand as your opponent.
+
 var DivineFavor581 = {
 
     getDescription: function() {

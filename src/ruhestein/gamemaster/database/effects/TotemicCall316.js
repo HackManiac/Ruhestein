@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Totemic Call; Hero Power  Summon a random Totem.
+
 var TotemicCall316 = {
 
     getDescription: function() {

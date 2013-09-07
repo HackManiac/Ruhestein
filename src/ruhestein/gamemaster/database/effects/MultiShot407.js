@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Multi-Shot; Deal 3 damage to two random enemy minions.
+
 var MultiShot407 = {
 
     getDescription: function() {

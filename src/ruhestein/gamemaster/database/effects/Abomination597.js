@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Abomination; Taunt. Deathrattle: Deal 2 damage to ALL characters.
+
 var Abomination597 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 Blood Knight; Battlecry: All minions lose Divine Shield. Gain +3/+3 for each Shield lost.
+
 var BloodKnight75 = {
 
     getDescription: function() {

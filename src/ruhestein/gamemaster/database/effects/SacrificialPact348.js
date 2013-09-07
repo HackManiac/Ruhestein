@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Sacrificial Pact; Destroy a Demon. Restore #5 Health to your hero.
+
 var SacrificialPact348 = {
 
     getDescription: function() {

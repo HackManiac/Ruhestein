@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/2 Novice Engineer; Battlecry: Draw a card.
+
 var NoviceEngineer435 = {
 
     getDescription: function() {

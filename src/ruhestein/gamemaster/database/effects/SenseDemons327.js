@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Sense Demons; Put 2 random Demons from your deck into your hand.
+
 var SenseDemons327 = {
 
     getDescription: function() {

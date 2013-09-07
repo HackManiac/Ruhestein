@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Frostwolf Warlord; Has +1/+1 for each other friendly minion on the battlefield.
+
 var FrostwolfWarlord604 = {
 
     getDescription: function() {

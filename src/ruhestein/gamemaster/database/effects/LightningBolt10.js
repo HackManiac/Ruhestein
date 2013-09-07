@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Lightning Bolt; Deal 3 damage. Overload: (1)
+
 var LightningBolt10 = {
 
     getDescription: function() {

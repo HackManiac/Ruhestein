@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 4/3 Kirin Tor Mage; Battlecry: The next Secret you play this turn costs (0).
+
 var KirinTorMage411 = {
 
     getDescription: function() {

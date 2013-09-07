@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Blessing of Kings; Give a minion +4/+4. (+4 Attack/+4 Health)
+
 var BlessingOfKings29 = {
 
     getDescription: function() {

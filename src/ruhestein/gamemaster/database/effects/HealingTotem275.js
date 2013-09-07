@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/2 Healing Totem; At the end of your turn, restore 1 Health to all friendly characters.
+
 var HealingTotem275 = {
 
     getDescription: function() {

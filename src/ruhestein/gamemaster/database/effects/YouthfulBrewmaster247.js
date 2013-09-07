@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 3/2 Youthful Brewmaster; Battlecry: Return a friendly minion from the battlefield to your hand.
+
 var YouthfulBrewmaster247 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Redemption; Secret: When one of your minions dies, return it to life with 1 Health.
+
 var Redemption657 = {
 
     getDescription: function() {

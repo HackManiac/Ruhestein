@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 6/5 Lord of the Arena; Taunt
+
 var LordOfTheArena414 = {
 
     getDescription: function() {

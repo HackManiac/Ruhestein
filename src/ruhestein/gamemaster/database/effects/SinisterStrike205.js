@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Sinister Strike; Deal 3 damage to the enemy hero.
+
 var SinisterStrike205 = {
 
     getDescription: function() {

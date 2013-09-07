@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Battle Rage; Draw a card for each damaged minion.
+
 var BattleRage664 = {
 
     getDescription: function() {

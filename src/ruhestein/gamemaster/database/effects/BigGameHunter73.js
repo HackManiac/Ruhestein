@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 4/2 Big Game Hunter; Battlecry: Destroy a minion with an Attack of 7 or more.
+
 var BigGameHunter73 = {
 
     getDescription: function() {

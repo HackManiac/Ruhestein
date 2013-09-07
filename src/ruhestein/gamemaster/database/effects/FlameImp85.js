@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 3/2 Flame Imp; Battlecry: Deal 2 damage to your hero.
+
 var FlameImp85 = {
 
     getDescription: function() {

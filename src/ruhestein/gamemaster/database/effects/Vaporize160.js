@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Vaporize; Secret: When a minion attacks your hero, destroy it.
+
 var Vaporize160 = {
 
     getDescription: function() {

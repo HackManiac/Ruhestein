@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Snipe; Secret: When your opponent plays a minion, deal 4 damage to it.
+
 var Snipe553 = {
 
     getDescription: function() {

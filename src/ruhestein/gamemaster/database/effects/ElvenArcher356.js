@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Elven Archer; Battlecry: Deal 1 damage.
+
 var ElvenArcher356 = {
 
     getDescription: function() {

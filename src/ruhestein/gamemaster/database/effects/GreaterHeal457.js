@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Greater Heal; Restore 2 Health to a character for each card in your opponent's hand.
+
 var GreaterHeal457 = {
 
     getDescription: function() {

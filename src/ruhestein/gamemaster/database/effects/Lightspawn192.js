@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 0/4 Lightspawn; This minion's Attack is always equal to its Health.
+
 var Lightspawn192 = {
 
     getDescription: function() {

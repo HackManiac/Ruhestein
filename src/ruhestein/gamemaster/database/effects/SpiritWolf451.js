@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/3 Spirit Wolf; Taunt
+
 var SpiritWolf451 = {
 
     getDescription: function() {

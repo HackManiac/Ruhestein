@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 2/1 Southsea Deckhand; Has Charge while you have a weapon equipped.
+
 var SouthseaDeckhand103 = {
 
     getDescription: function() {

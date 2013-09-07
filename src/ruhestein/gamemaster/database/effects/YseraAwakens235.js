@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Ysera Awakens; Deal 5 damage to all characters except Ysera.
+
 var YseraAwakens235 = {
 
     getDescription: function() {

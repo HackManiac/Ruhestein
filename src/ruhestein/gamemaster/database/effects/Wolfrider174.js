@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/1 Wolfrider; Charge
+
 var Wolfrider174 = {
 
     getDescription: function() {

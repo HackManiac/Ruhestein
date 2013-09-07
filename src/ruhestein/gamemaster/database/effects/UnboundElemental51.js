@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/4 Unbound Elemental; Whenever you play a card with Overload, gain +1/+1.
+
 var UnboundElemental51 = {
 
     getDescription: function() {

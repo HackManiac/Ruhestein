@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Ice Lance; Freeze a character. If it was already Frozen, deal 4 damage instead.
+
 var IceLance188 = {
 
     getDescription: function() {

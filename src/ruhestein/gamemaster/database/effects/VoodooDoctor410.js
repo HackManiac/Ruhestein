@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 2/1 Voodoo Doctor; Battlecry: Restore 2 Health.
+
 var VoodooDoctor410 = {
 
     getDescription: function() {

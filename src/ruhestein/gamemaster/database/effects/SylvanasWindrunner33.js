@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/5 Sylvanas Windrunner; Deathrattle: Take control of a random enemy minion.
+
 var SylvanasWindrunner33 = {
 
     getDescription: function() {

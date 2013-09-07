@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Argent Squire; Divine Shield
+
 var ArgentSquire473 = {
 
     getDescription: function() {

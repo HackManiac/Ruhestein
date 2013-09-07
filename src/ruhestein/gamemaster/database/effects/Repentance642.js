@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Repentance; Secret: When your opponent plays a minion, reduce its Health to 1.
+
 var Repentance642 = {
 
     getDescription: function() {

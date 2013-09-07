@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Ancient Teachings; Draw 2 cards.
+
 var AncientTeachings517 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Healing Touch; Restore #8 Health.
+
 var HealingTouch258 = {
 
     getDescription: function() {

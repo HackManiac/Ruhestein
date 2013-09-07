@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 0/3 Flametongue Totem; Adjacent minions have +2 Attack.
+
 var FlametongueTotem390 = {
 
     getDescription: function() {

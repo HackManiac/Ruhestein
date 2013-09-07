@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Eviscerate; Deal 2 damage. Combo: Deal 4 damage instead.
+
 var Eviscerate382 = {
 
     getDescription: function() {

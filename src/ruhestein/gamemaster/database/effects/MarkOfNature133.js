@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Mark of Nature; +4 Health and Taunt.
+
 var MarkOfNature133 = {
 
     getDescription: function() {

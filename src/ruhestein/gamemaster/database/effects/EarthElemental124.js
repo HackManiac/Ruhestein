@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 7/8 Earth Elemental; Taunt. Overload: (3)
+
 var EarthElemental124 = {
 
     getDescription: function() {

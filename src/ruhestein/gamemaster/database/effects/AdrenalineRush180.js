@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Adrenaline Rush; Draw a card. Combo: Draw 2 cards instead.
+
 var AdrenalineRush180 = {
 
     getDescription: function() {

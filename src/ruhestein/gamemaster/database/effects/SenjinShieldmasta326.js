@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/5 Sen'jin Shieldmasta; Taunt
+
 var SenjinShieldmasta326 = {
 
     getDescription: function() {

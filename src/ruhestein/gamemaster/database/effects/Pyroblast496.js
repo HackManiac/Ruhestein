@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (8) Pyroblast; Deal 10 damage.
+
 var Pyroblast496 = {
 
     getDescription: function() {

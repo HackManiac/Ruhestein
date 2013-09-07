@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (7) 5/7 Archmage Antonidas; Whenever you cast a spell, put a 'Fireball' spell into your hand.
+
 var ArchmageAntonidas220 = {
 
     getDescription: function() {

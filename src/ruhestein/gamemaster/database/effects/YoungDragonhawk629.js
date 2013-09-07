@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Young Dragonhawk; Windfury
+
 var YoungDragonhawk629 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Flare; All minions lose Stealth. Destroy all enemy Secrets. Draw a card.
+
 var Flare630 = {
 
     getDescription: function() {

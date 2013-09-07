@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Frost Shock; Deal 1 damage to an enemy character and Freeze it.
+
 var FrostShock233 = {
 
     getDescription: function() {

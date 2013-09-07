@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Deadly Shot; Destroy a random enemy minion.
+
 var DeadlyShot239 = {
 
     getDescription: function() {

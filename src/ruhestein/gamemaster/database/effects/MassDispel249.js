@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Mass Dispel; Silence all enemy minions. Draw a card.
+
 var MassDispel249 = {
 
     getDescription: function() {

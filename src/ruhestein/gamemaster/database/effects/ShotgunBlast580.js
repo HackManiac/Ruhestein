@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Shotgun Blast; Hero Power  Deal 1 damage.
+
 var ShotgunBlast580 = {
 
     getDescription: function() {

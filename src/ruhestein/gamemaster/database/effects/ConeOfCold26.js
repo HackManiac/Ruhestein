@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Cone of Cold; Freeze a minion and the minions next to it, and deal 1 damage to them.
+
 var ConeOfCold26 = {
 
     getDescription: function() {

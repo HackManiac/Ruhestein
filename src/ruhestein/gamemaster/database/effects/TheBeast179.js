@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 10/6 The Beast; Deathrattle: Summon a 3/3 Finkle Einhorn for your opponent.
+
 var TheBeast179 = {
 
     getDescription: function() {

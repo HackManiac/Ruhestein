@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/7 Doomguard; Charge. Battlecry: Discard two random cards.
+
 var Doomguard507 = {
 
     getDescription: function() {

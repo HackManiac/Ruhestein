@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (6) Vanish; Return all minions to their owner's hand.
+
 var Vanish658 = {
 
     getDescription: function() {

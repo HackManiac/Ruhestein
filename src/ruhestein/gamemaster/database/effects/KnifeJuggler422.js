@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 3/2 Knife Juggler; After you summon a minion, deal 1 damage to a random enemy.
+
 var KnifeJuggler422 = {
 
     getDescription: function() {

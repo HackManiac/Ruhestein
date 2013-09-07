@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Mortal Strike; Deal 4 damage.  If your hero has 12 or less Health, deal 6 damage instead.
+
 var MortalStrike345 = {
 
     getDescription: function() {

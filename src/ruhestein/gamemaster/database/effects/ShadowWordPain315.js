@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Shadow Word: Pain; Destroy a minion with 3 or less Attack.
+
 var ShadowWordPain315 = {
 
     getDescription: function() {

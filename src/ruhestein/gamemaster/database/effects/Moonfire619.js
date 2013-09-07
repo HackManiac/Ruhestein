@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Moonfire; Deal 1 damage.
+
 var Moonfire619 = {
 
     getDescription: function() {

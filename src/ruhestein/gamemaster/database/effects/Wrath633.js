@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Wrath; Choose One - Deal 3 damage; or Deal 1 damage and draw a card.
+
 var Wrath633 = {
 
     getDescription: function() {

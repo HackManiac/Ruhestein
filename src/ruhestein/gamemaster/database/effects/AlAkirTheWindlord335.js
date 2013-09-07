@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 3/5 Al'Akir the Windlord; Windfury, Charge, Divine Shield, Taunt
+
 var AlAkirTheWindlord335 = {
 
     getDescription: function() {

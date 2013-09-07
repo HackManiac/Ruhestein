@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Hand of Protection; Give a minion Divine Shield.
+
 var HandOfProtection499 = {
 
     getDescription: function() {

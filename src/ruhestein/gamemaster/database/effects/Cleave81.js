@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Cleave; Deal 2 damage to two random enemy minions.
+
 var Cleave81 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Ancestral Spirit; Choose a minion. When that minion is destroyed, return it to the battlefield.
+
 var AncestralSpirit526 = {
 
     getDescription: function() {

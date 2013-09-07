@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Emperor Cobra; Destroy any minion damaged by this minion.
+
 var EmperorCobra625 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Kobold Geomancer; Spell Power +1
+
 var KoboldGeomancer479 = {
 
     getDescription: function() {

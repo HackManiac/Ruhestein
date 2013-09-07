@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Fireblast; Hero Power  Deal 1 damage.
+
 var Fireblast677 = {
 
     getDescription: function() {

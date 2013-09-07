@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Steady Shot; Hero Power  Deal 2 damage to the enemy hero.
+
 var SteadyShot481 = {
 
     getDescription: function() {

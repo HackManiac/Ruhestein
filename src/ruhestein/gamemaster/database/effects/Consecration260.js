@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Consecration; Deal 2 damage to all enemies.
+
 var Consecration260 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Demigod's Favor; Give your other minions +2/+2.
+
 var DemigodsFavor358 = {
 
     getDescription: function() {

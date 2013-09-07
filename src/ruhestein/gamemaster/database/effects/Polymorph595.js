@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Polymorph; Transform a minion into a 1/1 Sheep.
+
 var Polymorph595 = {
 
     getDescription: function() {

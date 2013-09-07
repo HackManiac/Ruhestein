@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 5/5 King Mukla; Battlecry: Give your opponent 2 Bananas.
+
 var KingMukla373 = {
 
     getDescription: function() {

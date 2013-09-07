@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 6/5 Savannah Highmane; Deathrattle: Summon two 2/2 Hyenas.
+
 var SavannahHighmane8 = {
 
     getDescription: function() {

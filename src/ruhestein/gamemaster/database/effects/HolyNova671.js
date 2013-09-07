@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Holy Nova; Deal 2 damage to all enemies.  Restore #2 Health to all  friendly characters.
+
 var HolyNova671 = {
 
     getDescription: function() {

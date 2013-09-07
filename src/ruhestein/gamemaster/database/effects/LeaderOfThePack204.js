@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Leader of the Pack; Give all of your minions +1/+1.
+
 var LeaderOfThePack204 = {
 
     getDescription: function() {

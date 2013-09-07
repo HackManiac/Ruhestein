@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 5/5 Frost Elemental; Battlecry: Freeze a character.
+
 var FrostElemental598 = {
 
     getDescription: function() {

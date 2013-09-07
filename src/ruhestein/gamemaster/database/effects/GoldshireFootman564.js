@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Goldshire Footman; Taunt
+
 var GoldshireFootman564 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Ancient Secrets; Restore 8 Health.
+
 var AncientSecrets243 = {
 
     getDescription: function() {

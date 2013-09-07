@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/3 Mana Addict; Whenever you cast a spell, gain +2 Attack this turn.
+
 var ManaAddict67 = {
 
     getDescription: function() {

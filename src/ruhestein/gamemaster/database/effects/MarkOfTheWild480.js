@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Mark of the Wild; Give a minion Taunt and +2/+2. (+2 Attack/+2 Health)
+
 var MarkOfTheWild480 = {
 
     getDescription: function() {

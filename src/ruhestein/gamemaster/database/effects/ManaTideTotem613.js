@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 0/3 Mana Tide Totem; At the end of your turn, draw a card.
+
 var ManaTideTotem613 = {
 
     getDescription: function() {

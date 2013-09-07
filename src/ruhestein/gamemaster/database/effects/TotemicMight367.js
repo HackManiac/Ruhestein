@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Totemic Might; Give your Totems +2 Health.
+
 var TotemicMight367 = {
 
     getDescription: function() {

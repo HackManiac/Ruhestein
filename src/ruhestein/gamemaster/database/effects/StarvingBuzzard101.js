@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Starving Buzzard; Whenever you summon a Beast, draw a card.
+
 var StarvingBuzzard101 = {
 
     getDescription: function() {

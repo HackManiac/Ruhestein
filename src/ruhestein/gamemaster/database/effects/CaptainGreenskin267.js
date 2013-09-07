@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 5/5 Captain Greenskin; Whenever you attack with your hero, draw a card.
+
 var CaptainGreenskin267 = {
 
     getDescription: function() {

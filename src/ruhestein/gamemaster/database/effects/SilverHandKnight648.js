@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Silver Hand Knight; Battlecry: Summon a 2/2 Squire.
+
 var SilverHandKnight648 = {
 
     getDescription: function() {

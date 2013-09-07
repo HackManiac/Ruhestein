@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 4/3 Spellbreaker; Battlecry: Silence a minion.
+
 var Spellbreaker42 = {
 
     getDescription: function() {

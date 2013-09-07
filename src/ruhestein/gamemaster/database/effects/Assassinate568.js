@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Assassinate; Destroy an enemy minion.
+
 var Assassinate568 = {
 
     getDescription: function() {

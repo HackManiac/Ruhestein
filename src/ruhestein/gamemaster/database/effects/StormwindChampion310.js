@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (7) 6/6 Stormwind Champion; Your other minions have +1/+1.
+
 var StormwindChampion310 = {
 
     getDescription: function() {

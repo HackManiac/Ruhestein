@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Transcendence; Until you kill Cho's minions, he can't be attacked.
+
 var Transcendence299 = {
 
     getDescription: function() {

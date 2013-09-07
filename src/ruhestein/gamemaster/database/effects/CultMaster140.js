@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 4/2 Cult Master; Whenever one of your other minions dies, draw a card.
+
 var CultMaster140 = {
 
     getDescription: function() {

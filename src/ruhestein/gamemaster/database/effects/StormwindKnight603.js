@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 2/5 Stormwind Knight; Charge
+
 var StormwindKnight603 = {
 
     getDescription: function() {

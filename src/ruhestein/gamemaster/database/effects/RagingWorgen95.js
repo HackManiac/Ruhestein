@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 Raging Worgen; Enrage: Windfury and +1 Attack
+
 var RagingWorgen95 = {
 
     getDescription: function() {

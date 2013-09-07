@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Bite; Give your hero +4 Attack this turn and 4 Armor.
+
 var Bite266 = {
 
     getDescription: function() {

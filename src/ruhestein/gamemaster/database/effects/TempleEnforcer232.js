@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 6/6 Temple Enforcer; Battlecry: Give a friendly minion +3 Health.
+
 var TempleEnforcer232 = {
 
     getDescription: function() {

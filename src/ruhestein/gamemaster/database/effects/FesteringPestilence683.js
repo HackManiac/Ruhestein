@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (0) 0/0 Festering Pestilence; Debug text
+
 var FesteringPestilence683 = {
 
     getDescription: function() {

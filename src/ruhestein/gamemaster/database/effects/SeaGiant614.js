@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (10) 8/8 Sea Giant; Costs (1) less for each other minion on the battlefield.
+
 var SeaGiant614 = {
 
     getDescription: function() {

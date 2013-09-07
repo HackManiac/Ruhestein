@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (7) 5/2 Gladiator's Longbow; Your hero is Immune while attacking.
+
 var GladiatorsLongbow278 = {
 
     getDescription: function() {

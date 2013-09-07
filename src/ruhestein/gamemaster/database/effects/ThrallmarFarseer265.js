@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Thrallmar Farseer; Windfury
+
 var ThrallmarFarseer265 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Soul of the Forest; Give your minions "Deathrattle: Summon a 2/2 Treant."
+
 var SoulOfTheForest311 = {
 
     getDescription: function() {

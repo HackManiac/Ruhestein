@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/2 Raid Leader; Your other minions have +1 Attack.
+
 var RaidLeader502 = {
 
     getDescription: function() {

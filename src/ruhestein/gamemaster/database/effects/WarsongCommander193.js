@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Warsong Commander; Your other minions have Charge.
+
 var WarsongCommander193 = {
 
     getDescription: function() {

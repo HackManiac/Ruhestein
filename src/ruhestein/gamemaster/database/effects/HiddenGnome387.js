@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/3 Hidden Gnome; Was hiding in a barrel!
+
 var HiddenGnome387 = {
 
     getDescription: function() {

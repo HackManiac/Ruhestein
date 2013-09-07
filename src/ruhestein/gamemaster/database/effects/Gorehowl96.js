@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (7) 7/1 Gorehowl; Attacking a minion costs 1 Attack instead of 1 Durability.
+
 var Gorehowl96 = {
 
     getDescription: function() {

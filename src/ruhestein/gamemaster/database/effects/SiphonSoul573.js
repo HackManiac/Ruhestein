@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (6) Siphon Soul; Destroy a minion. Restore #3 Health to your hero.
+
 var SiphonSoul573 = {
 
     getDescription: function() {

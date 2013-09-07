@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Blessing of Might; Give a minion +3 Attack.
+
 var BlessingOfMight394 = {
 
     getDescription: function() {

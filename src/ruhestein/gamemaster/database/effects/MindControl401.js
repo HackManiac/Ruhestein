@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (8) Mind Control; Take control of an enemy minion.
+
 var MindControl401 = {
 
     getDescription: function() {

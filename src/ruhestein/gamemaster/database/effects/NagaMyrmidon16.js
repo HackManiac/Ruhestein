@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Naga Myrmidon;  
+
 var NagaMyrmidon16 = {
 
     getDescription: function() {

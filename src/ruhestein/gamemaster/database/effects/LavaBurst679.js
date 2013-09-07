@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Lava Burst; Deal 5 damage. Overload: (2)
+
 var LavaBurst679 = {
 
     getDescription: function() {

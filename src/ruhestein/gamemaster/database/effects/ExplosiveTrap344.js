@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Explosive Trap; Secret: When your hero is attacked, deal 2 damage to all enemies.
+
 var ExplosiveTrap344 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Bestial Wrath; Give a Beast +2 Attack and Immune this turn.
+
 var BestialWrath304 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/3 Argent Commander; Charge. Divine Shield
+
 var ArgentCommander463 = {
 
     getDescription: function() {

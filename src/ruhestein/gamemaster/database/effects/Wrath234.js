@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Wrath; Deal 3 damage.
+
 var Wrath234 = {
 
     getDescription: function() {

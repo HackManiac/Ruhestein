@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Hogger SMASH!; Deal 4 damage.
+
 var HoggerSMASH443 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Barrel Toss; Deal 2 damage.
+
 var BarrelToss606 = {
 
     getDescription: function() {

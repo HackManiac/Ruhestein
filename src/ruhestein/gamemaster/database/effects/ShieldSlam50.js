@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Shield Slam; Deal 1 damage to a minion for each Armor you have.
+
 var ShieldSlam50 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 4/4 Master of Disguise; Battlecry: Give a friendly minion Stealth.
+
 var MasterOfDisguise127 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Mind Shatter; Hero Power  Deal 3 damage.
+
 var MindShatter229 = {
 
     getDescription: function() {

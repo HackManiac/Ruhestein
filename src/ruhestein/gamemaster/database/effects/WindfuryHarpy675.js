@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/5 Windfury Harpy; Windfury
+
 var WindfuryHarpy675 = {
 
     getDescription: function() {

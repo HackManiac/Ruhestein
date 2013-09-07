@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/5 Repair Bot; At the end of your turn, restore 3 Health to all characters.
+
 var RepairBot439 = {
 
     getDescription: function() {

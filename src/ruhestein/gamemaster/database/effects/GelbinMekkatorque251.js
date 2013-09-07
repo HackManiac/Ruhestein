@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 6/6 Gelbin Mekkatorque; Battlecry: Summon an AWESOME invention.
+
 var GelbinMekkatorque251 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Scavenging Hyena; Whenever a Beast dies, gain +2/+1.
+
 var ScavengingHyena279 = {
 
     getDescription: function() {

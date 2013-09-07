@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Rampage; Give a damaged minion +3/+3.
+
 var Rampage454 = {
 
     getDescription: function() {

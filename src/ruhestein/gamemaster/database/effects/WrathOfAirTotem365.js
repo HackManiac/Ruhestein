@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/2 Wrath of Air Totem; Spell Power +1
+
 var WrathOfAirTotem365 = {
 
     getDescription: function() {

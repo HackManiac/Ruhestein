@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Sap; Return an enemy minion to its owner's hand.
+
 var Sap385 = {
 
     getDescription: function() {

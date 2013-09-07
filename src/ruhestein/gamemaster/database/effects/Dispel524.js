@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Dispel; Silence a minion.
+
 var Dispel524 = {
 
     getDescription: function() {

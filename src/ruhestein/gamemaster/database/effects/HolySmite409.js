@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Holy Smite; Deal 2 damage.
+
 var HolySmite409 = {
 
     getDescription: function() {

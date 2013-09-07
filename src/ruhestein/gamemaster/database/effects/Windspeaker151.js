@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/3 Windspeaker; Battlecry: Give a friendly minion Windfury.
+
 var Windspeaker151 = {
 
     getDescription: function() {

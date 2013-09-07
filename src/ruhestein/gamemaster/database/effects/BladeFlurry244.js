@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Blade Flurry; Destroy your weapon and deal its damage to all enemies.
+
 var BladeFlurry244 = {
 
     getDescription: function() {

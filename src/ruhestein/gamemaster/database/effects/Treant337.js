@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 2/2 Treant; Charge.  At the end of the turn, destroy this minion.
+
 var Treant337 = {
 
     getDescription: function() {

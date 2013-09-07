@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Murloc Tidecaller; Whenever a Murloc is summoned, gain +1 Attack.
+
 var MurlocTidecaller420 = {
 
     getDescription: function() {

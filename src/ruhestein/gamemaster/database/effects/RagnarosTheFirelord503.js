@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 8/8 Ragnaros the Firelord; Can't Attack.  At the end of your turn, deal 8 damage to a random enemy.
+
 var RagnarosTheFirelord503 = {
 
     getDescription: function() {

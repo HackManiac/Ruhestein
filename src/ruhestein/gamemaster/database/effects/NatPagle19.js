@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 0/4 Nat Pagle; At the end of your turn, you have a 50% chance to draw a card.
+
 var NatPagle19 = {
 
     getDescription: function() {

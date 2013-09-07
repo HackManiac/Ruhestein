@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Ice Block; Secret: When your hero takes fatal damage, prevent it and become Immune this turn.
+
 var IceBlock28 = {
 
     getDescription: function() {

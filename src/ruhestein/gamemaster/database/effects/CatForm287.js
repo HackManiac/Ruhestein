@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Cat Form; Charge
+
 var CatForm287 = {
 
     getDescription: function() {

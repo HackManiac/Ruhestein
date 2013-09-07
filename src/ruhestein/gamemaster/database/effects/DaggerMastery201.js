@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Dagger Mastery; Hero Power  Equip a 1/2 Dagger; or Give your weapon +1 Attack this turn.
+
 var DaggerMastery201 = {
 
     getDescription: function() {

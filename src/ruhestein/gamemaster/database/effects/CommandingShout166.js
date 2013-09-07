@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Commanding Shout; Your minions can't be reduced below 1 Health this turn.
+
 var CommandingShout166 = {
 
     getDescription: function() {

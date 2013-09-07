@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Ancestral Healing; Restore a minion to full Health and give it Taunt.
+
 var AncestralHealing216 = {
 
     getDescription: function() {

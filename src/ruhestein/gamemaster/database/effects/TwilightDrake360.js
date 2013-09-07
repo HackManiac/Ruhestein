@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 1/1 Twilight Drake; Battlecry: Gain +1/+1 for each card in your hand.
+
 var TwilightDrake360 = {
 
     getDescription: function() {

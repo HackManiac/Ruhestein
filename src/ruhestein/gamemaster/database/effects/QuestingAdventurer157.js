@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/2 Questing Adventurer; Whenever you play a card, gain +1/+1.
+
 var QuestingAdventurer157 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Humility; Change a minion's Attack to 1.
+
 var Humility189 = {
 
     getDescription: function() {

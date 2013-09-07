@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/3 Arathi Weaponsmith; Battlecry: Equip a 2/2 weapon.
+
 var ArathiWeaponsmith504 = {
 
     getDescription: function() {

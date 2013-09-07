@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Swipe; Deal 4 damage to an enemy and 1 damage to all other enemies.
+
 var Swipe620 = {
 
     getDescription: function() {

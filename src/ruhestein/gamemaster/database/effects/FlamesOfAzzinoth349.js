@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Flames of Azzinoth; Hero Power  Summon two 2/1 minions.
+
 var FlamesOfAzzinoth349 = {
 
     getDescription: function() {

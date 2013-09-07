@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (8) Lay on Hands; Restore #8 Health. Draw 3 cards.
+
 var LayOnHands506 = {
 
     getDescription: function() {

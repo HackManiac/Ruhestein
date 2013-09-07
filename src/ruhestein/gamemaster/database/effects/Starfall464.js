@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Starfall; Choose One - Deal 5 damage to an enemy; or 2 damage to all of them.
+
 var Starfall464 = {
 
     getDescription: function() {

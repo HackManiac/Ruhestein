@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Mindgames; Put a copy of a random minion from your opponent's deck into the battlefield.
+
 var Mindgames301 = {
 
     getDescription: function() {

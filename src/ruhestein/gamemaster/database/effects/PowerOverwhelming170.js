@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Power Overwhelming; Give a friendly minion +4/+4 until end of turn. Then, it dies. Horribly.
+
 var PowerOverwhelming170 = {
 
     getDescription: function() {

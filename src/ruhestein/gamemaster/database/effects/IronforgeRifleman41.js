@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/2 Ironforge Rifleman; Battlecry: Deal 1 damage.
+
 var IronforgeRifleman41 = {
 
     getDescription: function() {

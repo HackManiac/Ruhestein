@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Frost Nova; Freeze all enemy minions.
+
 var FrostNova49 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/2 Stoneclaw Totem; Taunt
+
 var StoneclawTotem298 = {
 
     getDescription: function() {

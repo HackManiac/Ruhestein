@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/3 Mana Wyrm; Whenever you cast a spell, gain +1 Attack.
+
 var ManaWyrm263 = {
 
     getDescription: function() {

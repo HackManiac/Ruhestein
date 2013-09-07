@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Hungry Crab; Battlecry: Destroy a Murloc and gain +2/+2.
+
 var HungryCrab660 = {
 
     getDescription: function() {

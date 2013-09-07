@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (8) Twisting Nether; Destroy all minions.
+
 var TwistingNether398 = {
 
     getDescription: function() {

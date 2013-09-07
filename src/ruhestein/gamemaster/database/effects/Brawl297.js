@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Brawl; Destroy all minions except one.  (chosen randomly)
+
 var Brawl297 = {
 
     getDescription: function() {

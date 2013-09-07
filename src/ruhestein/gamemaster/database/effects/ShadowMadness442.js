@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Shadow Madness; Gain control of an enemy minion with 3 or less Attack until end of turn.
+
 var ShadowMadness442 = {
 
     getDescription: function() {

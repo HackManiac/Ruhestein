@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 4/2 Jungle Panther; Stealth
+
 var JunglePanther392 = {
 
     getDescription: function() {

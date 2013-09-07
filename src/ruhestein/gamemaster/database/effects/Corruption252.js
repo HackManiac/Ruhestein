@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Corruption; Choose an enemy minion.   At the start of your turn, destroy it.
+
 var Corruption252 = {
 
     getDescription: function() {

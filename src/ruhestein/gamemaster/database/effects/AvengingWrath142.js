@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (6) Avenging Wrath; Shoot 8 missiles at random enemies for 1 damage each.
+
 var AvengingWrath142 = {
 
     getDescription: function() {

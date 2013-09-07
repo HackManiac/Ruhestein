@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/5 Violet Teacher; Whenever you cast a spell, summon a 1/1 Violet Apprentice.
+
 var VioletTeacher523 = {
 
     getDescription: function() {

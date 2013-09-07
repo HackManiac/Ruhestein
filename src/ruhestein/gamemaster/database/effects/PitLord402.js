@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 7/5 Pit Lord; Battlecry: Deal 7 damage to your hero.
+
 var PitLord402 = {
 
     getDescription: function() {

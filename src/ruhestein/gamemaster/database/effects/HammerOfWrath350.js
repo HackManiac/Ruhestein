@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Hammer of Wrath; Deal 3 damage.  Draw a card.
+
 var HammerOfWrath350 = {
 
     getDescription: function() {

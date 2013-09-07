@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 3/2 Faerie Dragon; Can't be targeted by Spells or Hero Powers.
+
 var FaerieDragon213 = {
 
     getDescription: function() {

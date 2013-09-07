@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (7) Flamestrike; Deal 4 damage to all enemy minions.
+
 var Flamestrike44 = {
 
     getDescription: function() {

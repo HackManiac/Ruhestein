@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Timber Wolf; Your other Beasts have +1 Attack.
+
 var TimberWolf86 = {
 
     getDescription: function() {

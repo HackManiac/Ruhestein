@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Counterspell; Secret: When your opponent casts a spell, Counter it.
+
 var Counterspell531 = {
 
     getDescription: function() {

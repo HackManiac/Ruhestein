@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 2/2 Treant; Taunt
+
 var Treant181 = {
 
     getDescription: function() {

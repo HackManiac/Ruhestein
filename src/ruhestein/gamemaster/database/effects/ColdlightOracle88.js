@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/2 Coldlight Oracle; Battlecry: Each player draws 2 cards.
+
 var ColdlightOracle88 = {
 
     getDescription: function() {

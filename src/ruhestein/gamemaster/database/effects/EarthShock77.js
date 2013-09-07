@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Earth Shock; Silence a minion, then deal 1 damage to it.
+
 var EarthShock77 = {
 
     getDescription: function() {

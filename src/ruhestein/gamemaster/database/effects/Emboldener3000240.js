@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/4 Emboldener 3000; At the end of your turn, give a random minion +1/+1.
+
 var Emboldener3000240 = {
 
     getDescription: function() {

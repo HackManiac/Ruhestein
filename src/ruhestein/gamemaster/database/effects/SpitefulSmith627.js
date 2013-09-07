@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/6 Spiteful Smith; Enrage: Your weapon has +2 Attack.
+
 var SpitefulSmith627 = {
 
     getDescription: function() {

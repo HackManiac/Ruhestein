@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Nourish; Gain 2 Mana Crystals.
+
 var Nourish58 = {
 
     getDescription: function() {

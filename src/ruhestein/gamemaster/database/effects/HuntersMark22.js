@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Hunter's Mark; Change a minion's Health to 1 this turn.
+
 var HuntersMark22 = {
 
     getDescription: function() {

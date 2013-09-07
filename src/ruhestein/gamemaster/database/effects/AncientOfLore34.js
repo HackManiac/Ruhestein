@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (7) 5/5 Ancient of Lore; Choose One - Draw 2 cards; or Restore 8 Health.
+
 var AncientOfLore34 = {
 
     getDescription: function() {

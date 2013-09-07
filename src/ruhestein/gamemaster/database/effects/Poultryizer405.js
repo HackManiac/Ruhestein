@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/3 Poultryizer; At the start of your turn, transform a random minion into a 1/1 Chicken.
+
 var Poultryizer405 = {
 
     getDescription: function() {

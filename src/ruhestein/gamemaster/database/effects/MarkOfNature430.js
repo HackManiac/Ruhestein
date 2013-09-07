@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Mark of Nature; +4 Attack.
+
 var MarkOfNature430 = {
 
     getDescription: function() {

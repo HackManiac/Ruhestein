@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Kill Command; Deal 3 damage.  If you have a Beast, deal 5 damage instead.
+
 var KillCommand488 = {
 
     getDescription: function() {

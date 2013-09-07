@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (9) 6/8 Placeholder Card; Battlecry: Someone remembers to publish this card.
+
 var PlaceholderCard102 = {
 
     getDescription: function() {

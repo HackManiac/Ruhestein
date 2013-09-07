@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 7/7 Gruul; At the end of each turn, gain +1/+1 .
+
 var Gruul18 = {
 
     getDescription: function() {

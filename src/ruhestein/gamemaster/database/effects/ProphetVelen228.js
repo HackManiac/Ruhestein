@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (7) 7/7 Prophet Velen; Double the damage and healing of your spells.
+
 var ProphetVelen228 = {
 
     getDescription: function() {

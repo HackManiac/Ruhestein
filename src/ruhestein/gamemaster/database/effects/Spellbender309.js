@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Spellbender; Secret: When an enemy casts a spell on a minion, summon a 1/3 as the new target.
+
 var Spellbender309 = {
 
     getDescription: function() {

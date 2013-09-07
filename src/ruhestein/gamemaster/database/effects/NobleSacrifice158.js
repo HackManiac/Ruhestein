@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Noble Sacrifice; Secret: When an enemy attacks, summon a 2/1 Defender as the new target.
+
 var NobleSacrifice158 = {
 
     getDescription: function() {

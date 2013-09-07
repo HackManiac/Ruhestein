@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 2/7 Gurubashi Berserker; Whenever this minion takes damage, gain +3 Attack.
+
 var GurubashiBerserker624 = {
 
     getDescription: function() {

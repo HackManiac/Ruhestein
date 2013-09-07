@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 10/10 Mukla's Big Brother; So strong! And only 6 Mana?!
+
 var MuklasBigBrother404 = {
 
     getDescription: function() {

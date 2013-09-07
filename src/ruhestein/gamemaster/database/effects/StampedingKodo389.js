@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 3/5 Stampeding Kodo; Battlecry: Destroy a random enemy minion with 2 or less Attack.
+
 var StampedingKodo389 = {
 
     getDescription: function() {

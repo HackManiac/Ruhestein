@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/3 Voidwalker; Taunt
+
 var Voidwalker340 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Headcrack; Deal 2 damage to the enemy hero. Combo: Return this to your hand next turn.
+
 var Headcrack135 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Windfury; Give a minion Windfury.
+
 var Windfury146 = {
 
     getDescription: function() {

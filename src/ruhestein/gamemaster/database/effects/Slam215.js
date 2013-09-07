@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Slam; Deal 2 damage to a minion.  If it survives, draw a card.
+
 var Slam215 = {
 
     getDescription: function() {

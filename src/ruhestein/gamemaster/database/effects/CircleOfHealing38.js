@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Circle of Healing; Restore #4 Health to ALL minions.
+
 var CircleOfHealing38 = {
 
     getDescription: function() {

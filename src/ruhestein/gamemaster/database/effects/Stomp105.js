@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Stomp; Deal 2 damage to all enemies.
+
 var Stomp105 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) INFERNO!; Hero Power  Summon a 6/6 Infernal.
+
 var INFERNO83 = {
 
     getDescription: function() {

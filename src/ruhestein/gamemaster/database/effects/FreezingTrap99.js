@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Freezing Trap; Secret: When an enemy minion attacks, return it to its owner's hand and it costs (2) more.
+
 var FreezingTrap99 = {
 
     getDescription: function() {

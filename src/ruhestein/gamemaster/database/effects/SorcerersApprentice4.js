@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Sorcerer's Apprentice; Your spells cost (1) less.
+
 var SorcerersApprentice4 = {
 
     getDescription: function() {

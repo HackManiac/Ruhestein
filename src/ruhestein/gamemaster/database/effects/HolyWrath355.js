@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (5) Holy Wrath; Draw a card and deal damage equal to its cost.
+
 var HolyWrath355 = {
 
     getDescription: function() {

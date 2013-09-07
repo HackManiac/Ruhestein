@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/5 The Black Knight; Battlecry: Destroy a minion with Taunt.
+
 var TheBlackKnight396 = {
 
     getDescription: function() {

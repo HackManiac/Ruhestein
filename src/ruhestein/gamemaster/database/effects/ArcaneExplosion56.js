@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Arcane Explosion; Deal 1 damage to all enemy minions.
+
 var ArcaneExplosion56 = {
 
     getDescription: function() {

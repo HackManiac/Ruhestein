@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/5 Cairne Bloodhoof; Deathrattle: Summon a 4/5 Baine Bloodhoof.
+
 var CairneBloodhoof498 = {
 
     getDescription: function() {

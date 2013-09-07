@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/2 Captain's Parrot; Battlecry: Put a random Pirate from your deck into your hand.
+
 var CaptainsParrot559 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 5/4 Ancient Brewmaster; Battlecry: Return a friendly minion from the battlefield to your hand.
+
 var AncientBrewmaster572 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Charge; Give a friendly minion Charge.
+
 var Charge646 = {
 
     getDescription: function() {

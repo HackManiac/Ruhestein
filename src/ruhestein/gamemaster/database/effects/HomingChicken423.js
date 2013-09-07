@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/1 Homing Chicken; At the start of your turn, destroy this minion and draw 3 cards.
+
 var HomingChicken423 = {
 
     getDescription: function() {

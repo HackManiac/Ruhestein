@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Secretkeeper; Whenever a Secret is played, gain +1/+1.
+
 var Secretkeeper483 = {
 
     getDescription: function() {

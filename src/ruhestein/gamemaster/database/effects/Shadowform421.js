@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Shadowform; Your Hero Power becomes 'Deal 2 damage'. If already in Shadowform: 3 damage.
+
 var Shadowform421 = {
 
     getDescription: function() {

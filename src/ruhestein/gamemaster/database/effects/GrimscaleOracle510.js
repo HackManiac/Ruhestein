@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Grimscale Oracle; ALL other Murlocs have +1 Attack.
+
 var GrimscaleOracle510 = {
 
     getDescription: function() {

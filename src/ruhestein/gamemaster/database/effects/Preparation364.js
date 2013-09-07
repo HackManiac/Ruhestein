@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Preparation; The next spell you cast this turn costs (2) less.
+
 var Preparation364 = {
 
     getDescription: function() {

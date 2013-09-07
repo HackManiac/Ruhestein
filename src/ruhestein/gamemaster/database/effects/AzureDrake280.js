@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/4 Azure Drake; Spell Power +1. Battlecry: Draw a card.
+
 var AzureDrake280 = {
 
     getDescription: function() {

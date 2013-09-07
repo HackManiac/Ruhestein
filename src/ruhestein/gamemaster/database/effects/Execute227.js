@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Execute; Destroy a damaged enemy minion.
+
 var Execute227 = {
 
     getDescription: function() {

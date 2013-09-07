@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Rockbiter Weapon; Give a friendly character +3 Attack this turn.
+
 var RockbiterWeapon491 = {
 
     getDescription: function() {

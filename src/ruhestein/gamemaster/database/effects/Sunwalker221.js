@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/5 Sunwalker; Taunt. Divine Shield
+
 var Sunwalker221 = {
 
     getDescription: function() {

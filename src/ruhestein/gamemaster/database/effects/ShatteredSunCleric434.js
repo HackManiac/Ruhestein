@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 Shattered Sun Cleric; Battlecry: Give a friendly minion +1/+1.
+
 var ShatteredSunCleric434 = {
 
     getDescription: function() {

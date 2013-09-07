@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Frostwolf Grunt; Taunt
+
 var FrostwolfGrunt663 = {
 
     getDescription: function() {

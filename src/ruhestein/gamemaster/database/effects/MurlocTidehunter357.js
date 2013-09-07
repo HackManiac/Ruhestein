@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/1 Murloc Tidehunter; Battlecry: Summon a 1/1 Murloc Scout.
+
 var MurlocTidehunter357 = {
 
     getDescription: function() {

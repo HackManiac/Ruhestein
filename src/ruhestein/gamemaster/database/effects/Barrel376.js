@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (0) 0/2 Barrel; Is something in this barrel?
+
 var Barrel376 = {
 
     getDescription: function() {

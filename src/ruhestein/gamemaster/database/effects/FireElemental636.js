@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 6/5 Fire Elemental; Battlecry: Deal 3 damage.
+
 var FireElemental636 = {
 
     getDescription: function() {

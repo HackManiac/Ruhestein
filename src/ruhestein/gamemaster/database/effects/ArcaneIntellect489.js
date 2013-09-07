@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Arcane Intellect; Draw 2 cards.
+
 var ArcaneIntellect489 = {
 
     getDescription: function() {

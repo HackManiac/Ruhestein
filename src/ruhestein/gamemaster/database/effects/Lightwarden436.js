@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/2 Lightwarden; Whenever a character is healed, gain +1 Attack.
+
 var Lightwarden436 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (3) 3/2 Eaglehorn Bow; Whenever a Secret is revealed, gain +1 Durability.
+
 var EaglehornBow363 = {
 
     getDescription: function() {

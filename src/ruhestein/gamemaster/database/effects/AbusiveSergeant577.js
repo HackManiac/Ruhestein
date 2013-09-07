@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 2/1 Abusive Sergeant; Battlecry: Give a friendly minion +2 Attack this turn.
+
 var AbusiveSergeant577 = {
 
     getDescription: function() {

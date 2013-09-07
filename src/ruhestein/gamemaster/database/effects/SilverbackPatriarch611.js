@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 1/4 Silverback Patriarch; Taunt
+
 var SilverbackPatriarch611 = {
 
     getDescription: function() {

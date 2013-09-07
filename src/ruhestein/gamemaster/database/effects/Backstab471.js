@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Backstab; Deal 2 damage to an enemy minion.
+
 var Backstab471 = {
 
     getDescription: function() {

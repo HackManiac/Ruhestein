@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 4/7 Archmage; Spell Power +1
+
 var Archmage545 = {
 
     getDescription: function() {

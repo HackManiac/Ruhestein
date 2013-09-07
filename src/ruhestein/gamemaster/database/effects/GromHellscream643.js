@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 4/9 Grom Hellscream; Charge.  Enrage: +6 Attack
+
 var GromHellscream643 = {
 
     getDescription: function() {

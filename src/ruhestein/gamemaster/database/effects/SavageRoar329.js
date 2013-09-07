@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Savage Roar; Give your characters +2 Attack this turn.
+
 var SavageRoar329 = {
 
     getDescription: function() {

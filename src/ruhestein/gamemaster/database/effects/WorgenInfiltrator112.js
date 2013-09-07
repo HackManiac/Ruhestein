@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 2/1 Worgen Infiltrator; Stealth
+
 var WorgenInfiltrator112 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 1/1 Edwin VanCleef; Stealth. Combo: Gain +2/+2 for each other card played this turn.
+
 var EdwinVanCleef3 = {
 
     getDescription: function() {

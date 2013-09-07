@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Gnoll; Taunt
+
 var Gnoll565 = {
 
     getDescription: function() {

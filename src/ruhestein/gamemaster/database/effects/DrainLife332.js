@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Drain Life; Deal 2 damage. Restore #2 Health to your hero.
+
 var DrainLife332 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Coldlight Seer; Battlecry: Give ALL other Murlocs +2 Health.
+
 var ColdlightSeer424 = {
 
     getDescription: function() {

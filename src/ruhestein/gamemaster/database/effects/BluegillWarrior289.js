@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/1 Bluegill Warrior; Charge
+
 var BluegillWarrior289 = {
 
     getDescription: function() {

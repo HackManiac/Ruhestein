@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (6) Metamorphosis; Do something crazy.
+
 var Metamorphosis592 = {
 
     getDescription: function() {

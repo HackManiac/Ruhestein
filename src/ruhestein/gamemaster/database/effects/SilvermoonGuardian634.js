@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/3 Silvermoon Guardian; Divine Shield
+
 var SilvermoonGuardian634 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Fade; Give your minions Taunt. Draw a card.
+
 var Fade547 = {
 
     getDescription: function() {

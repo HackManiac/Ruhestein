@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (6) 7/5 Illidan Stormrage; Whenever you play a card, summon a 2/1 Flame of Azzinoth.
+
 var IllidanStormrage203 = {
 
     getDescription: function() {

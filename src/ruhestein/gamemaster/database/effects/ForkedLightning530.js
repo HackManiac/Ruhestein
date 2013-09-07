@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (1) Forked Lightning; Deal 2 damage to 2 random enemy minions. Overload: (2)
+
 var ForkedLightning530 = {
 
     getDescription: function() {

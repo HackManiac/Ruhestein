@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/1 Bloodmage Thalnos; Spell Power +1. Deathrattle: Draw a card.
+
 var BloodmageThalnos525 = {
 
     getDescription: function() {

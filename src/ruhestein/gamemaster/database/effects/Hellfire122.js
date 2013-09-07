@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (4) Hellfire; Deal 3 damage to ALL characters.
+
 var Hellfire122 = {
 
     getDescription: function() {

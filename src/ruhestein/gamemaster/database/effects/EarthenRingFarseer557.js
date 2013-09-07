@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 3/3 Earthen Ring Farseer; Battlecry: Restore 3 Health.
+
 var EarthenRingFarseer557 = {
 
     getDescription: function() {

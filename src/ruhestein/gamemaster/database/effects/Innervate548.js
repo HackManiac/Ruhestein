@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Innervate; Gain 2 Mana Crystals this turn only.
+
 var Innervate548 = {
 
     getDescription: function() {

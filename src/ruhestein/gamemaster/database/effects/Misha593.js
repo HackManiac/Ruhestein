@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 4/4 Misha; Taunt
+
 var Misha593 = {
 
     getDescription: function() {

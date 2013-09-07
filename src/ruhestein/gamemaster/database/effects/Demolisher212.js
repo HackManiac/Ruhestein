@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 1/4 Demolisher; At the start of your turn, deal 2 damage to a random enemy.
+
 var Demolisher212 = {
 
     getDescription: function() {

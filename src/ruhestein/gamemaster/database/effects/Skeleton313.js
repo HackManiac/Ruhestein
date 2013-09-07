@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Skeleton;  
+
 var Skeleton313 = {
 
     getDescription: function() {

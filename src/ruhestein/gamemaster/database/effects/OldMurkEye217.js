@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 2/4 Old Murk-Eye; Charge. Has +1 Attack for each other Murloc on the battlefield.
+
 var OldMurkEye217 = {
 
     getDescription: function() {

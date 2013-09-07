@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Wild Growth; Gain an empty Mana Crystal.
+
 var WildGrowth282 = {
 
     getDescription: function() {

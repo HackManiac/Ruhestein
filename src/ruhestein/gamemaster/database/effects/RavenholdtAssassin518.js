@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (7) 7/5 Ravenholdt Assassin; Stealth
+
 var RavenholdtAssassin518 = {
 
     getDescription: function() {

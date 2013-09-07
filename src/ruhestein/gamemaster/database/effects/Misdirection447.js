@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Misdirection; Secret: When a character attacks your hero, instead he attacks another random character.
+
 var Misdirection447 = {
 
     getDescription: function() {

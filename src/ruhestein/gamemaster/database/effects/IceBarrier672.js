@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (3) Ice Barrier; Secret: As soon as your hero is attacked, gain 8 Armor.
+
 var IceBarrier672 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Snake Trap; Secret: When one of your minions is attacked, summon three 1/1 Snakes.
+
 var SnakeTrap210 = {
 
     getDescription: function() {

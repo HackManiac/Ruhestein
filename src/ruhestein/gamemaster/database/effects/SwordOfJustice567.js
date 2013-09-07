@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (3) 1/5 Sword of Justice; Whenever you summon a minion, give it +1/+1 and this loses 1 Durability.
+
 var SwordOfJustice567 = {
 
     getDescription: function() {

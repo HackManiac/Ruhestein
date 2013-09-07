@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 1/4 Frothing Berserker; Whenever a minion takes damage, gain +1 Attack.
+
 var FrothingBerserker69 = {
 
     getDescription: function() {

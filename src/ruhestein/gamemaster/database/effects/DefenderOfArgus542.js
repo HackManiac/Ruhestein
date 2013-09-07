@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 3/3 Defender of Argus; Battlecry: Give adjacent minions +1/+1 and Taunt.
+
 var DefenderOfArgus542 = {
 
     getDescription: function() {

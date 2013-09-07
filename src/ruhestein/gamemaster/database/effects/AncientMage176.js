@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 2/5 Ancient Mage; Battlecry: Give adjacent minions Spell Power +1.
+
 var AncientMage176 = {
 
     getDescription: function() {

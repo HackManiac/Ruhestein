@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Silence; Silence a minion.
+
 var Silence544 = {
 
     getDescription: function() {

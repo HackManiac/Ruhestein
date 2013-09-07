@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/4 Lorewalker Cho; Whenever a player casts a spell, put a copy into the other player’s hand.
+
 var LorewalkerCho456 = {
 
     getDescription: function() {

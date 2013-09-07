@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Dire Wolf Alpha; Adjacent minions have +1 Attack.
+
 var DireWolfAlpha305 = {
 
     getDescription: function() {

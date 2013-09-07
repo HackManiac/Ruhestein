@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Lesser Heal; Hero Power  Restore 2 Health.
+
 var LesserHeal126 = {
 
     getDescription: function() {

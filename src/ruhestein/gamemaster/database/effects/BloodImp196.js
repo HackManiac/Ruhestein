@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 1/1 Blood Imp; Stealth. Your other minions have +1 Health.
+
 var BloodImp196 = {
 
     getDescription: function() {

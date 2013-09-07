@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Reinforce; Hero Power  Summon a 1/1 Silver Hand Recruit.
+
 var Reinforce248 = {
 
     getDescription: function() {

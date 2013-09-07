@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Mind Spike; Hero Power  Deal 2 damage.
+
 var MindSpike70 = {
 
     getDescription: function() {

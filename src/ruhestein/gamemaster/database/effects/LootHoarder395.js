@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/1 Loot Hoarder; Deathrattle: Draw a card.
+
 var LootHoarder395 = {
 
     getDescription: function() {

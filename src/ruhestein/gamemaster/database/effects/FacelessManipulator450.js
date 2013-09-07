@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 3/3 Faceless Manipulator; Battlecry: Choose a minion and become a copy of it.
+
 var FacelessManipulator450 = {
 
     getDescription: function() {

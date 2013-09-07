@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 3/1 Dust Devil; Windfury. Overload: (2)
+
 var DustDevil129 = {
 
     getDescription: function() {

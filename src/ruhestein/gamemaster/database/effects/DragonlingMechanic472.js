@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 2/4 Dragonling Mechanic; Battlecry: Summon a 2/1 Mechanical Dragonling.
+
 var DragonlingMechanic472 = {
 
     getDescription: function() {

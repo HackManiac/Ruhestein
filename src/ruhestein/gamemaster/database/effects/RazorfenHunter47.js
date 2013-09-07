@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/3 Razorfen Hunter; Battlecry: Summon a 1/1 Boar.
+
 var RazorfenHunter47 = {
 
     getDescription: function() {

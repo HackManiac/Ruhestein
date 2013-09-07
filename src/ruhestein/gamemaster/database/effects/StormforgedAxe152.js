@@ -6,6 +6,8 @@
 
 
 
+// From weapon card: (2) 2/3 Stormforged Axe; Overload: (1)
+
 var StormforgedAxe152 = {
 
     getDescription: function() {

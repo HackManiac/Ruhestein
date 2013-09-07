@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (1) 0/4 Shieldbearer; Taunt
+
 var Shieldbearer24 = {
 
     getDescription: function() {

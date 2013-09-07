@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) Bear Form; +2 Health and Taunt.
+
 var BearForm662 = {
 
     getDescription: function() {

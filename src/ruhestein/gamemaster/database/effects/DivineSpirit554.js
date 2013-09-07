@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (2) Divine Spirit; Double a minion's Health.
+
 var DivineSpirit554 = {
 
     getDescription: function() {

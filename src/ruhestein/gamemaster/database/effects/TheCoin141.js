@@ -6,6 +6,8 @@
 
 
 
+// From ability card: (0) The Coin; Gain 1 Mana Crystal this turn only.
+
 var TheCoin141 = {
 
     getDescription: function() {

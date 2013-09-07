@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/3 Defias Ringleader; Combo: Summon a 2/1 Defias Bandit.
+
 var DefiasRingleader417 = {
 
     getDescription: function() {

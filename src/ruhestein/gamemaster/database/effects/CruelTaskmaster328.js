@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/1 Cruel Taskmaster; Battlecry: Deal 1 damage to a minion and give it +2 Attack.
+
 var CruelTaskmaster328 = {
 
     getDescription: function() {

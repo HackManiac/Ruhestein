@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/4 Dalaran Mage; Spell Power +1
+
 var DalaranMage388 = {
 
     getDescription: function() {

@@ -6,6 +6,8 @@
 
 
 
+// From heroPower card: (2) Life Tap; Hero Power  Draw a card and take 2 damage.
+
 var LifeTap20 = {
 
     getDescription: function() {

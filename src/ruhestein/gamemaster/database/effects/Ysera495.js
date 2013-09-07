@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (9) 4/12 Ysera; At the end of your turn, draw a Dream Card.
+
 var Ysera495 = {
 
     getDescription: function() {

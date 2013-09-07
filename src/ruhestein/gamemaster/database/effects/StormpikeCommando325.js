@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (5) 4/2 Stormpike Commando; Battlecry: Deal 2 damage.
+
 var StormpikeCommando325 = {
 
     getDescription: function() {

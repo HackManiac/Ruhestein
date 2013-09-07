@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (8) 5/8 Cenarius; Choose One - Give your other minions +2/+2; or Summon two 2/2 Treants with Taunt.
+
 var Cenarius605 = {
 
     getDescription: function() {

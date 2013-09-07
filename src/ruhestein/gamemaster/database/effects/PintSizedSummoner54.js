@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 2/2 Pint-Sized Summoner; The first minion you play each turn costs (2) less.
+
 var PintSizedSummoner54 = {
 
     getDescription: function() {

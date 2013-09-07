@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (7) 7/5 Baron Geddon; At the end of your turn, deal 2 damage to ALL other characters.
+
 var BaronGeddon539 = {
 
     getDescription: function() {

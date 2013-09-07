@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (2) 1/1 Patient Assassin; Stealth. Destroy any minion damaged by this minion.
+
 var PatientAssassin14 = {
 
     getDescription: function() {

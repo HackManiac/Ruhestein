@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (4) 4/3 Houndmaster; Battlecry: Give a friendly Beast +2/+2 and Taunt.
+
 var Houndmaster225 = {
 
     getDescription: function() {

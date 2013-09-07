@@ -6,6 +6,8 @@
 
 
 
+// From minion card: (3) 2/4 Leokk; Other friendly minions have +1 Attack.
+
 var Leokk32 = {
 
     getDescription: function() {
