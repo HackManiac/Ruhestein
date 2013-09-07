@@ -169,7 +169,7 @@ var drawUntilHandCardCountEquals = function(player, handCardCount) {
 
 
 
-var cardRegExp = /^(?:\(([0-9]+)\)[\s]*)?(?:([0-9]+)\/([0-9]+)[\s]*)?(?:\[([0-9]+)\][\s]*)?([^;\[\]{}()\/]+)?(?:;[\s]*([^{}]+))?(?:{([^}]+)})?$/;
+var cardRegExp = /^(?:\(([0-9]+)\)[\s]*)?(?:([0-9]+)\/([0-9]+)[\s]*)?(?:\[([0-9]+)\][\s]*)?([^;\[\]{}()\/]+)?(?:;[\s]*([^{}]+))?(?:{([^}]*)})?$/;
 
 var expectCard = function(card, expectedName) {
     var actualName, name;
