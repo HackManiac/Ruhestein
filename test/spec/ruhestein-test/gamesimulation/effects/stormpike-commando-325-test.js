@@ -19,7 +19,7 @@ describe('StormpikeCommando325', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +28,7 @@ describe('StormpikeCommando325', function() {
             }
         });
 
-        g.play(g.hand(0, 'Stormpike Commando'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Stormpike Commando'), g.oHero('0/30'), 0, '{ZZZ}', '0/28');
     });
 
 });

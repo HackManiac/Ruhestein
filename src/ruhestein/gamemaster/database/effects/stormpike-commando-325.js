@@ -14,9 +14,11 @@ var StormpikeCommando325 = {
         return this.formatDescription('Battlecry: Deal 2 damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "StormpikeCommando325"');
-    },
+    targetLocations: 'allCharacters',
+
+    castBattlecry: function(target) {
+        this.dealDamage(2, target);
+    }
 
 };
 
