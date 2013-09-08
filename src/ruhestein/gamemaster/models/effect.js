@@ -146,6 +146,12 @@ var Effect = Model.extend({
 
             this.castEffectTrigger();
         }
+
+        if (this.castSecret && this.triggerSecret) {
+            this.listenToGame('didTriggerSecret', this._secretDidTriggerSecret);
+
+            this.castSecret();
+        }
     },
 
     _battlecryDidPlayCard: function(info) {
@@ -163,6 +169,14 @@ var Effect = Model.extend({
             this.stopListeningToGame('didKillCard', this._deathrattleDidKillCard);
 
             this.castDeathrattle();
+        }
+    },
+
+    _secretDidTriggerSecret: function(info) {
+        if (info.card === this.getCard()) {
+            this.stopListeningToGame('didTriggerSecret', this._secretDidTriggerSecret);
+
+            this.triggerSecret();
         }
     },
 
