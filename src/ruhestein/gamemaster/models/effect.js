@@ -141,8 +141,10 @@ var Effect = Model.extend({
             this.listenToGame('didKillCard', this._deathrattleDidKillCard);
         }
 
-        if (this.castEffectTrigger && this.triggerEventTrigger) {
+        if (this.castEffectTrigger && this.triggerEffectTrigger) {
             this.getCard().setHasEffectTrigger(true);
+
+            this.listenToGame('didTriggerEffectTrigger', this._effectTriggerDidTriggerEffectTrigger);
 
             this.castEffectTrigger();
         }
@@ -172,11 +174,17 @@ var Effect = Model.extend({
         }
     },
 
+    _effectTriggerDidTriggerEffectTrigger: function(info) {
+        if (info.card === this.getCard()) {
+            this.triggerEffectTrigger(info);
+        }
+    },
+
     _secretDidTriggerSecret: function(info) {
         if (info.card === this.getCard()) {
             this.stopListeningToGame('didTriggerSecret', this._secretDidTriggerSecret);
 
-            this.triggerSecret();
+            this.triggerSecret(info);
         }
     },
 
