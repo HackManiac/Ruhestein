@@ -6,6 +6,8 @@
 
 
 
+var utils = require('../../common/lib/utils');
+
 var Model = require('./base/model');
 
 
@@ -19,7 +21,9 @@ var Buff = Model.extend({
 
             card: null,
 
-            isCast: false
+            isCast: false,
+
+            stacks: 0
 
         };
     },
@@ -40,6 +44,33 @@ var Buff = Model.extend({
         this.set('isCast', isCast);
     },
 
+    getStacks: function() {
+        return this.get('stacks');
+    },
+
+    setStacks: function(stacks) {
+        stacks = utils.cap(stacks, 0, 10000);
+
+        var effect = this.getEffect(), card = this.getCard();
+
+        var currentStacks = this.getStacks();
+        while (currentStacks < stacks) {
+            effect.castBuff(card);
+            currentStacks++;
+        }
+        while (currentStacks > stacks) {
+            effect.uncastBuff(card);
+            currentStacks--;
+        }
+        
+        this.set('stacks', stacks);
+    },
+
+    modifyStacks: function(delta) {
+        this.setStacks(this.getStacks() + delta);
+    },
+
+
     /*
      * Casts the effect's buff on the card.
      *
@@ -57,7 +88,7 @@ var Buff = Model.extend({
 
         this.setIsCast(true);
 
-        effect.castBuff(card);
+        this.setStacks(1);
     },
 
     /*
@@ -67,7 +98,7 @@ var Buff = Model.extend({
         if (this.isCast()) {
             var effect = this.getEffect(), card = this.getCard();
 
-            effect.uncastBuff(card);
+            this.setStacks(0);
 
             this.setIsCast(false);
 
