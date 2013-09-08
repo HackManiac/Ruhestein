@@ -15,8 +15,30 @@ var StarvingBuzzard101 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "StarvingBuzzard101"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didPlayCard = function(info) {
+            if (info.player !== this.getPlayer()) {
+                // nop
+            } else if (!info.summon) {
+                // nop
+            } else if (!info.card.isBeast()) {
+                // nop
+            } else if (info.card === this.getCard()) {
+                // nop
+            } else {
+                this.getCard().triggerEffectTrigger();
+            }
+        };
+
+        this.listenToGame('didPlayCard', didPlayCard);
+    },
+
+    triggerEffectTrigger: function() {
+        this.getPlayer().drawCard();
+    }
 
 };
 

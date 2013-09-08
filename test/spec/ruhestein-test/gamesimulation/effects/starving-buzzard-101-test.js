@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,24 @@ describe('StarvingBuzzard101', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Starving Buzzard'
+                    '1 Starving Buzzard',
+                    '1 Bloodfen Raptor',
+                    '1 Wisp',
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Starving Buzzard'), 0, '{}');
-
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.play(g.hand(0, 'Starving Buzzard'), 0, '{EffectTrigger,ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(3);
+        g.play(g.hand(0, 'Bloodfen Raptor'), 1, '{ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(3);
+        g.play(g.hand(0, 'Wisp'), 2, '{ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(2);
     });
 
 });
