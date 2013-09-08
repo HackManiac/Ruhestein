@@ -409,6 +409,9 @@ var GameCard = Card.extend({
         if (info.card.isMinion()) {
             if (info.location === 'hand') {
                 info.battlecry = true;
+                info.summon = true;
+            } else if (info.location === 'spawningCards') {
+                info.summon = true;
             }
             if (info.targetCard && info.targetCard.isTargetable() && info.card.canAttack()) {
                 info.attack = true;
@@ -799,6 +802,14 @@ var GameCard = Card.extend({
         });
 
         this.moveTo('discardPile');
+    },
+
+    triggerEffectTrigger: function(source) {
+        this.getGame().trigger('didTriggerEffectTrigger', {
+            owner: this.getOwner(),
+            card: this,
+            source: source
+        });
     },
 
     transformTo: function(card) {
