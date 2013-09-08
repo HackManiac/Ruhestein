@@ -240,6 +240,8 @@ var Game = Model.extend({
         this.trigger('didStartTurn', {
             player: nextPlayer
         });
+
+        this.handleKilledCards();
     },
 
     endTurn: function(player) {
@@ -259,6 +261,8 @@ var Game = Model.extend({
             this.trigger('didEndTurn', {
                 player: player
             });
+
+            this.handleKilledCards();
 
             this.startTurn(nextPlayer);
         }
