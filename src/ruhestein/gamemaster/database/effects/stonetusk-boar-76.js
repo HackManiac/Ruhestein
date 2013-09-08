@@ -15,7 +15,7 @@ var StonetuskBoar76 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "StonetuskBoar76"');
+        this.castCharge();
     },
 
 };
