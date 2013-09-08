@@ -574,7 +574,11 @@ var GameCard = Card.extend({
         game.trigger('willPlayCard', info);
 
         var sourceAttack, targetAttack;
-        if ((info.location === 'hand') || (info.location === 'spawningCards')) {
+        if (this.isMinion() && (this.getCurrentHealth() <= 0)) {
+            // the minion was killed during willPlayCard event
+        } else if (info.countered) {
+            this.moveTo('discardPile');
+        } else if ((info.location === 'hand') || (info.location === 'spawningCards')) {
             if (this.hasSecretEffect()) {
                 this.moveTo('secrets');
 
