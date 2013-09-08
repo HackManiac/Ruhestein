@@ -55,11 +55,11 @@ var Buff = Model.extend({
 
         var currentStacks = this.getStacks();
         while (currentStacks < stacks) {
-            effect.castBuff(card);
+            effect.castBuff(card, this);
             currentStacks++;
         }
         while (currentStacks > stacks) {
-            effect.uncastBuff(card);
+            effect.uncastBuff(card, this);
             currentStacks--;
         }
         
