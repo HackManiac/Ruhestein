@@ -477,4 +477,199 @@ describe('GameSimulation', function() {
 
     });
 
+    describe('Noxious #3: Hunter vs Mage', function() {
+        var g, tmpCard, tmpCards;
+
+        it('should play the game correctly', function() {
+            // P1-T1
+            g.endTurn();
+
+            // P2-T1
+            g.endTurn();
+
+            // P1-T2
+            g.oHero('0/30');
+            g.play(g.heroPower('Steady Shot'), null);
+            g.oHero('0/28');
+            g.endTurn();
+
+            // P2-T2
+            g.play(g.hand(5, 'Novice Engineer'), 0);
+            g.endTurn();
+
+            // P1-T3
+            g.oHero('0/28');
+            g.play(g.heroPower('Steady Shot'), null);
+            g.oHero('0/26');
+            g.play(g.hand(0, 'Arcane Shot'), g.oBattlefield(0, '1/2 Novice Engineer'), '{Dead}', '{Dead}');
+            g.endTurn();
+
+            // P2-T3
+            g.play(g.hand(0, 'Wolfrider'), 0);
+            g.play(g.battlefield(0, '3/1 Wolfrider'), g.oHero('0/30'), '3/1', '0/27');
+            g.endTurn();
+
+            // P1-T4
+            g.play(g.hand(0, 'Explosive Trap'), null);
+            g.oHero('0/26');
+            g.play(g.heroPower('Steady Shot'), null);
+            g.oHero('0/24');
+            g.endTurn();
+
+            // P2-T4
+            g.hero('0/24');
+            g.play(g.battlefield(0, '3/1 Wolfrider'), g.oHero('0/27'), '{Dead}', '0/27');
+            g.hero('0/22');
+            g.play(g.hand(1, 'Sen\'jin Shieldmasta'), 0, '{Taunt,ZZZ}');
+            g.endTurn();
+
+            // P1-T5
+            g.play(g.hand(0, 'Starving Buzzard'), 0, '{EffectTrigger,ZZZ}');
+            expect(g.game.getHandCardCount()).to.equal(5);
+            g.play(g.hand(0, 'Ironfur Grizzly'), 1, '{Taunt,ZZZ}');
+            expect(g.game.getHandCardCount()).to.equal(5);
+            g.endTurn();
+
+            // P2-T5
+            g.play(g.hand(4, 'Frostbolt'), g.oBattlefield(1, '3/3 Ironfur Grizzly'), '{Dead}', '{Dead}');
+            g.play(g.hand(2, 'The Coin'), null);
+            g.play(g.hand(1, 'Frostbolt'), g.oBattlefield(0, '2/2 Starving Buzzard'), '{Dead}', '{Dead}');
+            g.play(g.battlefield(0, '3/5 Sen\'jin Shieldmasta'), g.oHero('0/27'), '3/5', '0/24');
+            g.endTurn();
+
+            // P1-T6
+            g.play(g.hand(0, '4/2 Stormpike Commando'), g.oBattlefield(0, '3/5 Sen\'jin Shieldmasta'), 0, '4/2', '3/3');
+            g.endTurn();
+
+            // P2-T6
+            g.oBattlefield(0, '4/2 Stormpike Commando');
+            g.play(g.hand(1, 'Arcane Explosion'), null, '{Dead}');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '4/1 Stormpike Commando'), null, '{Dead}');
+            g.play(g.hand(4, 'Murloc Tidehunter'), 1);
+            g.battlefield(2, '1/1 Murloc Scout');
+            g.play(g.battlefield(0, '3/3 Sen\'jin Shieldmasta'), g.oHero('0/24'), '3/3', '0/21');
+            g.endTurn();
+
+            // P1-T7
+            g.hero('0/21');
+            g.play(g.hand(0, 'Darkscale Healer'), 0);
+            g.hero('0/23');
+            g.oHero('0/22');
+            g.play(g.heroPower('Steady Shot'), null);
+            g.oHero('0/20');
+            g.endTurn();
+
+            // P2-T7
+            g.play(g.hand(0, 'Polymorph'), g.oBattlefield(0, '4/5 Darkscale Healer'), null, '1/1 Sheep');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Sheep'), null, '{Dead}');
+            g.play(g.battlefield(0, '3/3 Sen\'jin Shieldmasta'), g.oHero('0/23'), '3/3', '0/20');
+            g.play(g.battlefield(2, '1/1 Murloc Scout'), g.oHero('0/20'), '1/1', '0/19');
+            g.play(g.battlefield(1, '2/1 Murloc Tidehunter'), g.oHero('0/19'), '2/1', '0/17');
+            g.endTurn();
+
+            // P1-T8
+            g.gm.predictRoll(1);
+            g.play(g.hand(0, 'Gelbin Mekkatorque'), 0);
+            g.battlefield(1, '0/5 Repair Bot');
+            g.play(g.hand(0, 'Youthful Brewmaster'), g.battlefield(0), 2, null, null, 1);
+            g.battlefield(0, '0/5 Repair Bot');
+            g.endTurn();
+
+            // P2-T8
+            // healed by Repair Bot
+            g.hero('0/23');
+            g.battlefield(0, '3/5');
+            g.oHero('0/20');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(1, '3/2 Youthful Brewmaster'), null, '3/1');
+            g.play(g.battlefield(2, '1/1 Murloc Scout'), g.oBattlefield(1, '3/1'), '{Dead}', '{Dead}');
+            g.play(g.hand(2, 'Frostwolf Warlord'), 2, '6/6');
+            g.play(g.battlefield(1, '2/1 Murloc Tidehunter'), g.oBattlefield(0, '0/5 Repair Bot'), '2/1', '0/3');
+            g.play(g.battlefield(0, '3/5 Sen\'jin Shieldmasta'), g.oBattlefield(0, '0/3 Repair Bot'), '3/5', '{Dead}');
+            g.endTurn();
+
+            // P1-T9
+            g.gm.predictRoll(3);
+            g.play(g.hand(4, 'Gelbin Mekkatorque'), 0);
+            g.battlefield(1, 'Homing Chicken {EffectTrigger,ZZZ}');
+            g.play(g.hand(0, '2/2 Scavenging Hyena'), 2, '{EffectTrigger,ZZZ}');
+            g.play(g.hand(0, '1/1 Timber Wolf'), 3);
+            g.battlefield(2, '3/2');
+            g.endTurn();
+
+            // P2-T9
+            g.play(g.hand(1, 'Fireball'), g.oBattlefield(0, '6/6 Gelbin Mekkatorque'), null, '{Dead}');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '0/1 Homing Chicken'), null, '{Dead}');
+            g.play(g.battlefield(1, '2/1 Murloc Tidehunter'), g.oBattlefield(0, '3/2 Scavenging Hyena'), '{Dead}', '{Dead}');
+            g.battlefield(1, '5/5');
+            g.play(g.battlefield(0, '3/5 Sen\'jin Shieldmasta'), g.oHero('0/20'), '3/5', '0/17');
+            g.play(g.battlefield(1, '5/5 Frostwolf Warlord'), g.oHero('0/17'), '5/5', '0/12');
+            g.play(g.hand(2, '3/3 Ironfur Grizzly'), 2, '{Taunt,ZZZ}');
+            g.battlefield(1, '6/6');
+            g.endTurn();
+
+            // P1-T10
+            g.play(g.hand(0, '2/5 Stormwind Knight'), 1, '{Charge}');
+            g.play(g.hand(0, '4/4 Frostwolf Warlord'), 2, '6/6 {ZZZ}');
+            g.play(g.battlefield(1, '2/5'), g.oBattlefield(0, '3/5'), '2/2', '3/3');
+            g.play(g.hand(0, 'Arcane Shot'), g.oBattlefield(0, '3/3'), null, '3/1');
+            g.play(g.battlefield(0, '1/1 Timber Wolf'), g.oBattlefield(0, '3/1'), '{Dead}', '{Dead}');
+            g.battlefield(1, '5/5');
+            g.oBattlefield(0, '5/5');
+            g.endTurn();
+
+            // P2-T10
+            g.play(g.hand(3, 'Arcane Intellect'), null);
+            g.play(g.hand(3, '2/2 Raid Leader'), 2, '2/2');
+            g.play(g.hand(3, '2/2 Raid Leader'), 3, '3/2');
+            g.play(g.battlefield(1, '5/3 Ironfur Grizzly'), g.oHero('0/12'), '5/3', '0/7');
+            g.play(g.battlefield(0, '9/7 Frostwolf Warlord'), g.oHero('0/7'), '9/7', '{Dead}');
+        });
+
+        g = setupGameTestEngine({
+            startingPlayer: 1,
+
+            player1: {
+                'class': 'Hunter',
+                deck: [
+                    '1 Arcane Shot',
+                    '1 Explosive Trap',
+                    '1 Starving Buzzard',
+                    '1 Ironfur Grizzly',
+                    '1 Stormpike Commando',
+                    '1 Darkscale Healer',
+                    '1 Gelbin Mekkatorque',
+                    '1 Youthful Brewmaster',
+                    '1 Scavenging Hyena',
+                    '1 Timber Wolf',
+                    '1 Stormwind Knight',
+                    '1 Frostwolf Warlord',
+                    '1 Arcane Shot',
+                ],
+            },
+
+            player2: {
+                'class': 'Mage',
+                deck: [
+                    '1 Wolfrider',
+                    '1 Polymorph',
+                    '1 Sen\'jin Shieldmasta',
+                    '1 Frostbolt',
+                    '1 Novice Engineer',
+                    '1 Arcane Explosion',
+                    '1 Frostbolt',
+                    '1 Acidic Swamp Ooze',
+                    '1 Fireball',
+                    '1 Frostwolf Warlord',
+                    '1 Murloc Tidehunter',
+                    '1 Acidic Swamp Ooze',
+                    '1 Ironfur Grizzly',
+                    '1 Ironfur Grizzly',
+                    '1 Arcane Intellect',
+                    '1 Raid Leader',
+                    '1 Raid Leader',
+                ],
+            }
+        });
+    });
+
 });
