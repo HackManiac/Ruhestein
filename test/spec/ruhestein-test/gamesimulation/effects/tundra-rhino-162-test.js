@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,25 @@ describe('TundraRhino162', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Tundra Rhino'
+                    '1 Bloodfen Raptor',
+                    '1 Wisp',
+                    '1 Tundra Rhino',
+                    '1 Bloodfen Raptor',
                 ],
+                playCards: 2
             }
         });
 
-        g.play(g.hand(0, 'Tundra Rhino'), 0, '{}');
-
-        // TODO
+        g.battlefield(0, '3/2 Bloodfen Raptor {ZZZ}');
+        g.battlefield(1, '1/1 Wisp {ZZZ}');
+        g.play(g.hand(0, 'Tundra Rhino'), 2, '{Charge}');
+        g.battlefield(0, '3/2 Bloodfen Raptor {Charge}');
+        g.battlefield(1, '1/1 Wisp {ZZZ}');
+        g.play(g.hand(0, '3/2 Bloodfen Raptor'), 3, '{Charge}');
     });
 
 });

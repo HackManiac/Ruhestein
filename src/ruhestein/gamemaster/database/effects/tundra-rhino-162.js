@@ -15,9 +15,16 @@ var TundraRhino162 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "TundraRhino162"');
+        this.buffCardsByLocation('battlefield', function(card) {
+            return card.isBeast();
+        });
     },
 
+    castBuff: function(target) {
+        target.setHasCharge(true);
+        target.setIsAsleep(false);
+    }
+    
 };
 
 
