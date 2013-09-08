@@ -15,7 +15,12 @@ var HomingChicken423 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "HomingChicken423"');
+        var didStartTurn = function() {
+            this.getPlayer().drawCards(3);
+            this.killCard(this.getCard());
+        };
+
+        this.onStartOfPlayerTurn(didStartTurn);
     },
 
 };

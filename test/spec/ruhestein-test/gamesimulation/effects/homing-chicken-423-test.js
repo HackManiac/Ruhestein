@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,28 @@ describe('HomingChicken423', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Homing Chicken'
+                    '1 Gelbin Mekkatorque'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Homing Chicken'), 0, '{}');
+        g.gm.predictRoll(3);
+        g.play(g.hand(0, 'Gelbin Mekkatorque'), 0, '{ZZZ}');
+        g.battlefield(1, 'Homing Chicken');
+        expect(g.game.getHandCardCount()).to.equal(3);
 
-        // TODO
+        g.endTurn();
+        g.endTurn();
+        expect(g.game.getHandCardCount()).to.equal(7);
+        g.battlefield(1, null);
+
+        g.endTurn();
+        g.endTurn();
+        expect(g.game.getHandCardCount()).to.equal(8);
     });
 
 });
