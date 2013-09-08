@@ -15,7 +15,7 @@ var SilverbackPatriarch611 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "SilverbackPatriarch611"');
+        this.castTaunt();
     },
 
 };
