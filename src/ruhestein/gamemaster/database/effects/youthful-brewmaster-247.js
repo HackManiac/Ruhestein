@@ -14,8 +14,10 @@ var YouthfulBrewmaster247 = {
         return this.formatDescription('Battlecry: Return a friendly minion from the battlefield to your hand.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "YouthfulBrewmaster247"');
+    targetLocations: 'battlefield',
+
+    castBattlecry: function(target) {
+        target.moveTo('hand');
     },
 
 };
