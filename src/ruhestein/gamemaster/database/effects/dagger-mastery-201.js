@@ -28,7 +28,7 @@ var DaggerMastery201 = {
         if (weapon) {
             var buff = this.buffCard(weapon);
 
-            this.onEndOfPlayerTurn(function() {
+            this.onEndOfNextPlayerTurn(function() {
                 buff.uncast();
             });
         } else {

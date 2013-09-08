@@ -23,7 +23,7 @@ var HomingChicken423 = {
             this.getCard().triggerEffectTrigger();
         };
 
-        this.onStartOfPlayerTurn(didStartTurn);
+        this.onStartOfNextPlayerTurn(didStartTurn);
     },
 
     triggerEffectTrigger: function() {
