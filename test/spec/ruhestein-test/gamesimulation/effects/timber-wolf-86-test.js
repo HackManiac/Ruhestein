@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,31 @@ describe('TimberWolf86', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Bloodfen Raptor'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
+                    '1 Bloodfen Raptor',
+                    '1 Wisp',
                     '1 Timber Wolf'
                 ],
+                playCards: 2
             }
         });
 
-        g.play(g.hand(0, 'Timber Wolf'), 0, '{}');
-
-        // TODO
+        g.battlefield(0, '3/2');
+        g.battlefield(1, '1/1');
+        g.oBattlefield(0, '3/2');
+        g.play(g.hand(0, 'Timber Wolf'), 2, '{ZZZ}');
+        g.battlefield(0, '4/2');
+        g.battlefield(1, '1/1');
+        g.oBattlefield(0, '3/2');
     });
 
 });

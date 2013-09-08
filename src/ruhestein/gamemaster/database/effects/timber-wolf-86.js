@@ -15,8 +15,15 @@ var TimberWolf86 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "TimberWolf86"');
+        var source = this.getCard();
+        this.buffCardsByLocation('battlefield', function(card) {
+            return ((card !== source) && card.isBeast());
+        });
     },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 
