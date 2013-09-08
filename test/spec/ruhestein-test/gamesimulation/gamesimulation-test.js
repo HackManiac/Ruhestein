@@ -672,4 +672,167 @@ describe('GameSimulation', function() {
         });
     });
 
+    describe('Noxious #4: Hunter vs Mage', function() {
+        var g, tmpCard, tmpCards;
+
+        it('should play the game correctly', function() {
+            // P2-T1
+            g.endTurn();
+
+            // P1-T1
+            g.play(g.hand(0, '1/1 Timber Wolf'), 0, '{ZZZ}');
+            g.endTurn();
+
+            // P2-T2
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Timber Wolf'), null, '{Dead}');
+            g.endTurn();
+
+            // P1-T2
+            g.oHero('0/30');
+            g.play(g.heroPower('Steady Shot'), null);
+            g.oHero('0/28');
+            g.endTurn();
+
+            // P2-T3
+            g.play(g.hand(2, '3/3 Ironfur Grizzly'), 0, '{Taunt,ZZZ}');
+            g.endTurn();
+
+            // P1-T3
+            g.play(g.hand(0, '3/3 Ironfur Grizzly'), 0, '{Taunt,ZZZ}');
+            g.endTurn();
+
+            // P2-T4
+            g.play(g.hand(0, '3/5 Sen\'jin Shieldmasta'), 1, '{Taunt,ZZZ}');
+            g.play(g.battlefield(0, '3/3 Ironfur Grizzly'), g.oBattlefield(0, '3/3 Ironfur Grizzly'), '{Dead}', '{Dead}');
+            g.endTurn();
+
+            // P1-T4
+            g.play(g.hand(0, '2/7 Oasis Snapjaw'), 0, '{ZZZ}');
+            g.endTurn();
+
+            // P2-T5
+            g.play(g.hand(3, '4/4 Frostwolf Warlord'), 1, '5/5 {ZZZ}');
+            g.play(g.battlefield(0, '3/5 Sen\'jin Shieldmasta'), g.oHero('0/30'), '3/5', '0/27');
+            g.endTurn();
+
+            // P1-T5
+            g.play(g.battlefield(0, '2/7 Oasis Snapjaw'), g.oBattlefield(0, '3/5 Sen\'jin Shieldmasta'), '2/4', '3/3');
+            g.gm.predictRoll(1); // = oBattlefield(0)
+            g.oBattlefield(0, '3/3 Sen\'jin Shieldmasta');
+            g.gm.predictRoll(1); // = oBattlefield(1), because oBattlefield(0) is already taken
+            g.oBattlefield(1, '5/5 Frostwolf Warlord');
+            g.play(g.hand(0, 'Multi-Shot'), null);
+            g.oBattlefield(0, '4/2 Frostwolf Warlord');
+            g.endTurn();
+
+            // P2-T6
+            g.play(g.hand(5, '1/2 Novice Engineer'), 1, '{ZZZ}');
+            g.battlefield(0, '5/3');
+            g.play(g.hand(2, '2/2 Raid Leader'), 2, '{ZZZ}');
+            g.battlefield(0, '7/4');
+            g.battlefield(1, '2/2');
+            g.play(g.battlefield(0, '7/4 Frostwolf Warlord'), g.oBattlefield(0, '2/4 Oasis Snapjaw'), '7/2', '{Dead}');
+            g.endTurn();
+
+            // P1-T6
+            g.play(g.hand(1, '2/5 Tundra Rhino'), 0, '{Charge}');
+            g.play(g.hand(1, '1/1 Timber Wolf'), 1, '{Charge}');
+            g.battlefield(0, '3/5');
+            g.play(g.hand(1, 'Hunter\'s Mark'), g.oBattlefield(0, '7/2 Frostwolf Warlord'), null, '7/1');
+            g.play(g.battlefield(1, '1/1 Timber Wolf'), g.oBattlefield(0, '7/1 Frostwolf Warlord'), '{Dead}', '7/1');
+            g.battlefield(0, '2/5');
+            g.play(g.battlefield(0, '2/5 Tundra Rhino'), g.oBattlefield(0, '7/1 Frostwolf Warlord'), '{Dead}', '7/1');
+            g.endTurn();
+
+            // P2-T7
+            g.test.healDamage(1, g.battlefield(0, '7/2')); // Hunter's Mark healed the card...
+            g.battlefield(0, '7/3');
+            g.play(g.hand(0, '3/2 Acidic Swamp Ooze'), 2, '4/2 {ZZZ}');
+            g.play(g.hand(1, '3/2 Acidic Swamp Ooze'), 3, '4/2 {ZZZ}');
+            g.play(g.hand(3, 'Frostbolt'), g.oHero('0/27'), null, '0/24 {Frozen}');
+            g.play(g.battlefield(0, '9/5 Frostwolf Warlord'), g.oHero('0/24'), '9/5', '0/15');
+            g.play(g.battlefield(1, '2/2 Novice Engineer'), g.oHero('0/15'), '2/2', '0/13');
+            g.play(g.battlefield(4, '2/2 Raid Leader'), g.oHero('0/13'), '2/2', '0/11');
+            g.endTurn();
+
+            // P1-T7
+            g.gm.predictRoll(3);
+            g.play(g.hand(1, 'Animal Companion'), null);
+            g.battlefield(0, '4/2 Huffer {Charge}');
+            g.play(g.hand(1, '3/2 Bloodfen Raptor'), 0, '{ZZZ}');
+            g.play(g.hand(0, 'The Coin'), null);
+            g.play(g.hand(0, '1/4 Silverback Patriarch'), 0, '{Taunt,ZZZ}');
+            g.play(g.battlefield(2, '4/2 Huffer'), g.oHero('0/28'), '4/2', '0/24');
+            g.endTurn();
+
+            // P2-T8
+            g.play(g.hand(2, 'Polymorph'), g.oBattlefield(0, '1/4 Silverback Patriarch {Taunt}'), null, '1/1 Sheep');
+            g.play(g.battlefield(0, '9/5 Frostwolf Warlord'), g.oHero('0/11'), '9/5', '0/2');
+            g.play(g.battlefield(1, '2/2 Novice Engineer'), g.oHero('0/2'), '2/2', '{Dead}');
+        });
+
+        g = setupGameTestEngine({
+            startingPlayer: 2,
+
+            player1: {
+                'class': 'Hunter',
+                deck: [
+                    '1 Timber Wolf',
+                    '1 Ironfur Grizzly',
+                    '1 Oasis Snapjaw',
+                    '1 Multi-Shot',
+                    '1 Tundra Rhino',
+                    '1 Timber Wolf',
+                    '1 Hunter\'s Mark',
+                    '1 Animal Companion',
+                    '1 Bloodfen Raptor',
+                    '1 Silverback Patriarch'
+                ],
+            },
+
+            player2: {
+                'class': 'Mage',
+                deck: [
+                    '1 Sen\'jin Shieldmasta',
+                    '1 Acidic Swamp Ooze',
+                    '1 Ironfur Grizzly',
+                    '1 Arcane Intellect',
+                    '1 Raid Leader',
+                    '1 Frostwolf Warlord',
+                    '1 Acidic Swamp Ooze',
+                    '1 Fireball',
+                    '1 Novice Engineer',
+                    '1 Polymorph',
+                    '1 Frostbolt',
+                    '1 Arcane Explosion',
+                ],
+            }
+        });
+    });
+
+    // describe('Game Title', function() {
+    //     var g, tmpCard, tmpCards;
+
+    //     it('should play the game correctly', function() {
+
+    //         g.oHero('{Dead}');
+    //     });
+
+    //     g = setupGameTestEngine({
+    //         startingPlayer: 1,
+
+    //         player1: {
+    //             'class': '???',
+    //             deck: [
+    //             ],
+    //         },
+
+    //         player2: {
+    //             'class': '???',
+    //             deck: [
+    //             ],
+    //         }
+    //     });
+    // });
+
 });
