@@ -30,7 +30,7 @@ describe('YouthfulBrewmaster247', function() {
         g.test.dealDamage(11, g.battlefield(0, '4/12'), '4/1');
         g.test.silence(g.battlefield(0, '4/1 {ZZZ}'), '4/1 {Silenced,ZZZ}');
 
-        g.play(g.hand(0, 'Youthful Brewmaster'), g.battlefield(0, '4/1'), 0, '{ZZZ}', '4/12 {Silenced}');
+        g.play(g.hand(0, 'Youthful Brewmaster'), g.battlefield(0, '4/1'), 1, '{ZZZ}', '4/12 {Silenced}', 0);
         g.battlefield(0, 'Youthful Brewmaster');
         g.battlefield(1, null);
 
