@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,32 @@ describe('GelbinMekkatorque251', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Gelbin Mekkatorque'
+                    '4 Gelbin Mekkatorque'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Gelbin Mekkatorque'), 0, '{}');
+        var inventions = [
+            '0/5 Repair Bot',
+            '0/3 Poultryizer',
+            '0/1 Homing Chicken',
+            '0/4 Emboldener 3000'
+        ];
 
-        // TODO
+        for (var i = 0; i < inventions.length; i++) {
+            var invention = inventions [i];
+
+            g.test.replenishMana();
+            g.gm.predictRoll(i + 1);
+            g.play(g.hand(0, 'Gelbin Mekkatorque'), 0, '{ZZZ}');
+            g.battlefield(1, invention);
+            g.test.kill(g.battlefield(1));
+            g.test.kill(g.battlefield(0));
+        }
     });
 
 });
