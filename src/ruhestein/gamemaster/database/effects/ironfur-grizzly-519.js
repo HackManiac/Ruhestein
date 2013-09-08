@@ -15,7 +15,7 @@ var IronfurGrizzly519 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "IronfurGrizzly519"');
+        this.castTaunt();
     },
 
 };
