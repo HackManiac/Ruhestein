@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,44 @@ describe('Poultryizer405', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
-                    '1 Poultryizer'
+                    '1 Malygos',
+                    '1 Gelbin Mekkatorque'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Poultryizer'), 0, '{}');
+        g.gm.predictRoll(2);
+        g.play(g.hand(0, 'Gelbin Mekkatorque'), 1, '{ZZZ}');
+        g.battlefield(2, 'Poultryizer');
 
-        // TODO
+        g.gm.predictRoll(4); // 4 = oBattlefield(0)
+        g.oBattlefield(0, '4/12 Malygos');
+        g.endTurn();
+        g.endTurn();
+        g.oBattlefield(0, '1/1 Chicken');
+
+        g.gm.predictRoll(3); // 3 = battlefield(2)
+        g.battlefield(2, 'Poultryizer');
+        g.endTurn();
+        g.endTurn();
+        g.battlefield(2, '1/1 Chicken');
+
+        g.gm.predictRoll(2); // 2 = battlefield(1)
+        g.battlefield(1, 'Gelbin Mekkatorque');
+        g.endTurn();
+        g.endTurn();
+        g.battlefield(1, 'Gelbin Mekkatorque');
     });
 
 });

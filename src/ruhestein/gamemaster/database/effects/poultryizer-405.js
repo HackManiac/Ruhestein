@@ -10,12 +10,31 @@
 
 var Poultryizer405 = {
 
+    cardFilters: {
+        chicken: {
+            name: 'Chicken',
+            attack: 1,
+            health: 1,
+            isToken: true
+        }
+    },
+    
     getDescription: function() {
         return this.formatDescription('At the start of your turn, transform a random minion into a 1/1 Chicken.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Poultryizer405"');
+        var didStartTurn = function() {
+            var cards = this.collectCardsByLocation('allBattlefields');
+            var index = this.getGame().roll(cards.length) - 1;
+            var target = cards.at(index);
+
+            var card = this.createNamedCard('chicken');
+
+            target.transformTo(card);
+        };
+
+        this.onStartOfPlayerTurn(didStartTurn);
     },
 
 };
