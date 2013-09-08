@@ -15,13 +15,21 @@ var HomingChicken423 = {
     },
 
     cast: function() {
+        // nop
+    },
+
+    castEffectTrigger: function() {
         var didStartTurn = function() {
-            this.getPlayer().drawCards(3);
-            this.killCard(this.getCard());
+            this.getCard().triggerEffectTrigger();
         };
 
         this.onStartOfPlayerTurn(didStartTurn);
     },
+
+    triggerEffectTrigger: function() {
+        this.getPlayer().drawCards(3);
+        this.killCard(this.getCard());
+    }
 
 };
 

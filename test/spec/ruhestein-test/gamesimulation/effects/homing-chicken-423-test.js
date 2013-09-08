@@ -27,7 +27,7 @@ describe('HomingChicken423', function() {
 
         g.gm.predictRoll(3);
         g.play(g.hand(0, 'Gelbin Mekkatorque'), 0, '{ZZZ}');
-        g.battlefield(1, 'Homing Chicken');
+        g.battlefield(1, 'Homing Chicken {EffectTrigger,ZZZ}');
         expect(g.game.getHandCardCount()).to.equal(3);
 
         g.endTurn();
