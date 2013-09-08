@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,23 @@ describe('Emboldener3000240', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Emboldener 3000'
+                    '1 Gelbin Mekkatorque'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Emboldener 3000'), 0, '{}');
+        g.gm.predictRoll(4);
+        g.play(g.hand(0, 'Gelbin Mekkatorque'), 0, '{ZZZ}');
+        g.battlefield(1, '0/4 Emboldener 3000 {ZZZ}');
 
-        // TODO
+        g.gm.predictRoll(2);  // 2 = battlefield(1);
+        g.endTurn();
+        g.oBattlefield(1, '1/5');
+        g.endTurn();
     });
 
 });

@@ -15,8 +15,21 @@ var Emboldener3000240 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Emboldener3000240"');
+        var didEndTurn = function() {
+            var cards = this.collectCardsByLocation('allBattlefields');
+            var index = this.getGame().roll(cards.length) - 1;
+            var target = cards.at(index);
+
+            this.buffCard(target);
+        };
+
+        this.onEndOfPlayerTurn(didEndTurn);
     },
+
+    buff: {
+        currentAttack: 1,
+        maxHealth: 1
+    }
 
 };
 
