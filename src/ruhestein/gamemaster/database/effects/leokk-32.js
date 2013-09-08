@@ -15,8 +15,15 @@ var Leokk32 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Leokk32"');
+        var source = this.getCard();
+        this.buffCardsByLocation('battlefield', function(card) {
+            return (card !== source);
+        });
     },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 

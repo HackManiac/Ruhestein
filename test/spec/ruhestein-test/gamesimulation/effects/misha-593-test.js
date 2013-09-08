@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('Misha593', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Misha'
+                    '1 Animal Companion'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Misha'), 0, '{}');
-
-        // TODO
+        g.gm.predictRoll(1);
+        g.play(g.hand(0, 'Animal Companion'), null, '{Dead}');
+        g.battlefield(0, '4/4 Misha {Taunt,ZZZ}');
     });
 
 });

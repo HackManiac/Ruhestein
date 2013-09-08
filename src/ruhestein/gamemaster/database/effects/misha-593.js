@@ -15,7 +15,7 @@ var Misha593 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Misha593"');
+        this.castTaunt();
     },
 
 };

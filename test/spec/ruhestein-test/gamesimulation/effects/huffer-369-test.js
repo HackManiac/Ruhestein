@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('Huffer369', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Huffer'
+                    '1 Animal Companion'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Huffer'), 0, '{}');
-
-        // TODO
+        g.gm.predictRoll(3);
+        g.play(g.hand(0, 'Animal Companion'), null, '{Dead}');
+        g.battlefield(0, '4/2 Huffer {Charge}');
     });
 
 });

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,40 @@ describe('AnimalCompanion578', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Animal Companion'
+                    '3 Animal Companion'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Animal Companion'), 0, '{}');
+        var beastsOrder = [
+            0,
+            2,
+            1
+        ];
 
-        // TODO
+        var beasts = [
+            '4/4 Misha {Taunt,ZZZ}',
+            '2/4 Leokk {ZZZ}',
+            '4/2 Huffer {Charge}'
+        ];
+
+        for (var i = 0; i < beasts.length; i++) {
+            var index = beastsOrder [i];
+            var beast = beasts [index];
+
+            g.test.replenishMana();
+            g.gm.predictRoll(index + 1);
+            g.play(g.hand(0, 'Animal Companion'), 0, '{Dead}');
+            g.battlefield(i, beast);
+        }
+
+        g.battlefield(0, '5/4');
+        g.battlefield(1, '5/2');
+        g.battlefield(2, '2/4');
     });
 
 });
