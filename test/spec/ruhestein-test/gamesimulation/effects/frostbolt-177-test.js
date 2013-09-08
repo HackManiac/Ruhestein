@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,26 @@ describe('Frostbolt177', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos',
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
-                    '1 Frostbolt'
+                    '2 Frostbolt'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Frostbolt'), 0, '{}');
+        g.play(g.hand(0, 'Frostbolt'), g.oBattlefield(0, '4/12 Malygos {ZZZ}'), '{Dead}', '4/9 {Frozen,ZZZ}');
 
-        // TODO
+        g.test.playSpellPowerPlus5();
+
+        g.play(g.hand(0, 'Frostbolt'), g.oHero(0, '0/30 {}'), '{Dead}', '0/22 {Frozen}');
     });
 
 });
