@@ -458,6 +458,30 @@ var Effect = Model.extend({
         });
     },
 
+    onStartOfNextPlayerTurn: function(callback) {
+        var didStartTurn = function(info) {
+            if (info.player === this.getPlayer()) {
+                this.stopListeningToGame('didStartTurn', didStartTurn);
+                
+                callback.call(this, info);
+            }
+        };
+
+        this.listenToGame('didStartTurn', didStartTurn);
+    },
+
+    onEndOfNextPlayerTurn: function(callback) {
+        var didEndTurn = function(info) {
+            if (info.player === this.getPlayer()) {
+                this.stopListeningToGame('didEndTurn', didEndTurn);
+
+                callback.call(this, info);
+            }
+        };
+
+        this.onEndOfPlayerTurn(didEndTurn);
+    },
+
     uncastOnEndOfTurn: function() {
         this.onEndOfPlayerTurn(function() {
             this.uncast();
