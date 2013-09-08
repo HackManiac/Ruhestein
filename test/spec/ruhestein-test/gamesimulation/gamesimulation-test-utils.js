@@ -106,14 +106,15 @@ var setupGameTestEngine = function(info) {
                 }
                 return card;
             } catch (ex) {
-                gte.outputPovGameState();
+                gte.outputCurrentGameState();
+                // gte.outputPovGameState();
                 throw ex;
             }
         };
     };
 
     var play = function() {
-        var i = 0, source, target, index, expectedSourceAfter, expectedTargetAfter;
+        var i = 0, source, target, index, expectedSourceAfter, expectedTargetAfter, expectedIndexAfter;
         source = arguments [i++] || null;
         if (target === undefined) {
             target = arguments [i++];
@@ -148,6 +149,13 @@ var setupGameTestEngine = function(info) {
         if ((expectedTargetAfter === null) && target) {
             expectedTargetAfter = target.toString();
         }
+        if (expectedIndexAfter === undefined) {
+            expectedIndexAfter = arguments [i++];
+        }
+        if (expectedIndexAfter === undefined) {
+            expectedIndexAfter = index;
+        }
+        
         var location = source.getLocation();
         source.play(target, index);
         if (expectedSourceAfter) {
@@ -156,8 +164,8 @@ var setupGameTestEngine = function(info) {
         if (expectedTargetAfter) {
             testUtils.expectCard(target, expectedTargetAfter);
         }
-        if ((location === 'hand') && (source.getLocation() === 'battlefield') && (index !== null)) {
-            expect(source.getGame().getBattlefieldCard(index)).to.equal(source);
+        if ((location === 'hand') && (source.getLocation() === 'battlefield') && (expectedIndexAfter !== null)) {
+            expect(source.getGame().getBattlefieldCard(expectedIndexAfter)).to.equal(source);
         }
     };
 
