@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,24 @@ describe('DarkscaleHealer84', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Darkscale Healer'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Darkscale Healer'), 0, '{}');
+        g.test.dealDamage(3, g.hero('0/30'), '0/27');
+        g.test.dealDamage(3, g.battlefield(0, '4/12'), '4/9');
 
-        // TODO
+        g.play(g.hand(0, 'Darkscale Healer'), 1, '{ZZZ}');
+
+        g.hero('0/29');
+        g.battlefield(0, '4/11');
     });
 
 });

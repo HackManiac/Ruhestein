@@ -15,7 +15,10 @@ var DarkscaleHealer84 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DarkscaleHealer84"');
+        var cards = this.collectCardsByLocation('characters');
+        cards.forEach(function(card) {
+            this.healDamage(2, card);
+        }, this);
     },
 
 };
