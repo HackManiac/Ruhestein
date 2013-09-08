@@ -15,8 +15,27 @@ var ScavengingHyena279 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ScavengingHyena279"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didKillCard = function(info) {
+            if (info.card.isBeast()) {
+                this.getCard().triggerEffectTrigger();
+            }
+        };
+
+        this.listenToGame('didKillCard', didKillCard);
+    },
+
+    triggerEffectTrigger: function() {
+        this.modifySelfBuffStacks(1);
+    },
+
+    buff: {
+        currentAttack: 2,
+        maxHealth: 1
+    }
 
 };
 
