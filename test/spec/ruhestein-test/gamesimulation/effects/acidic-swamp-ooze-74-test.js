@@ -27,7 +27,7 @@ describe('AcidicSwampOoze74', function() {
             },
             player2: {
                 deck: [
-                    '1 Acidic Swamp Ooze'
+                    '2 Acidic Swamp Ooze'
                 ],
             }
         });
@@ -35,6 +35,7 @@ describe('AcidicSwampOoze74', function() {
         g.oWeapon('5/2 Arcanite Reaper');
         g.play(g.hand(0, 'Acidic Swamp Ooze'), 0, '{ZZZ}');
         g.oWeapon(null);
+        g.play(g.hand(0, 'Acidic Swamp Ooze'), 0, '{ZZZ}');
     });
 
 });

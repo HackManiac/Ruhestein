@@ -14,8 +14,11 @@ var AcidicSwampOoze74 = {
         return this.formatDescription('Battlecry: Destroy your opponent\'s weapon.');
     },
 
-    cast: function() {
-        this.killCard(this.getPlayer().getOpponent().getWeapon());
+    castBattlecry: function() {
+        var weapon = this.getPlayer().getOpponentWeapon();
+        if (weapon) {
+            this.killCard(weapon);
+        }
     },
 
 };
