@@ -15,7 +15,14 @@ var RepairBot439 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "RepairBot439"');
+        var didEndTurn = function() {
+            var cards = this.collectCardsByLocation('allCharacters');
+            cards.forEach(function(card) {
+                this.healDamage(3, card);
+            }, this);
+        };
+
+        this.onEndOfPlayerTurn(didEndTurn);
     },
 
 };
