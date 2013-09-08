@@ -334,6 +334,37 @@ var Effect = Model.extend({
         return this.buffCards(getCards);
     },
 
+    getSelfBuff: function() {
+        return this.getBuffByCard(this.getCard());
+    },
+
+    getSelfBuffStacks: function() {
+        var selfBuff = this.getSelfBuff();
+        var stacks;
+        if (selfBuff) {
+            stacks = selfBuff.getStacks();
+        } else {
+            stacks = 0;
+        }
+        return stacks;
+    },
+
+    setSelfBuffStacks: function(stacks) {
+        var selfBuff = this.getSelfBuff();
+        if ((stacks <= 0) && selfBuff) {
+            selfBuff.uncast();
+        } else if (stacks > 0) {
+            if (!selfBuff) {
+                selfBuff = this.buffCard(this.getCard());
+            }
+            selfBuff.setStacks(stacks);
+        }
+    },
+
+    modifySelfBuffStacks: function(delta) {
+        this.setSelfBuffStacks(this.getSelfBuffStacks() + delta);
+    },
+
 
     // player helper methods
 
