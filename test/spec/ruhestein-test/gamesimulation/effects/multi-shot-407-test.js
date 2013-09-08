@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,34 @@ describe('MultiShot407', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '2 Malygos'
+                ],
+                playCards: 2
+            },
             player2: {
                 deck: [
-                    '1 Multi-Shot'
+                    '2 Multi-Shot'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Multi-Shot'), 0, '{}');
+        g.oBattlefield(0, '4/12');
+        g.oBattlefield(1, '4/12');
+        g.play(g.hand(0, 'Multi-Shot'), null, '{Dead}');
+        g.oBattlefield(0, '4/9');
+        g.oBattlefield(1, '4/9');
 
-        // TODO
+        g.test.playSpellPowerPlus5();
+
+        g.oBattlefield(0, '4/9');
+        g.oBattlefield(1, '4/9');
+        g.play(g.hand(0, 'Multi-Shot'), null, '{Dead}');
+        g.oBattlefield(0, '4/1');
+        g.oBattlefield(1, '4/1');
     });
 
 });

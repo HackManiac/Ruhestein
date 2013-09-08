@@ -10,12 +10,28 @@
 
 var MultiShot407 = {
 
+    basePower: 3,
+
     getDescription: function() {
-        return this.formatDescription('Deal 3 damage to two random enemy minions.');
+        return this.formatDescription('Deal {P} damage to two random enemy minions.');
+    },
+
+    canCast: function() {
+        var candidates = this.collectCardsByLocation('opponentBattlefield');
+        return (candidates.length >= 2);
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MultiShot407"');
+        var candidates = this.collectCardsByLocation('opponentBattlefield');
+        var index1 = this.getGame().roll(candidates.length) - 1;
+        var index2 = this.getGame().roll(candidates.length - 1) - 1;
+        if (index2 >= index1) {
+            index2++;
+        }
+
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, candidates.at(index1));
+        this.dealDamage(damage, candidates.at(index2));
     },
 
 };
