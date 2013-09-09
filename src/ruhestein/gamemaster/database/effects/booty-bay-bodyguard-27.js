@@ -15,7 +15,7 @@ var BootyBayBodyguard27 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "BootyBayBodyguard27"');
+        this.castTaunt();
     },
 
 };
