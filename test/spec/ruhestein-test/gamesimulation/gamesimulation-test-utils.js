@@ -198,8 +198,10 @@ var setupGameTestEngine = function(info) {
         },
 
         gm: {
-            predictRoll: function(value) {
-                simulation.predictRoll(value);
+            predictRoll: function() {
+                for (var i = 0; i < arguments.length; i++) {
+                    simulation.predictRoll(arguments [i]);
+                }
             },
 
             predictCardChoice: function(choice) {
