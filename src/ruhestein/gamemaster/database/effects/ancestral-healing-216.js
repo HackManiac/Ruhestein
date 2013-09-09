@@ -14,8 +14,11 @@ var AncestralHealing216 = {
         return this.formatDescription('Restore a minion to full Health and give it Taunt.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "AncestralHealing216"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        target.setDamage(0);
+        target.setHasTaunt(true);
     },
 
 };

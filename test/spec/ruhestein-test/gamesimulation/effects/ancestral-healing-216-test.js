@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,16 +16,19 @@ describe('AncestralHealing216', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Ancestral Healing'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Ancestral Healing'), 0, '{}');
+        g.test.dealDamage(11, g.battlefield(0, '4/12 {ZZZ}'), '4/1 {ZZZ}');
+        g.play(g.hand(0, 'Ancestral Healing'), g.battlefield(0, '4/1 {ZZZ}'), '{Dead}', '4/12 {Taunt,ZZZ}');
 
         // TODO
     });
