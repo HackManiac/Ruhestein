@@ -15,8 +15,16 @@ var Archmage545 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Archmage545"');
+        this.buffCard(null);
     },
+
+    castBuff: function() {
+        this.getPlayer().modifySpellPower(1);
+    },
+
+    uncastBuff: function() {
+        this.getPlayer().modifySpellPower(-1);
+    }
 
 };
 
