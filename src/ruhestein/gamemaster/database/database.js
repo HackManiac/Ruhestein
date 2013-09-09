@@ -235,7 +235,7 @@ var mixin = function(owner, game) {
         },
 
         createDeckFromHearthpwnDeckbuilderUrl: function(name, url) {
-            var md = url.match(/(a-z+)#([0-9:;]+)/);
+            var md = url.match(/([a-z]+)#([0-9:;]+)/);
             if (!md) {
                 throw new Error('Invalid URL');
             }
