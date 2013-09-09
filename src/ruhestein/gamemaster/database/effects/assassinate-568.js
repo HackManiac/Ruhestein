@@ -14,9 +14,11 @@ var Assassinate568 = {
         return this.formatDescription('Destroy an enemy minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Assassinate568"');
-    },
+    targetLocations: 'opponentBattlefield',
+
+    cast: function(target) {
+        this.killCard(target);
+    }
 
 };
 
