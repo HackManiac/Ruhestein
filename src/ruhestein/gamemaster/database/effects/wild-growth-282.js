@@ -15,8 +15,10 @@ var WildGrowth282 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WildGrowth282"');
-    },
+        var player = this.getPlayer();
+        player.modifyBaseMana(1);
+        player.modifyMaxMana(1);
+    }
 
 };
 

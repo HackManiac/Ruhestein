@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('WildGrowth282', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,16 @@ describe('WildGrowth282', function() {
             }
         });
 
-        g.play(g.hand(0, 'Wild Growth'), 0, '{}');
+        g.test.replenishMana(2);
+        g.play(g.hand(0, 'Wild Growth'), null, '{Dead}');
+        expect(g.game.getMaxMana()).to.equal(3);
+        expect(g.game.getCurrentMana()).to.equal(0);
 
-        // TODO
+        g.endTurn();
+        g.endTurn();
+
+        expect(g.game.getMaxMana()).to.equal(4);
+        expect(g.game.getCurrentMana()).to.equal(4);
     });
 
 });
