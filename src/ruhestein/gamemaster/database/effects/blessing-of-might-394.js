@@ -14,9 +14,15 @@ var BlessingOfMight394 = {
         return this.formatDescription('Give a minion +3 Attack.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "BlessingOfMight394"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    buff: {
+        currentAttack: 3
+    }
 
 };
 
