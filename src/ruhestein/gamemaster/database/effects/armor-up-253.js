@@ -15,8 +15,8 @@ var ArmorUp253 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ArmorUp253"');
-    },
+        this.getPlayer().modifyCurrentArmor(2);
+    }
 
 };
 

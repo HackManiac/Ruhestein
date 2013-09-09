@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,16 @@ describe('ArmorUp253', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
-                deck: [
-                    '1 Armor Up!'
-                ],
+                'class': 'Warrior',
             }
         });
 
-        g.play(g.hand(0, 'Armor Up!'), 0, '{}');
-
-        // TODO
+        expect(g.game.getCurrentArmor()).to.equal(0);
+        g.play(g.heroPower('Armor Up!'), null);
+        expect(g.game.getCurrentArmor()).to.equal(2);
     });
 
 });
