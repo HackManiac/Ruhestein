@@ -15,7 +15,7 @@ var RecklessRocketeer560 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "RecklessRocketeer560"');
+        this.castCharge();
     },
 
 };
