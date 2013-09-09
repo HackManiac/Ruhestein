@@ -6,10 +6,7 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
-var GameSimulationTestUtils = require('../gamesimulation-test-utils');
+// var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
 
@@ -17,20 +14,20 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('Chicken552', function() {
 
-    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
+    // var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
-        var g = setupDefaultGameTestEngine({
-            player2: {
-                deck: [
-                    '1 Chicken'
-                ],
-            }
-        });
+    it('should work correctly', function() {
+        // var g = setupDefaultGameTestEngine({
+        //     player2: {
+        //         deck: [
+        //             '1 Chicken'
+        //         ],
+        //     }
+        // });
 
-        g.play(g.hand(0, 'Chicken'), 0, '{}');
+        // g.play(g.hand(0, 'Chicken'), 0, '{}');
 
-        // TODO
+        // it has no real effect...
     });
 
 });

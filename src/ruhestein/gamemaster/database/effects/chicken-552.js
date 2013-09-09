@@ -15,7 +15,7 @@ var Chicken552 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Chicken552"');
+        // nop
     },
 
 };
