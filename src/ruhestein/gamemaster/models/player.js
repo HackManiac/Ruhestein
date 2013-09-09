@@ -158,6 +158,11 @@ var Player = Model.extend({
         this.set('baseMana', utils.cap(baseMana, 0, 10));
     },
 
+    modifyBaseMana: function(delta) {
+        var baseMana = this.getBaseMana();
+        this.setBaseMana(baseMana + delta);
+    },
+
     getMaxMana: function() {
         return this.get('maxMana');
     },
