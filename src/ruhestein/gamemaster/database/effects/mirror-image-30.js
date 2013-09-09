@@ -10,13 +10,25 @@
 
 var MirrorImage30 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Mirror Image',
+            attack: 0,
+            health: 1,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Summon two 0/1 minions with Taunt.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MirrorImage30"');
-    },
+        for (var i = 0; i < 2; i++) {
+            var card = this.createNamedCard('summon');
+            this.summonCard(card);
+        }
+    }
 
 };
 

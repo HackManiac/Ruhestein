@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('MirrorImage650', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,9 @@ describe('MirrorImage650', function() {
             }
         });
 
-        g.play(g.hand(0, 'Mirror Image'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Mirror Image'), null, '{Dead}');
+        g.battlefield(0, '0/1 Mirror Image {Taunt,ZZZ}');
+        g.battlefield(1, '0/1 Mirror Image {Taunt,ZZZ}');
     });
 
 });

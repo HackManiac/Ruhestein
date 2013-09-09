@@ -15,7 +15,7 @@ var MirrorImage650 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MirrorImage650"');
+        this.castTaunt();
     },
 
 };
