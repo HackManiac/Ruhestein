@@ -10,12 +10,24 @@
 
 var Hex270 = {
 
+    cardFilters: {
+        frog: {
+            name: 'Frog',
+            attack: 0,
+            health: 1,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Transform a minion into a 0/1 Frog with Taunt.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Hex270"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        var card = this.createNamedCard('frog');
+        target.transformTo(card);
     },
 
 };

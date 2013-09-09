@@ -15,7 +15,7 @@ var Frog115 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Frog115"');
+        this.castTaunt();
     },
 
 };
