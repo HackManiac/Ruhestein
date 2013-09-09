@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('RockbiterWeapon491', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,9 @@ describe('RockbiterWeapon491', function() {
             }
         });
 
-        g.play(g.hand(0, 'Rockbiter Weapon'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Rockbiter Weapon'), g.hero('0/30'), '{Dead}', '3/30');
+        g.endTurn();
+        g.oHero('0/30');
     });
 
 });

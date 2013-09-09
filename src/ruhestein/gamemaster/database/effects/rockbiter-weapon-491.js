@@ -14,9 +14,19 @@ var RockbiterWeapon491 = {
         return this.formatDescription('Give a friendly character +3 Attack this turn.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "RockbiterWeapon491"');
+    targetLocations: 'characters',
+
+    cast: function(target) {
+        var buff = this.buffCard(target);
+
+        this.onEndOfNextPlayerTurn(function() {
+            buff.uncast();
+        });
     },
+
+    buff: {
+        currentAttack: 3
+    }
 
 };
 
