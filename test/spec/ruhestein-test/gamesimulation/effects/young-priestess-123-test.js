@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,23 @@ describe('YoungPriestess123', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '2 Wisp',
                     '1 Young Priestess'
                 ],
+                playCards: 2
             }
         });
 
-        g.play(g.hand(0, 'Young Priestess'), 0, '{}');
+        g.play(g.hand(0, 'Young Priestess'), 2, '{EffectTrigger,ZZZ}');
 
-        // TODO
+        g.battlefield(1, '1/1');
+        g.gm.predictRoll(2);
+        g.endTurn();
+        g.oBattlefield(1, '1/2');
     });
 
 });

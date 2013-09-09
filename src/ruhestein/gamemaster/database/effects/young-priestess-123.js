@@ -15,8 +15,34 @@ var YoungPriestess123 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "YoungPriestess123"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didEndTurn = function() {
+            this.getCard().triggerEffectTrigger();
+        };
+
+        this.onEndOfPlayerTurn(didEndTurn);
+    },
+
+    triggerEffectTrigger: function() {
+        var source = this.getCard();
+
+        var candidates = this.collectCardsByLocation('battlefield', function(card) {
+            return (card !== source);
+        });
+
+        if (candidates.length > 0) {
+            var index = this.getGame().roll(candidates.length) - 1;
+            var card = candidates.at(index);
+            this.buffCard(card);
+        }
+    },
+
+    buff: {
+        maxHealth: 1
+    }
 
 };
 
