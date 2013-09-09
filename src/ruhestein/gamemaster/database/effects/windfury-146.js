@@ -14,8 +14,10 @@ var Windfury146 = {
         return this.formatDescription('Give a minion Windfury.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Windfury146"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        target.setHasWindfury(true);
     },
 
 };

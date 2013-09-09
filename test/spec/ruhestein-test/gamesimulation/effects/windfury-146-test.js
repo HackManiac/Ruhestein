@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('Windfury146', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Wisp',
                     '1 Windfury'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Windfury'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Windfury'), g.battlefield(0, '1/1 Wisp {ZZZ}'), '{Dead}', '{Windfury,ZZZ}');
     });
 
 });
