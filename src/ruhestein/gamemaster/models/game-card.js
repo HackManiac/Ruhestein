@@ -813,13 +813,24 @@ var GameCard = Card.extend({
     },
 
     transformTo: function(card) {
-        var attributes = _.clone(card.attributes);
-        delete attributes.owner;
-        delete attributes.location;
+        if (card.getLocation() !== 'created') {
+            throw new Error('Must transform into newly created card');
+        }
 
-        this.reset();
+        card = this.getOwner().createCardById(card.getId());
 
-        this.set(attributes);
+        var location = this.getLocation();
+        if (location !== 'battlefield') {
+            throw new Error('Unsupported location');
+        }
+
+        var collection = this.getOwner().getBattlefield();
+        var index = collection.indexOf(this);
+
+        this.moveTo('transitioningCards');
+        card.moveTo('spawningCards');
+        card.play(index);
+        this.moveTo('discardPile');
     }
 
 });
