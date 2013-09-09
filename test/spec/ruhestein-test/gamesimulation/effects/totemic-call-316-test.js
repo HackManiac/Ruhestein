@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,31 @@ describe('TotemicCall316', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'Shaman',
                 deck: [
-                    '1 Totemic Call'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Totemic Call'), 0, '{}');
+        var totems = [
+            '0/2 Healing Totem {EffectTrigger,ZZZ}',
+            '1/1 Searing Totem {ZZZ}',
+            '0/2 Stoneclaw Totem {Taunt,ZZZ}',
+            '0/2 Wrath of Air Totem {ZZZ}'
+        ];
 
-        // TODO
+        for (var i = 0; i < totems.length; i++) {
+            var totem = totems [i];
+            g.gm.predictRoll(1);
+            g.play(g.heroPower('Totemic Call'), null);
+            g.battlefield(i, totem);
+
+            g.endTurn();
+            g.endTurn();
+        }
     });
 
 });

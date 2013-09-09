@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,31 @@ describe('HealingTotem275', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'Shaman',
                 deck: [
-                    '1 Healing Totem'
+                    '1 Malygos'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Healing Totem'), 0, '{}');
-
-        // TODO
+        g.test.dealDamage(3, g.hero('0/30'));
+        g.test.dealDamage(3, g.battlefield(0, '4/12'));
+        g.gm.predictRoll(1);
+        g.play(g.heroPower('Totemic Call'), null);
+        g.battlefield(1, '0/2 Healing Totem {EffectTrigger,ZZZ}');
+        g.endTurn();
+        g.oHero('0/28');
+        g.oBattlefield(0, '4/10');
+        g.endTurn();
+        g.hero('0/28');
+        g.battlefield(0, '4/10');
+        g.endTurn();
+        g.oHero('0/29');
+        g.oBattlefield(0, '4/11');
     });
 
 });

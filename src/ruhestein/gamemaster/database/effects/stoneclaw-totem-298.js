@@ -15,7 +15,7 @@ var StoneclawTotem298 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "StoneclawTotem298"');
+        this.castTaunt();
     },
 
 };

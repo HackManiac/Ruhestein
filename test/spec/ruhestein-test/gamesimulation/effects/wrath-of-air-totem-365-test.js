@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('WrathOfAirTotem365', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'Shaman',
                 deck: [
-                    '1 Wrath of Air Totem'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Wrath of Air Totem'), 0, '{}');
-
-        // TODO
+        expect(g.game.getSpellPower()).to.equal(0);
+        g.gm.predictRoll(4);
+        g.play(g.heroPower('Totemic Call'), null);
+        g.battlefield(0, '0/2 Wrath of Air Totem {ZZZ}');
+        expect(g.game.getSpellPower()).to.equal(1);
     });
 
 });

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('StoneclawTotem298', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'Shaman',
                 deck: [
-                    '1 Stoneclaw Totem'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Stoneclaw Totem'), 0, '{}');
-
-        // TODO
+        g.gm.predictRoll(3);
+        g.play(g.heroPower('Totemic Call'), null);
+        g.battlefield(0, '0/2 Stoneclaw Totem {Taunt,ZZZ}');
     });
 
 });

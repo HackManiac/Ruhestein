@@ -15,8 +15,16 @@ var WrathOfAirTotem365 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WrathOfAirTotem365"');
+        this.buffCard(null);
     },
+
+    castBuff: function() {
+        this.getPlayer().modifySpellPower(1);
+    },
+
+    uncastBuff: function() {
+        this.getPlayer().modifySpellPower(-1);
+    }
 
 };
 

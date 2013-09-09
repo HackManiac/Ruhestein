@@ -15,8 +15,23 @@ var HealingTotem275 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "HealingTotem275"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didEndTurn = function() {
+            this.getCard().triggerEffectTrigger();
+        };
+
+        this.onEndOfPlayerTurn(didEndTurn);
+    },
+
+    triggerEffectTrigger: function() {
+        var cards = this.collectCardsByLocation('characters');
+        cards.forEach(function(card) {
+            this.healDamage(1, card);
+        }, this);
+    }
 
 };
 
