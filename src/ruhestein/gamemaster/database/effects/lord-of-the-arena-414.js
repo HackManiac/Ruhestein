@@ -15,7 +15,7 @@ var LordOfTheArena414 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "LordOfTheArena414"');
+        this.castTaunt();
     },
 
 };
