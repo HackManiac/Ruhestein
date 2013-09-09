@@ -995,6 +995,222 @@ describe('GameSimulation', function() {
         });
     });
 
+    describe('Noxious #6: Mage vs Mage', function() {
+        var g, tmpCard, tmpCards;
+
+        it('should play the game correctly', function() {
+            // P2-T1
+            g.endTurn();
+
+            // P1-T1
+            g.endTurn();
+
+            // P2-T2
+            g.play(g.heroPower('Fireblast'), g.oHero('0/30'), null, '0/29');
+            g.endTurn();
+
+            // P1-T2
+            g.play(g.hand(0, '1/2 Goldshire Footman'), 0, '{Taunt,ZZZ}');
+            g.endTurn();
+
+            // P2-T3
+            g.gm.predictRoll(2, 1, 1);
+            g.play(g.hand(1, 'Arcane Missiles'), null, '{Dead}');
+            g.oHero('0/27');
+            g.oBattlefield(0, '1/1 Goldshire Footman');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Goldshire Footman'), null, '{Dead}');
+            g.endTurn();
+
+            // P1-T3
+            expect(g.game.getHandCardCount()).to.equal(7);
+            g.play(g.hand(0, 'Arcane Intellect'), null, '{Dead}');
+            expect(g.game.getHandCardCount()).to.equal(8);
+            g.endTurn();
+
+            // P2-T4
+            g.play(g.hand(0, '2/3 Razorfen Hunter'), 0, '{ZZZ}');
+            g.battlefield(1, '1/1 Boar {ZZZ}');
+            g.endTurn();
+
+            // P1-T4
+            g.play(g.hand(0, 'Mirror Image'), null, '{Dead}');
+            g.battlefield(0, '0/1 Mirror Image {Taunt,ZZZ}');
+            g.battlefield(1, '0/1 Mirror Image {Taunt,ZZZ}');
+            g.play(g.hand(0, '3/3 Shattered Sun Cleric'), g.battlefield(1, '0/1 Mirror Image'), '{ZZZ}', '1/2');
+            g.endTurn();
+
+            // P2-T5
+            g.play(g.hand(5, 'Frostbolt'), g.oBattlefield(2, '3/3 Shattered Sun Cleric'), '{Dead}', '{Dead}');
+            g.play(g.battlefield(0, '2/3 Razorfen Hunter'), g.oBattlefield(1, '1/2 Mirror Image'), '2/2', '{Dead}');
+            g.play(g.battlefield(1, '1/1 Boar'), g.oBattlefield(0, '0/1 Mirror Image'), '1/1', '{Dead}');
+            g.play(g.heroPower('Fireblast'), g.oHero('0/27'), null, '0/26');
+            g.endTurn();
+
+            // P1-T5
+            g.play(g.hand(1, '1/4 Silverback Patriarch'), 0, '{Taunt,ZZZ}');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(1, '1/1 Boar'), null, '{Dead}');
+            g.endTurn();
+
+            // P2-T6
+            g.play(g.hand(2, '2/2 Raid Leader'), 1, '{ZZZ}');
+            g.battlefield(0, '3/2 Razorfen Hunter');
+            g.play(g.battlefield(0, '3/2 Razorfen Hunter'), g.oBattlefield(0, '1/4 Silverback Patriarch'), '3/1', '1/1');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Silverback Patriarch'), null, '{Dead}');
+            g.endTurn();
+
+            // P1-T6
+            g.play(g.hand(1, '6/5 Lord of the Arena'), 0, '{Taunt,ZZZ}');
+            g.endTurn();
+
+            // P2-T7
+            g.play(g.hand(4, 'Polymorph'), g.oBattlefield(0, '6/5 Lord of the Arena'), '{Dead}', null);
+            g.oBattlefield(0, '1/1 Sheep');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Sheep'), null, '{Dead}');
+            g.play(g.battlefield(0, '3/1 Razorfen Hunter'), g.oHero('0/26'), '3/1', '0/23');
+            g.play(g.battlefield(1, '2/2 Raid Leader'), g.oHero('0/23'), '2/2', '0/21');
+            g.endTurn();
+
+            // P1-T7
+            g.play(g.hand(1, 'Arcane Explosion'), null);
+            g.oBattlefield(0, '2/1 Raid Leader');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '2/1 Raid Leader'), null, '{Dead}');
+            g.play(g.hand(0, 'The Coin'), null);
+            g.play(g.hand(0, 'Fireball'), g.oHero('0/30'), '{Dead}', '0/24');
+            g.endTurn();
+
+            // P2-T8
+            g.play(g.hand(5, '3/3 Ironfur Grizzly'), 0, '{Taunt,ZZZ}');
+            g.play(g.hand(1, '3/3 Ironfur Grizzly'), 0, '{Taunt,ZZZ}');
+            g.play(g.heroPower('Fireblast'), g.oHero('0/21'), null, '0/20');
+            g.endTurn();
+
+            // P1-T8
+            g.play(g.hand(0, 'Frostbolt'), g.oBattlefield(0, '3/3 Ironfur Grizzly'), '{Dead}', '{Dead}');
+            g.oBattlefield(0, '3/3 Ironfur Grizzly');
+            g.play(g.hand(0, 'Arcane Explosion'), null, '{Dead}');
+            g.oBattlefield(0, '3/2 Ironfur Grizzly');
+            g.gm.predictRoll(1, 2, 1);
+            g.play(g.hand(0, 'Arcane Missiles'), null, '{Dead}');
+            g.oHero('0/22');
+            g.oBattlefield(0, '3/1');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '3/1 Ironfur Grizzly'), null, '{Dead}');
+            g.endTurn();
+
+            // P2-T9
+            expect(g.game.getHandCardCount()).to.equal(5);
+            g.play(g.hand(2, 'Arcane Intellect'), null);
+            expect(g.game.getHandCardCount()).to.equal(6);
+            g.play(g.hand(3, '2/1 Murloc Tidehunter'), 0, '{ZZZ}');
+            g.battlefield(1, '1/1 Murloc Scout {ZZZ}');
+            g.play(g.hand(3, '2/1 Murloc Tidehunter'), 2, '{ZZZ}');
+            g.battlefield(3, '1/1 Murloc Scout {ZZZ}');
+            g.play(g.heroPower('Fireblast'), g.oHero('0/20'), null, '0/19');
+            g.endTurn();
+
+            // P1-T9
+            expect(g.game.getHandCardCount()).to.equal(4);
+            g.play(g.hand(0, 'Arcane Intellect'), null);
+            expect(g.game.getHandCardCount()).to.equal(5);
+            g.play(g.hand(0, '1/2 Goldshire Footman'), 0, '{Taunt,ZZZ}');
+            g.play(g.hand(0, '2/1 Young Priestess'), 1, '{EffectTrigger,ZZZ}');
+            g.play(g.hand(0, '2/2 Raid Leader'), 0, '{ZZZ}');
+            g.battlefield(1, '2/2 Goldshire Footman');
+            g.battlefield(2, '3/1 Young Priestess');
+            g.gm.predictRoll(2);
+            g.endTurn();
+            g.oBattlefield(1, '2/3 Goldshire Footman');
+
+            // P2-T10
+            g.play(g.hand(2, 'Cone of Cold'), g.oBattlefield(1, '2/3 Goldshire Footman'), '{Dead}', '2/2 {Frozen,Taunt}');
+            g.oBattlefield(0, '2/1 {Frozen}');
+            g.oBattlefield(2, null);
+            g.play(g.hand(2, 'Arcane Explosion'), null, '{Dead}');
+            g.oBattlefield(0, '1/1 Goldshire Footman');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Goldshire Footman'), null, '{Dead}');
+            g.play(g.hand(2, '2/2 Raid Leader'), 4, '{ZZZ}');
+            g.battlefield(0, '3/1 Murloc Tidehunter');
+            g.battlefield(1, '2/1 Murloc Scout');
+            g.battlefield(2, '3/1 Murloc Tidehunter');
+            g.battlefield(3, '2/1 Murloc Scout');
+            g.play(g.battlefield(3, '2/1 Murloc Scout'), g.oHero('0/19'), '2/1', '0/17');
+            g.play(g.battlefield(2, '3/1 Murloc Tidehunter'), g.oHero('0/17'), '3/1', '0/14');
+            g.play(g.battlefield(0, '3/1 Murloc Tidehunter'), g.oHero('0/14'), '3/1', '0/11');
+            g.play(g.battlefield(1, '2/1 Murloc Scout'), g.oHero('0/11'), '2/1', '0/9');
+            g.endTurn();
+
+            // P1-T10
+            g.gm.predictRoll(3, 4, 2);
+            g.play(g.hand(0, 'Arcane Missiles'), null, '{Dead}');
+            g.oBattlefield(0, '2/1 Murloc Scout');
+            g.oBattlefield(1, '2/2 Raid Leader');
+            g.play(g.hand(0, 'Polymorph'), g.oBattlefield(1, '2/2 Raid Leader'), '{Dead}', '{Dead}');
+            g.oBattlefield(1, '1/1 Sheep');
+            g.oBattlefield(0, '1/1 Murloc Scout');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Murloc Scout'), null, '{Dead}');
+            g.endTurn();
+
+            // P2-T11
+            expect(g.game.getHandCardCount()).to.equal(3);
+            g.play(g.hand(0, 'Arcane Intellect'), null, '{Dead}');
+            expect(g.game.getHandCardCount()).to.equal(4);
+            g.play(g.hand(2, '3/1 Wolfrider'), 1, '{Charge}');
+            g.play(g.battlefield(1, '3/1 Wolfrider'), g.oHero('0/9'), '3/1', '0/6');
+            g.play(g.hand(2, 'Fireball'), g.oHero('0/6'), '{Dead}', '{Dead}');
+        });
+
+        g = setupGameTestEngine({
+            startingPlayer: 2,
+
+            player1: {
+                'class': 'Mage',
+                deck: [
+                    '1 Goldshire Footman',
+                    '1 Arcane Intellect',
+                    '1 Mirror Image',
+                    '1 Shattered Sun Cleric',
+                    '1 Silverback Patriarch',
+                    '1 Lord of the Arena',
+                    '1 Arcane Explosion',
+                    '1 Fireball',
+                    '1 Frostbolt',
+                    '1 Arcane Explosion',
+                    '1 Arcane Missiles',
+                    '1 Arcane Intellect',
+                    '1 Goldshire Footman',
+                    '1 Young Priestess',
+                    '1 Raid Leader',
+                    '1 Arcane Missiles',
+                    '1 Polymorph',
+
+                ],
+            },
+
+            player2: {
+                'class': 'Mage',
+                deck: [
+                    '1 Razorfen Hunter',
+                    '1 Arcane Missiles',
+                    '1 Arcane Intellect',
+                    '1 Ironfur Grizzly',
+                    '1 Raid Leader',
+                    '1 Polymorph',
+                    '1 Arcane Intellect',
+                    '1 Frostbolt',
+                    '1 Polymorph',
+                    '1 Cone of Cold',
+                    '1 Ironfur Grizzly',
+                    '1 Murloc Tidehunter',
+                    '1 Murloc Tidehunter',
+                    '1 Arcane Explosion',
+                    '1 Raid Leader',
+                    '1 Acidic Swamp Ooze',
+                    '1 Wolfrider',
+                    '1 Fireball',
+                ],
+            }
+        });
+    });
+
     // describe('Game Title', function() {
     //     var g, tmpCard, tmpCards;
 
