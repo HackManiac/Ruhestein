@@ -10,13 +10,19 @@
 
 var FrostShock233 = {
 
+    basePower: 1,
+
     getDescription: function() {
-        return this.formatDescription('Deal 1 damage to an enemy character and Freeze it.');
+        return this.formatDescription('Deal {P} damage to an enemy character and Freeze it.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "FrostShock233"');
-    },
+    targetLocations: 'opponentCharacters',
+
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
+        target.setIsFrozen(true);
+    }
 
 };
 
