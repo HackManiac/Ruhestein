@@ -15,8 +15,17 @@ var WarsongCommander193 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WarsongCommander193"');
+        var source = this.getCard();
+
+        this.buffCardsByLocation('battlefield', function(card) {
+            return (card !== source);
+        });
     },
+
+    castBuff: function(target) {
+        target.setHasCharge(true);
+        target.setIsAsleep(false);
+    }
 
 };
 

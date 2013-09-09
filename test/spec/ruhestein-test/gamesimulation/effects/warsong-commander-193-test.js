@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,22 @@ describe('WarsongCommander193', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Warsong Commander'
+                    '1 Wisp',
+                    '1 Warsong Commander',
+                    '1 Wisp'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Warsong Commander'), 0, '{}');
-
-        // TODO
+        g.battlefield(0, '1/1 Wisp {ZZZ}');
+        g.play(g.hand(0, 'Warsong Commander'), 1, '{ZZZ}');
+        g.battlefield(0, '1/1 Wisp {Charge}');
+        g.play(g.hand(0, '1/1 Wisp'), 2, '{Charge}');
     });
 
 });
