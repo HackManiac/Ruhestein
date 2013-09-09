@@ -206,7 +206,8 @@ describe('GameSimulation', function() {
             g.endTurn();
 
             // P2-T10
-            g.play(g.hand(3, 'Polymorph'), g.oBattlefield(0, '9/5 Core Hound'), null, '1/1 Sheep');
+            g.play(g.hand(3, 'Polymorph'), g.oBattlefield(0, '9/5 Core Hound'), null, null);
+            g.oBattlefield(0, '1/1 Sheep');
             g.oHero('0/16');
             g.play(g.hand(0, '4/4 Nightblade'), 0);
             g.oHero('0/13');
@@ -354,7 +355,8 @@ describe('GameSimulation', function() {
             g.endTurn();
 
             // P2-T6
-            g.play(g.hand(3, 'Polymorph'), g.oBattlefield(1, '4/4 Nightblade'), null, '1/1 Sheep');
+            g.play(g.hand(3, 'Polymorph'), g.oBattlefield(1, '4/4 Nightblade'), null, null);
+            g.oBattlefield(1, '1/1 Sheep');
             g.play(g.hand(4, 'Arcane Explosion'));
             g.oBattlefield(0, '2/1 Gnomish Inventor');
             g.oBattlefield(1, null);
@@ -560,7 +562,8 @@ describe('GameSimulation', function() {
             g.endTurn();
 
             // P2-T7
-            g.play(g.hand(0, 'Polymorph'), g.oBattlefield(0, '4/5 Darkscale Healer'), null, '1/1 Sheep');
+            g.play(g.hand(0, 'Polymorph'), g.oBattlefield(0, '4/5 Darkscale Healer'), null, null);
+            g.oBattlefield(0, '1/1 Sheep');
             g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '1/1 Sheep'), null, '{Dead}');
             g.play(g.battlefield(0, '3/3 Sen\'jin Shieldmasta'), g.oHero('0/23'), '3/3', '0/20');
             g.play(g.battlefield(2, '1/1 Murloc Scout'), g.oHero('0/20'), '1/1', '0/19');
@@ -766,7 +769,8 @@ describe('GameSimulation', function() {
             g.endTurn();
 
             // P2-T8
-            g.play(g.hand(2, 'Polymorph'), g.oBattlefield(0, '1/4 Silverback Patriarch {Taunt}'), null, '1/1 Sheep');
+            g.play(g.hand(2, 'Polymorph'), g.oBattlefield(0, '1/4 Silverback Patriarch {Taunt}'), null, null);
+            g.oBattlefield(0, '1/1 Sheep');
             g.play(g.battlefield(0, '9/5 Frostwolf Warlord'), g.oHero('0/11'), '9/5', '0/2');
             g.play(g.battlefield(1, '2/2 Novice Engineer'), g.oHero('0/2'), '2/2', '{Dead}');
         });
@@ -805,6 +809,187 @@ describe('GameSimulation', function() {
                     '1 Polymorph',
                     '1 Frostbolt',
                     '1 Arcane Explosion',
+                ],
+            }
+        });
+    });
+
+    // Source: http://www.twitch.tv/noxious_hs/b/446722012
+    describe('Noxious #5: Shaman vs Mage', function() {
+        var g, tmpCard, tmpCards;
+
+        it('should play the game correctly', function() {
+            // P2-T1
+            g.endTurn();
+
+            // P1-T1
+            g.play(g.hand(0, '2/1 Murloc Raider'), 0, '{ZZZ}');
+            g.endTurn();
+
+            // P2-T2
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '2/1 Murloc Raider'), null, '{Dead}');
+            g.endTurn();
+
+            // P1-T2
+            g.play(g.hand(0, '1/1 Stonetusk Boar'), 0, '{Charge}');
+            g.play(g.hand(2, 'The Coin'), null);
+            g.gm.predictRoll(1);
+            g.play(g.heroPower('Totemic Call'), null);
+            g.battlefield(1, '0/2 Healing Totem {EffectTrigger,ZZZ}');
+            g.play(g.battlefield(0, '1/1 Stonetusk Boar'), g.oHero('0/30'), '1/1', '0/29');
+            g.endTurn();
+
+            // P2-T3
+            g.play(g.hand(4, '1/2 Novice Engineer'), 0, '{ZZZ}');
+            g.endTurn();
+
+            // P1-T3
+            g.battlefield(0, '1/1 Stonetusk Boar');
+            g.battlefield(1, '0/2 Healing Totem');
+            g.play(g.hand(0, '2/2 Raid Leader'), 0, '{ZZZ}');
+            g.battlefield(1, '2/1 Stonetusk Boar');
+            g.battlefield(2, '1/2 Healing Totem');
+            g.play(g.battlefield(1, '2/1 Stonetusk Boar'), g.oHero('0/29'), '2/1', '0/27');
+            g.play(g.battlefield(2, '1/2 Healing Totem'), g.oHero('0/27'), '1/2', '0/26');
+            g.endTurn();
+
+            // P2-T4
+            g.play(g.hand(2, 'Arcane Explosion'), null);
+            g.oBattlefield(0, '2/1 Raid Leader');
+            g.oBattlefield(1, '1/1 Healing Totem');
+            g.play(g.battlefield(0, '1/2 Novice Engineer'), g.oBattlefield(1, '1/1 Healing Totem'), '1/1', '{Dead}');
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '2/1 Raid Leader'), null, '{Dead}');
+            g.endTurn();
+
+            // P1-T4
+            g.play(g.hand(0, 'Frost Shock'), g.oBattlefield(0, '1/1 Novice Engineer'), null, '{Dead}');
+            g.play(g.hand(0, '2/1 Voodoo Doctor'), g.hero('0/30'), '{ZZZ}', '0/30');
+            g.gm.predictRoll(4);
+            g.play(g.heroPower('Totemic Call'), null);
+            g.battlefield(1, '0/2 Wrath of Air Totem {ZZZ}');
+            g.endTurn();
+
+            // P2-T5
+            g.play(g.heroPower('Fireblast'), g.oBattlefield(0, '2/1 Voodoo Doctor'), null, '{Dead}');
+            g.play(g.hand(5, '3/3 Ironfur Grizzly'), 0, '{Taunt,ZZZ}');
+            g.endTurn();
+
+            // P1-T5
+            g.gm.predictRoll(1);
+            g.play(g.heroPower('Totemic Call'), null);
+            g.battlefield(1, '0/2 Healing Totem {EffectTrigger,ZZZ}');
+            g.endTurn();
+
+            // P2-T6
+            g.play(g.hand(1, '1/2 Novice Engineer'), 1, '{ZZZ}');
+            g.play(g.hand(2, '3/5 Sen\'jin Shieldmasta'), 2, '{Taunt,ZZZ}');
+            g.play(g.battlefield(0, '3/3 Ironfur Grizzly'), g.oBattlefield(1, '0/2 Healing Totem'), '3/3', '{Dead}');
+            g.endTurn();
+
+            // P1-T6
+            g.play(g.hand(0, '3/5 Sen\'jin Shieldmasta'), 0, '{Taunt,ZZZ}');
+            g.play(g.hand(0, 'Frost Shock'), g.oBattlefield(2, '3/5 Sen\'jin Shieldmasta'), null, '3/3 {Frozen,Taunt}');
+            g.endTurn();
+
+            // P2-T7
+            g.play(g.hand(5, 'Fireball'), g.oBattlefield(0, '3/5 Sen\'jin Shieldmasta'), null, '{Dead}');
+            g.play(g.hand(2, '2/2 Raid Leader'), 3, '{ZZZ}');
+            g.battlefield(0, '4/3 Ironfur Grizzly');
+            g.battlefield(1, '2/2 Novice Engineer');
+            g.battlefield(2, '4/3 Sen\'jin Shieldmasta');
+            g.play(g.battlefield(0, '4/3 Ironfur Grizzly'), g.oHero('0/30'), '4/3', '0/26');
+            g.play(g.battlefield(1, '2/2 Novice Engineer'), g.oBattlefield(0, '0/2 Wrath of Air Totem'), '2/2', '{Dead}');
+            g.endTurn();
+
+            // P1-T7
+            g.play(g.hand(0, '5/2 Reckless Rocketeer'), 0, '{Charge}');
+            g.play(g.hand(0, 'Rockbiter Weapon'), g.battlefield(0, '5/2 Reckless Rocketeer'), null, '8/2');
+            g.play(g.battlefield(0, '8/2 Reckless Rocketeer'), g.oBattlefield(0, '4/3 Ironfur Grizzly'), '{Dead}', '{Dead}');
+            g.endTurn();
+
+            // P2-T8
+            g.play(g.hand(3, '4/4 Frostwolf Warlord'), 3, '8/7');
+            g.play(g.hand(2, 'Frostbolt'), g.oHero('0/26'), null, '0/23 {Frozen}');
+            g.play(g.battlefield(1, '4/3 Sen\'jin Shieldmasta'), g.oHero('0/23'), '4/3', '0/19');
+            g.play(g.battlefield(0, '2/2 Novice Engineer'), g.oHero('0/19'), '2/2', '0/17');
+            g.play(g.battlefield(2, '2/2 Raid Leader'), g.oHero('0/17'), '2/2', '0/15');
+            g.endTurn();
+
+            // P1-T8
+            g.play(g.hand(0, '5/4 Booty Bay Bodyguard'), 0, '5/4 {Taunt,ZZZ}');
+            g.play(g.hand(0, 'Hex'), g.oBattlefield(3, '8/7 Frostwolf Warlord'), '{Dead}', '{Dead}');
+            g.oBattlefield(3, '1/1 Frog {Taunt,ZZZ}');
+            g.endTurn();
+
+            // P2-T9
+            expect(g.game.getHandCardCount()).to.equal(5);
+            g.play(g.hand(2, 'Arcane Intellect'), null);
+            expect(g.game.getHandCardCount()).to.equal(6);
+            g.play(g.hand(1, 'Frostbolt'), g.oBattlefield(0, '5/4 Booty Bay Bodyguard'), null, '5/1 {Frozen,Taunt}');
+            g.play(g.battlefield(3, '1/1 Frog'), g.oBattlefield(0, '5/1 Booty Bay Bodyguard'), '{Dead}', '{Dead}');
+            g.play(g.hand(4, '2/1 Murloc Tidehunter'), 3, '3/1');
+            g.battlefield(4, '2/1 Murloc Scout');
+            g.play(g.battlefield(1, '4/3 Sen\'jin Shieldmasta'), g.oHero('0/15'), '4/3', '0/11');
+            g.play(g.battlefield(2, '2/2 Raid Leader'), g.oHero('0/11'), '2/2', '0/9');
+            g.play(g.battlefield(0, '2/2 Novice Engineer'), g.oHero('0/9'), '2/2', '0/7');
+            g.endTurn();
+
+            // P1-T9
+            g.play(g.hand(0, '2/1 Voodoo Doctor'), g.hero('0/7'), 0, '2/1 {ZZZ}', '0/9');
+            g.gm.predictRoll(3);
+            g.play(g.heroPower('Totemic Call'), null);
+            g.battlefield(1, '0/2 Stoneclaw Totem {Taunt,ZZZ}');
+            g.endTurn();
+
+            // P2-T10
+            g.play(g.hand(2, '4/4 Frostwolf Warlord'), 5, '10/9 {ZZZ}');
+            g.play(g.battlefield(4, '2/1 Murloc Scout'), g.oBattlefield(1, '0/2 Stoneclaw Totem'), '2/1', '{Dead}');
+            g.play(g.battlefield(3, '3/1 Murloc Tidehunter'), g.oHero('0/9'), '3/1', '0/6');
+            g.play(g.battlefield(1, '4/3 Sen\'jin Shieldmasta'), g.oHero('0/6'), '4/3', '0/2');
+            g.play(g.battlefield(2, '2/2 Raid Leader'), g.oHero('0/2'), '2/2', '{Dead}');
+        });
+
+        g = setupGameTestEngine({
+            startingPlayer: 2,
+
+            player1: {
+                'class': 'Shaman',
+                deck: [
+                    '1 Murloc Raider',
+                    '1 Stonetusk Boar',
+                    '1 Raid Leader',
+                    '1 Frost Shock',
+                    '1 Voodoo Doctor',
+                    '1 Sen\'jin Shieldmasta',
+                    '1 Frost Shock',
+                    '1 Reckless Rocketeer',
+                    '1 Rockbiter Weapon',
+                    '1 Booty Bay Bodyguard',
+                    '1 Hex',
+                    '1 Voodoo Doctor',
+                ],
+            },
+
+            player2: {
+                'class': 'Mage',
+                deck: [
+                    '1 Arcane Intellect',
+                    '1 Novice Engineer',
+                    '1 Arcane Explosion',
+                    '1 Frostbolt',
+                    '1 Novice Engineer',
+                    '1 Sen\'jin Shieldmasta',
+                    '1 Raid Leader',
+                    '1 Ironfur Grizzly',
+                    '1 Frostbolt',
+                    '1 Frostwolf Warlord',
+                    '1 Fireball',
+                    '1 Arcane Intellect',
+                    '1 Sen\'jin Shieldmasta',
+                    '1 Frostwolf Warlord',
+                    '1 Acidic Swamp Ooze',
+                    '1 Murloc Tidehunter',
+                    '1 Razorfen Hunter',
                 ],
             }
         });
