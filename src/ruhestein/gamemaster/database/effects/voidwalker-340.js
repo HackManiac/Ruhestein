@@ -15,7 +15,7 @@ var Voidwalker340 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Voidwalker340"');
+        this.castTaunt();
     },
 
 };
