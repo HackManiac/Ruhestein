@@ -15,8 +15,16 @@ var KoboldGeomancer479 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "KoboldGeomancer479"');
+        this.buffCard(null);
     },
+
+    castBuff: function() {
+        this.getPlayer().modifySpellPower(1);
+    },
+
+    uncastBuff: function() {
+        this.getPlayer().modifySpellPower(-1);
+    }
 
 };
 
