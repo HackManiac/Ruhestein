@@ -10,13 +10,18 @@
 
 var ShadowBolt647 = {
 
+    basePower: 4,
+
     getDescription: function() {
-        return this.formatDescription('Deal 4 damage to a minion.');
+        return this.formatDescription('Deal {P} damage to a minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "ShadowBolt647"');
-    },
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
+    }
 
 };
 

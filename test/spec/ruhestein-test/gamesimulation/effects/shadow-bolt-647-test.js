@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,24 @@ describe('ShadowBolt647', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '2 Malygos'
+                ],
+                playCards: 2
+            },
             player2: {
                 deck: [
-                    '1 Shadow Bolt'
+                    '2 Shadow Bolt'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Shadow Bolt'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Shadow Bolt'), g.oBattlefield(0, '4/12'), '{Dead}', '4/8');
+        g.test.playSpellPowerPlus5();
+        g.play(g.hand(0, 'Shadow Bolt'), g.oBattlefield(1, '4/12'), '{Dead}', '4/3');
     });
 
 });
