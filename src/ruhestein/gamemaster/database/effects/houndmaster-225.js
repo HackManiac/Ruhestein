@@ -14,9 +14,20 @@ var Houndmaster225 = {
         return this.formatDescription('Battlecry: Give a friendly Beast +2/+2 and Taunt.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Houndmaster225"');
+    targetLocations: 'battlefield',
+
+    targetFilter: function(card) {
+        return card.isBeast();
     },
+
+    castBattlecry: function(target) {
+        this.buffCard(target);
+    },
+
+    castBuff: function(target) {
+        target.modifyAttackAndHealth(2, 2);
+        target.setHasTaunt(true);
+    }
 
 };
 
