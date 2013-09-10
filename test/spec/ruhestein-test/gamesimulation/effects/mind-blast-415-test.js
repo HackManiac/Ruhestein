@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,21 @@ describe('MindBlast415', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Mind Blast'
+                    '2 Mind Blast'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Mind Blast'), 0, '{}');
-
-        // TODO
+        g.oHero('0/30');
+        g.play(g.hand(0, 'Mind Blast'), 0, '{Dead}');
+        g.oHero('0/25');
+        g.test.playSpellPowerPlus5();
+        g.play(g.hand(0, 'Mind Blast'), 0, '{Dead}');
+        g.oHero('0/15');
     });
 
 });

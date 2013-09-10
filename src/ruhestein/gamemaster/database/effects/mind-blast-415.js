@@ -10,12 +10,15 @@
 
 var MindBlast415 = {
 
+    basePower: 5,
+
     getDescription: function() {
-        return this.formatDescription('Deal 5 damage to the enemy hero.');
+        return this.formatDescription('Deal {P} damage to the enemy hero.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MindBlast415"');
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, this.getPlayer().getOpponentHero());
     },
 
 };
