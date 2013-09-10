@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,25 @@ describe('Tracking163', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Tracking'
+                    '4 Tracking',
+                    '1 Wisp',
+                    '1 Bloodfen Raptor',
+                    '1 Malygos',
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Tracking'), 0, '{}');
-
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        expect(g.game.getDrawPileCardCount()).to.equal(26);
+        g.gm.predictCardChoice([1]);
+        g.play(g.hand(0, 'Tracking'), null, '{Dead}');
+        expect(g.game.getHandCardCount()).to.equal(4);
+        expect(g.game.getDrawPileCardCount()).to.equal(23);
+        g.hand(3, 'Bloodfen Raptor');
     });
 
 });
