@@ -15,8 +15,23 @@ var Innervate548 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Innervate548"');
+        var buff = this.buffCard(null);
+
+        this.onEndOfNextPlayerTurn(function() {
+            buff.uncast();
+        });
     },
+
+    castBuff: function() {
+        var player = this.getPlayer();
+        player.modifyMaxMana(2);
+        player.modifyCurrentMana(2);
+    },
+
+    uncastBuff: function() {
+        this.getPlayer().modifyMaxMana(-2);
+        this.getPlayer().modifyCurrentMana(0);
+    }
 
 };
 
