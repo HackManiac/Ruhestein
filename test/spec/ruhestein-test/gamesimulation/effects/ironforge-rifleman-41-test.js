@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('IronforgeRifleman41', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Ironforge Rifleman'
@@ -28,9 +31,7 @@ describe('IronforgeRifleman41', function() {
             }
         });
 
-        g.play(g.hand(0, 'Ironforge Rifleman'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Ironforge Rifleman'), g.oBattlefield(0, '4/12'), 0, '{ZZZ}', '4/11');
     });
 
 });

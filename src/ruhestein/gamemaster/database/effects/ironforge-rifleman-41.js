@@ -14,9 +14,11 @@ var IronforgeRifleman41 = {
         return this.formatDescription('Battlecry: Deal 1 damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "IronforgeRifleman41"');
-    },
+    targetLocations: 'allBattlefields',
+
+    castBattlecry: function(target) {
+        this.dealDamage(1, target);
+    }
 
 };
 
