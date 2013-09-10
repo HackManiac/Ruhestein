@@ -24,17 +24,36 @@ describe('Tracking163', function() {
                     '1 Wisp',
                     '1 Bloodfen Raptor',
                     '1 Malygos',
+                    '1 Wisp',
+                    '1 Bloodfen Raptor',
+                    '1 Malygos',
+                    '1 Wisp',
+                    '1 Bloodfen Raptor',
+                    '1 Malygos',
                 ],
             }
         });
 
         expect(g.game.getHandCardCount()).to.equal(4);
         expect(g.game.getDrawPileCardCount()).to.equal(26);
-        g.gm.predictCardChoice([1]);
+
+        g.gm.predictCardChoice([0]);
         g.play(g.hand(0, 'Tracking'), null, '{Dead}');
         expect(g.game.getHandCardCount()).to.equal(4);
         expect(g.game.getDrawPileCardCount()).to.equal(23);
+        g.hand(3, 'Wisp');
+
+        g.gm.predictCardChoice([1]);
+        g.play(g.hand(0, 'Tracking'), null, '{Dead}');
+        expect(g.game.getHandCardCount()).to.equal(4);
+        expect(g.game.getDrawPileCardCount()).to.equal(20);
         g.hand(3, 'Bloodfen Raptor');
+
+        g.gm.predictCardChoice([2]);
+        g.play(g.hand(0, 'Tracking'), null, '{Dead}');
+        expect(g.game.getHandCardCount()).to.equal(4);
+        expect(g.game.getDrawPileCardCount()).to.equal(17);
+        g.hand(3, 'Malygos');
     });
 
 });
