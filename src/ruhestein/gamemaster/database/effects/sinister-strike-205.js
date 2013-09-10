@@ -10,13 +10,16 @@
 
 var SinisterStrike205 = {
 
+    basePower: 3,
+
     getDescription: function() {
-        return this.formatDescription('Deal 3 damage to the enemy hero.');
+        return this.formatDescription('Deal {P} damage to the enemy hero.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "SinisterStrike205"');
-    },
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, this.getPlayer().getOpponentHero());
+    }
 
 };
 
