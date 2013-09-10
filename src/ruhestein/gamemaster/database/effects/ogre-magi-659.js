@@ -15,8 +15,16 @@ var OgreMagi659 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "OgreMagi659"');
+        this.buffCard(null);
     },
+
+    castBuff: function() {
+        this.getPlayer().modifySpellPower(1);
+    },
+
+    uncastBuff: function() {
+        this.getPlayer().modifySpellPower(-1);
+    }
 
 };
 

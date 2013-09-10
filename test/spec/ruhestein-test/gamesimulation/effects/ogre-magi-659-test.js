@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('OgreMagi659', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,11 @@ describe('OgreMagi659', function() {
             }
         });
 
-        g.play(g.hand(0, 'Ogre Magi'), 0, '{}');
-
-        // TODO
+        expect(g.game.getSpellPower()).to.equal(0);
+        g.play(g.hand(0, 'Ogre Magi'), 0, '{ZZZ}');
+        expect(g.game.getSpellPower()).to.equal(1);
+        g.test.kill(g.battlefield(0));
+        expect(g.game.getSpellPower()).to.equal(0);
     });
 
 });
