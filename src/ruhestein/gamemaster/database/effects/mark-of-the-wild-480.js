@@ -14,9 +14,16 @@ var MarkOfTheWild480 = {
         return this.formatDescription('Give a minion Taunt and +2/+2. (+2 Attack/+2 Health)');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "MarkOfTheWild480"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    castBuff: function(target) {
+        target.modifyAttackAndHealth(2, 2);
+        target.setHasTaunt(true);
+    }
 
 };
 
