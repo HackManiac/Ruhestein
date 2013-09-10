@@ -15,8 +15,16 @@ var StormwindChampion310 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "StormwindChampion310"');
+        var source = this.getCard();
+        this.buffCardsByLocation('battlefield', function(card) {
+            return (card !== source);
+        });
     },
+
+    buff: {
+        currentAttack: 1,
+        maxHealth: 1
+    }
 
 };
 

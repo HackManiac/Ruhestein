@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,22 @@ describe('StormwindChampion310', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '2 Wisp',
                     '1 Stormwind Champion'
                 ],
+                playCards: 2
             }
         });
 
-        g.play(g.hand(0, 'Stormwind Champion'), 0, '{}');
-
-        // TODO
+        g.battlefield(0, '1/1');
+        g.battlefield(1, '1/1');
+        g.play(g.hand(0, 'Stormwind Champion'), 2, '6/6 {ZZZ}');
+        g.battlefield(0, '2/2');
+        g.battlefield(1, '2/2');
     });
 
 });
