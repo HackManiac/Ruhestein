@@ -14,8 +14,13 @@ var Succubus208 = {
         return this.formatDescription('Battlecry: Discard a random card.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Succubus208"');
+    castBattlecry: function() {
+        var count = this.getPlayer().getHand().length;
+        if (count > 0) {
+            var index = this.getGame().roll(count) - 1;
+            var card = this.getPlayer().getHand().at(index);
+            card.moveTo('discardPile');
+        }
     },
 
 };

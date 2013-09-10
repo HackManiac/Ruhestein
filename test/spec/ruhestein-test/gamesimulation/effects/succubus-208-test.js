@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,24 @@ describe('Succubus208', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Succubus'
+                    '1 Succubus',
+                    '1 Wisp',
+                    '1 Bloodfen Raptor',
+                    '1 Malygos'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Succubus'), 0, '{}');
-
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.gm.predictRoll(3);
+        g.play(g.hand(0, 'Succubus'), 0, '{ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(2);
+        g.hand(0, 'Wisp');
+        g.hand(1, 'Bloodfen Raptor');
     });
 
 });
