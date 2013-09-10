@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('HolySmite409', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Holy Smite'
+                    '2 Holy Smite'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Holy Smite'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Holy Smite'), g.oHero('0/30'), '{Dead}', '0/28');
+        g.test.playSpellPowerPlus5();
+        g.play(g.hand(0, 'Holy Smite'), g.oHero('0/28'), '{Dead}', '0/21');
     });
 
 });
