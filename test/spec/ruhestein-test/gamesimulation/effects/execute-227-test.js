@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('Execute227', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Execute'
@@ -28,9 +31,8 @@ describe('Execute227', function() {
             }
         });
 
-        g.play(g.hand(0, 'Execute'), 0, '{}');
-
-        // TODO
+        g.test.dealDamage(1, g.oBattlefield(0, '4/12'), '4/11');
+        g.play(g.hand(0, 'Execute'), g.oBattlefield(0, '4/11'), '{Dead}', '{Dead}');
     });
 
 });

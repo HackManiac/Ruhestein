@@ -14,9 +14,15 @@ var Execute227 = {
         return this.formatDescription('Destroy a damaged enemy minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Execute227"');
+    targetLocations: 'allBattlefields',
+
+    targetFilter: function(card) {
+        return (card.getDamage() > 0);
     },
+
+    cast: function(target) {
+        this.killCard(target);
+    }
 
 };
 
