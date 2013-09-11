@@ -15,8 +15,16 @@ var HeroicStrike1 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "HeroicStrike1"');
+        var buff = this.buffCard(this.getPlayer().getHero());
+
+        this.onEndOfNextPlayerTurn(function() {
+            buff.uncast();
+        });
     },
+
+    buff: {
+        currentAttack: 4
+    }
 
 };
 
