@@ -419,24 +419,40 @@ var Effect = Model.extend({
 
     // cast helper methods
 
-    castCharge: function() {
-        this.getCard().setHasCharge(true);
+    castCharge: function(target) {
+        if (target === undefined) {
+            target = this.getCard();
+        }
+        target.setHasCharge(true);
+        target.setIsAsleep(false);
     },
 
-    castDivineShield: function() {
-        this.getCard().setHasDivineShield(true);
+    castDivineShield: function(target) {
+        if (target === undefined) {
+            target = this.getCard();
+        }
+        target.setHasDivineShield(true);
     },
 
-    castStealth: function() {
-        this.getCard().setHasStealth(true);
+    castStealth: function(target) {
+        if (target === undefined) {
+            target = this.getCard();
+        }
+        target.setHasStealth(true);
     },
 
-    castTaunt: function() {
-        this.getCard().setHasTaunt(true);
+    castTaunt: function(target) {
+        if (target === undefined) {
+            target = this.getCard();
+        }
+        target.setHasTaunt(true);
     },
 
-    castWindfury: function() {
-        this.getCard().setHasWindfury(true);
+    castWindfury: function(target) {
+        if (target === undefined) {
+            target = this.getCard();
+        }
+        target.setHasWindfury(true);
     },
 
 
