@@ -14,9 +14,11 @@ var FireElemental636 = {
         return this.formatDescription('Battlecry: Deal 3 damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "FireElemental636"');
-    },
+    targetLocations: 'allCharacters',
+
+    castBattlecry: function(target) {
+        this.dealDamage(3, target);
+    }
 
 };
 
