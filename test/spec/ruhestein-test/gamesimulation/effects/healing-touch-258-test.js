@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('HealingTouch258', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,9 @@ describe('HealingTouch258', function() {
             }
         });
 
-        g.play(g.hand(0, 'Healing Touch'), 0, '{}');
+        g.test.dealDamage(10, g.hero('0/30'), '0/20');
 
-        // TODO
+        g.play(g.hand(0, 'Healing Touch'), g.hero('0/20'), '{Dead}', '0/28');
     });
 
 });

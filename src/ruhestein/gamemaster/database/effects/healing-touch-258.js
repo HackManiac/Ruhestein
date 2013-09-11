@@ -14,9 +14,11 @@ var HealingTouch258 = {
         return this.formatDescription('Restore #8 Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "HealingTouch258"');
-    },
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.healDamage(8, target);
+    }
 
 };
 
