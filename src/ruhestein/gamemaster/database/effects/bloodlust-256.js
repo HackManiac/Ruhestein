@@ -15,8 +15,22 @@ var Bloodlust256 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Bloodlust256"');
+        var cards = this.collectCardsByLocation('battlefield');
+
+        var buffs = cards.map(function(card) {
+            return this.buffCard(card);
+        }, this);
+
+        this.onEndOfNextPlayerTurn(function() {
+            buffs.forEach(function(buff) {
+                buff.uncast();
+            });
+        });
     },
+
+    buff: {
+        currentAttack: 3
+    }
 
 };
 

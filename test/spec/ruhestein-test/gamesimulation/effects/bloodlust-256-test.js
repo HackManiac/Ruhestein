@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,34 @@ describe('Bloodlust256', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Bloodlust'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Bloodlust'), 0, '{}');
+        g.hero('0/30');
+        g.battlefield(0, '4/12');
 
-        // TODO
+        g.play(g.hand(0, 'Bloodlust'), null, '{Dead}');
+
+        g.hero('0/30');
+        g.battlefield(0, '7/12');
+
+        g.endTurn();
+
+        g.hero('0/30');
+        g.oBattlefield(0, '4/12');
+
+        g.endTurn();
+
+        g.hero('0/30');
+        g.battlefield(0, '4/12');
     });
 
 });
