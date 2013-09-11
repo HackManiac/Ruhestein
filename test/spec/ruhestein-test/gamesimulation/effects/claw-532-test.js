@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('Claw532', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,13 @@ describe('Claw532', function() {
             }
         });
 
-        g.play(g.hand(0, 'Claw'), 0, '{}');
-
-        // TODO
+        g.hero('0/30 [0]');
+        g.play(g.hand(0, 'Claw'), null, '{Dead}');
+        g.hero('2/30 [2]');
+        g.endTurn();
+        g.oHero('0/30 [2]');
+        g.endTurn();
+        g.hero('0/30 [2]');
     });
 
 });

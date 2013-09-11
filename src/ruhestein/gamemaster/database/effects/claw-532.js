@@ -15,8 +15,20 @@ var Claw532 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Claw532"');
+        var player = this.getPlayer();
+
+        var buff = this.buffCard(player.getHero());
+
+        this.onEndOfNextPlayerTurn(function() {
+            buff.uncast();
+        });
+
+        player.modifyCurrentArmor(2);
     },
+
+    buff: {
+        currentAttack: 2
+    }
 
 };
 
