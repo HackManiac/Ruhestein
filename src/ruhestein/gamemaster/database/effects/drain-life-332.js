@@ -10,13 +10,19 @@
 
 var DrainLife332 = {
 
+    basePower: 2,
+
     getDescription: function() {
-        return this.formatDescription('Deal 2 damage. Restore #2 Health to your hero.');
+        return this.formatDescription('Deal {P} damage. Restore #2 Health to your hero.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "DrainLife332"');
-    },
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
+        this.healDamage(2, this.getPlayer().getHero());
+    }
 
 };
 
