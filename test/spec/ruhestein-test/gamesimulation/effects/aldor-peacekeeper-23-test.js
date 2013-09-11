@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('AldorPeacekeeper23', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Aldor Peacekeeper'
@@ -28,9 +31,7 @@ describe('AldorPeacekeeper23', function() {
             }
         });
 
-        g.play(g.hand(0, 'Aldor Peacekeeper'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Aldor Peacekeeper'), g.oBattlefield(0, '4/12'), 0, '{ZZZ}', '1/12');
     });
 
 });

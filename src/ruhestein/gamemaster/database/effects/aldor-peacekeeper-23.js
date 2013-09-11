@@ -14,9 +14,20 @@ var AldorPeacekeeper23 = {
         return this.formatDescription('Battlecry: Change an enemy minion\'s Attack to 1.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "AldorPeacekeeper23"');
+    targetLocations: 'opponentBattlefield',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    castBuff: function(target, buff) {
+        buff._delta = target.getCurrentAttack() - 1;
+        target.modifyCurrentAttack(-buff._delta);
+    },
+
+    uncastBuff: function(target, buff) {
+        target.modifyCurrentAttack(buff._delta);
+    }
 
 };
 
