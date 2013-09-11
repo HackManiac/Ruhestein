@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('HammerOfWrath350', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,11 @@ describe('HammerOfWrath350', function() {
             }
         });
 
-        g.play(g.hand(0, 'Hammer of Wrath'), 0, '{}');
+        g.test.playSpellPowerPlus5();
 
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.play(g.hand(0, 'Hammer of Wrath'), g.oHero('0/30'), '{Dead}', '0/22');
+        expect(g.game.getHandCardCount()).to.equal(4);
     });
 
 });

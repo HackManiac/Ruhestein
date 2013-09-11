@@ -10,13 +10,19 @@
 
 var HammerOfWrath350 = {
 
+    basePower: 3,
+
     getDescription: function() {
-        return this.formatDescription('Deal 3 damage.  Draw a card.');
+        return this.formatDescription('Deal {P} damage.  Draw a card.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "HammerOfWrath350"');
-    },
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        var damage = this.getCurrentPower();
+        this.dealDamage(damage, target);
+        this.getPlayer().drawCard();
+    }
 
 };
 
