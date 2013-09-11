@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('HandOfProtection499', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Hand of Protection'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Hand of Protection'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Hand of Protection'), g.battlefield(0, '4/12 {ZZZ}'), '{Dead}', '4/12 {DivineShield,ZZZ}');
     });
 
 });

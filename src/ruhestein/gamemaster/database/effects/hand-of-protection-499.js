@@ -14,9 +14,11 @@ var HandOfProtection499 = {
         return this.formatDescription('Give a minion Divine Shield.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "HandOfProtection499"');
-    },
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        target.setHasDivineShield(true);
+    }
 
 };
 
