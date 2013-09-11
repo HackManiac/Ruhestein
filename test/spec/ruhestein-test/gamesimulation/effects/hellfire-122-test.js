@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,34 @@ describe('Hellfire122', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos',
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Hellfire'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Hellfire'), 0, '{}');
+        g.hero('0/30');
+        g.battlefield(0, '4/12');
+        g.oHero('0/30');
+        g.oBattlefield(0, '4/12');
 
-        // TODO
+        g.play(g.hand(0, 'Hellfire'), null, '{Dead}');
+
+        g.hero('0/22');
+        g.battlefield(0, '4/4');
+        g.oHero('0/22');
+        g.oBattlefield(0, '4/4');
     });
 
 });

@@ -10,13 +10,20 @@
 
 var Hellfire122 = {
 
+    basePower: 3,
+
     getDescription: function() {
-        return this.formatDescription('Deal 3 damage to ALL characters.');
+        return this.formatDescription('Deal {P} damage to ALL characters.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Hellfire122"');
-    },
+        var damage = this.getCurrentPower();
+
+        var cards = this.collectCardsByLocation('allCharacters');
+        cards.forEach(function(card) {
+            this.dealDamage(damage, card);
+        }, this);
+    }
 
 };
 
