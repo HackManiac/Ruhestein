@@ -10,13 +10,21 @@
 
 var Consecration260 = {
 
+    basePower: 2,
+
     getDescription: function() {
-        return this.formatDescription('Deal 2 damage to all enemies.');
+        return this.formatDescription('Deal {P} damage to all enemies.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Consecration260"');
-    },
+        var damage = this.getCurrentPower();
+
+        var cards = this.collectCardsByLocation('opponentCharacters');
+
+        cards.forEach(function(card) {
+            this.dealDamage(damage, card);
+        }, this);
+    }
 
 };
 
