@@ -14,9 +14,16 @@ var BlessingOfKings29 = {
         return this.formatDescription('Give a minion +4/+4. (+4 Attack/+4 Health)');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "BlessingOfKings29"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    buff: {
+        currentAttack: 4,
+        maxHealth: 4
+    }
 
 };
 

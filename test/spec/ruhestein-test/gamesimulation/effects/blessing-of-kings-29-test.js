@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('BlessingOfKings29', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Wisp',
                     '1 Blessing of Kings'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Blessing of Kings'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Blessing of Kings'), g.battlefield(0, '1/1'), 1, '{Dead}', '5/5');
     });
 
 });
