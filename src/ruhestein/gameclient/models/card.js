@@ -230,7 +230,15 @@ var Card = Model.extend({
     },
 
     getCurrentArmor: function() {
-        return this.getGame().getCurrentArmor();
+        var owner = this.getOwner(), armor;
+        if (owner === 'player') {
+            armor = this.getGame().getCurrentArmor();
+        } else if (owner === 'opponent') {
+            armor = this.getGame().getOpponentCurrentArmor();
+        } else {
+            throw new Error('Unknown owner "' + owner + '"');
+        }
+        return armor;
     }
 
 });
