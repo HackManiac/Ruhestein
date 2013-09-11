@@ -14,9 +14,11 @@ var Charge646 = {
         return this.formatDescription('Give a friendly minion Charge.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Charge646"');
-    },
+    targetLocations: 'battlefield',
+
+    cast: function(target) {
+        this.castCharge(target);
+    }
 
 };
 
