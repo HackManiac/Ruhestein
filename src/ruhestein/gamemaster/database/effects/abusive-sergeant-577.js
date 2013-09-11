@@ -14,9 +14,19 @@ var AbusiveSergeant577 = {
         return this.formatDescription('Battlecry: Give a friendly minion +2 Attack this turn.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "AbusiveSergeant577"');
+    targetLocations: 'battlefield',
+
+    castBattlecry: function(target) {
+        var buff = this.buffCard(target);
+
+        this.onEndOfNextPlayerTurn(function() {
+            buff.uncast();
+        });
     },
+
+    buff: {
+        currentAttack: 2
+    }
 
 };
 

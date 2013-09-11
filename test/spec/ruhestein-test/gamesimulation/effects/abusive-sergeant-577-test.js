@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('AbusiveSergeant577', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Wisp',
                     '1 Abusive Sergeant'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Abusive Sergeant'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Abusive Sergeant'), g.battlefield(0, '1/1'), 1, '{ZZZ}', '3/1');
+        g.endTurn();
+        g.oBattlefield(0, '1/1');
     });
 
 });
