@@ -15,8 +15,12 @@ var AcolyteOfPain428 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "AcolyteOfPain428"');
-    },
+        this.listenToGame('didDealDamage', function(info) {
+            if (info.card === this.getCard()) {
+                this.getPlayer().drawCard();
+            }
+        });
+    }
 
 };
 
