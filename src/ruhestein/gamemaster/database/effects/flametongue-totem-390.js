@@ -15,8 +15,12 @@ var FlametongueTotem390 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FlametongueTotem390"');
+        this.buffAdjacentCards();
     },
+
+    buff: {
+        currentAttack: 2
+    }
 
 };
 
