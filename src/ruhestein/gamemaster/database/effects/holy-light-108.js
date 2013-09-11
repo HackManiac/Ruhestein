@@ -14,9 +14,11 @@ var HolyLight108 = {
         return this.formatDescription('Restore #6 Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "HolyLight108"');
-    },
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.healDamage(6, target);
+    }
 
 };
 

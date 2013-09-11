@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,22 @@ describe('HolyLight108', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Holy Light'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Holy Light'), 0, '{}');
+        expect(g.game.getSpellPower()).to.equal(5);
 
-        // TODO
+        g.test.dealDamage(11, g.battlefield(0, '4/12'), '4/1');
+
+        g.play(g.hand(0, 'Holy Light'), g.battlefield(0, '4/1'), '{Dead}', '4/7');
     });
 
 });
