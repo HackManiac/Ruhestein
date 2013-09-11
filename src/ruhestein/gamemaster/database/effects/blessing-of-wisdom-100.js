@@ -14,8 +14,14 @@ var BlessingOfWisdom100 = {
         return this.formatDescription('Choose a minion.  Whenever it attacks, draw a card.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "BlessingOfWisdom100"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        this.listenToGame('didPlayCard', function(info) {
+            if ((info.card === target) && info.attack) {
+                this.getPlayer().drawCard();
+            }
+        });
     },
 
 };
