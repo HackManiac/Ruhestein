@@ -118,7 +118,11 @@ var GameCard = Card.extend({
     },
 
     setCurrentCost: function(currentCost) {
-        this.set('currentCost', currentCost);
+        this.set('currentCost', utils.cap(currentCost, 0, 10000));
+    },
+
+    modifyCurrentCost: function(delta) {
+        this.setCurrentCost(this.getCurrentCost() + delta);
     },
     
     getCurrentAttack: function() {
@@ -398,7 +402,7 @@ var GameCard = Card.extend({
             player: this.getOwner(),
             card: this,
             location: this.getLocation(),
-            cost: this.getBaseCost(),
+            cost: this.getCurrentCost(),
             targetCard: target,
             targetLocation: target && target.getLocation(),
             failReason: null,
