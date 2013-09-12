@@ -15,14 +15,22 @@ var Demolisher212 = {
     },
 
     cast: function() {
+        // nop
+    },
+    
+    castEffectTrigger: function() {
         this.onStartOfPlayerTurn(function() {
-            var candidates = this.collectCardsByLocation('opponentCharacters');
-            if (candidates.length > 0) {
-                var index = this.getGame().roll(candidates.length) - 1;
-                var target = candidates.at(index);
-                this.dealDamage(2, target);
-            }
+            this.getCard().triggerEffectTrigger();
         });
+    },
+
+    triggerEffectTrigger: function() {
+        var candidates = this.collectCardsByLocation('opponentCharacters');
+        if (candidates.length > 0) {
+            var index = this.getGame().roll(candidates.length) - 1;
+            var target = candidates.at(index);
+            this.dealDamage(2, target);
+        }
     }
 
 };
