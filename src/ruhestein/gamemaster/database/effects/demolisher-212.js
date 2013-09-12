@@ -15,8 +15,15 @@ var Demolisher212 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Demolisher212"');
-    },
+        this.onStartOfPlayerTurn(function() {
+            var candidates = this.collectCardsByLocation('opponentCharacters');
+            if (candidates.length > 0) {
+                var index = this.getGame().roll(candidates.length) - 1;
+                var target = candidates.at(index);
+                this.dealDamage(2, target);
+            }
+        });
+    }
 
 };
 
