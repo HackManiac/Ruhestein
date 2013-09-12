@@ -15,8 +15,52 @@ var PintSizedSummoner54 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "PintSizedSummoner54"');
+        var _this = this;
+
+        var effectIsActive = false;
+
+        var getCards = function() {
+            if (effectIsActive) {
+                return _this.collectCardsByLocation('hand', function(card) {
+                    return card.isMinion();
+                });
+            } else {
+                return [];
+            }
+        };
+
+        var updateCards = this.buffCards(getCards);
+
+        var didStartTurn = function() {
+            effectIsActive = true;
+            updateCards();
+        };
+
+        var uncast = function() {
+            effectIsActive = false;
+            updateCards();
+        };
+
+        var didPlayCard = function(info) {
+            if (info.battlecry && (info.player === _this.getPlayer()) && info.card.isMinion()) {
+                uncast();
+            }
+        };
+
+        this.onStartOfPlayerTurn(didStartTurn);
+        this.onEndOfPlayerTurn(uncast);
+        this.listenToGame('didPlayCard', didPlayCard);
     },
+
+    castBuff: function(target, buff) {
+        var originalCost = target.getCurrentCost();
+        target.modifyCurrentCost(-2);
+        buff._delta = originalCost - target.getCurrentCost();
+    },
+
+    uncastBuff: function(target, buff) {
+        target.modifyCurrentCost(buff._delta);
+    }
 
 };
 
