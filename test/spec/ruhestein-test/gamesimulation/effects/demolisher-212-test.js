@@ -25,7 +25,7 @@ describe('Demolisher212', function() {
             }
         });
 
-        g.play(g.hand(0, 'Demolisher'), 0, '{ZZZ}');
+        g.play(g.hand(0, 'Demolisher'), 0, '{EffectTrigger,ZZZ}');
         g.endTurn();
         g.hero('0/30');
         g.endTurn();
