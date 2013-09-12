@@ -316,6 +316,8 @@ var Effect = Model.extend({
         this.listenToGame('didMoveCard', didMoveCard);
         this.listenToGame('willResetCard', willResetCard);
         updateCards();
+
+        return updateCards;
     },
 
     buffCardsByLocation: function(locations, filter) {
