@@ -15,8 +15,11 @@ var Equality383 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Equality383"');
-    },
+        var cards = this.collectCardsByLocation('allBattlefields');
+        cards.forEach(function(card) {
+            card.setDamage(card.getMaxHealth() - 1);
+        });
+    }
 
 };
 
