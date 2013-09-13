@@ -15,8 +15,20 @@ var Shapeshift185 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Shapeshift185"');
+        var player = this.getPlayer();
+
+        var buff = this.buffCard(player.getHero());
+
+        this.onEndOfNextPlayerTurn(function() {
+            buff.uncast();
+        });
+
+        player.modifyCurrentArmor(1);
     },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 

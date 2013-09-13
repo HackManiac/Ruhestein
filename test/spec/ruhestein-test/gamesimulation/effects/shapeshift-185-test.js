@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,29 @@ describe('Shapeshift185', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'druid',
                 deck: [
-                    '1 Shapeshift'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Shapeshift'), 0, '{}');
+        g.hero('0/30 [0]');
+        g.play(g.heroPower('Shapeshift'), null);
+        g.hero('1/30 [1]');
+        g.endTurn();
 
-        // TODO
+        g.oHero('0/30 [1]');
+        g.endTurn();
+
+        g.hero('0/30 [1]');
+        g.play(g.heroPower('Shapeshift'), null);
+        g.hero('1/30 [2]');
+        g.endTurn();
+
+        g.oHero('0/30 [2]');
     });
 
 });
