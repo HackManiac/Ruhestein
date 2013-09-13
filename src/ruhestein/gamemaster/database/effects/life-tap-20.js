@@ -15,8 +15,9 @@ var LifeTap20 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "LifeTap20"');
-    },
+        this.dealDamage(2, this.getPlayer().getHero());
+        this.getPlayer().drawCard();
+    }
 
 };
 

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('LifeTap20', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'warlock',
                 deck: [
-                    '1 Life Tap'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Life Tap'), 0, '{}');
-
-        // TODO
+        g.hero('0/30');
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.play(g.heroPower('Life Tap'), null);
+        g.hero('0/28');
+        expect(g.game.getHandCardCount()).to.equal(5);
     });
 
 });
