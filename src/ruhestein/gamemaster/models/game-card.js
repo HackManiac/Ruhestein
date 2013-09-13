@@ -421,6 +421,8 @@ var GameCard = Card.extend({
             } else if (info.location === 'spawningCards') {
                 info.summon = true;
             }
+        }
+        if (info.card.isHero() || info.card.isMinion()) {
             if (info.targetCard && info.targetCard.isTargetable() && info.card.canAttack()) {
                 info.attack = true;
             }
