@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('NobleSacrifice158', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Noble Sacrifice'
@@ -28,9 +31,14 @@ describe('NobleSacrifice158', function() {
             }
         });
 
-        g.play(g.hand(0, 'Noble Sacrifice'), 0, '{}');
+        expect(g.game.getSecretCount()).to.equal(0);
+        g.play(g.hand(0, 'Noble Sacrifice'), null);
+        expect(g.game.getSecretCount()).to.equal(1);
+        g.endTurn();
 
-        // TODO
+        expect(g.game.getOpponentSecretCount()).to.equal(1);
+        g.play(g.battlefield(0, '4/12 Malygos'), g.oHero('0/30'), '4/10', '0/30');
+        expect(g.game.getOpponentSecretCount()).to.equal(0);
     });
 
 });
