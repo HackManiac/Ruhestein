@@ -156,8 +156,13 @@ var setupGameTestEngine = function(info) {
             expectedIndexAfter = index;
         }
         
+        var playInfo = {
+            target: target,
+            battlefieldIndex: index
+        };
+        
         var location = source.getLocation();
-        source.play(target, index);
+        source.play(playInfo);
         if (expectedSourceAfter) {
             testUtils.expectCard(source, expectedSourceAfter);
         }

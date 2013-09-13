@@ -261,8 +261,8 @@ _.extend(Connector.prototype, {
         gmCard.on('change:location', updateLocationBinding, this);
         updateLocationBinding();
 
-        gcCard.on('!play', function(gcTarget, bfIndex) {
-            return this._playCard(gcCard, gcTarget, bfIndex);
+        gcCard.on('!play', function(gcInfo, callback) {
+            return this._playCard(gcCard, gcInfo, callback);
         }, this);
     },
 
@@ -315,11 +315,22 @@ _.extend(Connector.prototype, {
         this._gmPlayer.endTurn();
     },
 
-    _playCard: function(gcSource, gcTarget, bfIndex) {
+    _playCard: function(gcSource, gcInfo, callback) {
+        var gcTarget = gcInfo.target;
+
         var gmSource = this._getGmCard(gcSource);
         var gmTarget = this._getGmCard(gcTarget);
 
-        gmSource.play(gmTarget, bfIndex);
+        var gmInfo = {
+            target: gmTarget,
+            battlefieldIndex: gcInfo.battlefieldIndex
+        };
+
+        gmSource.play(gmInfo);
+
+        if (callback) {
+            callback();
+        }
     },
 
     _setupPropertyBindings: function(source, target, filter, properties) {

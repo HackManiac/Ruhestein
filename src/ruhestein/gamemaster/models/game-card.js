@@ -558,23 +558,20 @@ var GameCard = Card.extend({
         return info;
     },
 
-    canPlay: function(target) {
-        if (_.isNumber(target)) {
-            target = null;
-        }
+    canPlay: function(playInfo) {
+        var target = playInfo.target;
 
         var info = this.checkCanPlay(target);
-        return info.failReason;
+        return info;
     },
 
-    play: function(target, battlefieldIndex) {
+    play: function(playInfo) {
+        var chooseOneIndex = playInfo.chooseOneIndex;
+        var target = playInfo.target;
+        var battlefieldIndex = playInfo.battlefieldIndex;
+
         if (battlefieldIndex === undefined) {
-            if (_.isNumber(target)) {
-                battlefieldIndex = target;
-                target = null;
-            } else {
-                battlefieldIndex = this.getOwner().getBattlefield().length;
-            }
+            battlefieldIndex = this.getOwner().getBattlefield().length;
         }
 
         var info = this.checkCanPlay(target);
@@ -667,6 +664,8 @@ var GameCard = Card.extend({
         game.handleKilledCards();
 
         game.modifyCurrentPlaysThisTurn(1);
+
+        return info;
     },
 
     reset: function() {
@@ -840,7 +839,9 @@ var GameCard = Card.extend({
 
         this.moveTo('transitioningCards');
         card.moveTo('spawningCards');
-        card.play(index);
+        card.play({
+            battlefieldIndex: index
+        });
         this.moveTo('discardPile');
     }
 

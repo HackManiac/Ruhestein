@@ -425,7 +425,10 @@ var Effect = Model.extend({
 
     summonCard: function(card, target, bfIndex) {
         card.moveTo('spawningCards');
-        card.play(target, bfIndex);
+        card.play({
+            target: target,
+            battlefieldIndex: bfIndex
+        });
     },
 
     dealDamage: function(damage, card) {

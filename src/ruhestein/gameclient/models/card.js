@@ -221,12 +221,12 @@ var Card = Model.extend({
         return this.get('hasWindfury');
     },
 
-    canPlay: function(callback) {
-        this.trigger('!canPlay', callback);
+    canPlay: function(info, callback) {
+        this.trigger('!canPlay', info, callback);
     },
 
-    play: function(battlefieldIndex, callback) {
-        this.trigger('!play', battlefieldIndex, callback);
+    play: function(info, callback) {
+        this.trigger('!play', info, callback);
     },
 
     getCurrentArmor: function() {

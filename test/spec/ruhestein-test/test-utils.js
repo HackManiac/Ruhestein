@@ -144,7 +144,7 @@ var playHandCards = function(player, count) {
     for (i = hand.length - 1; i >= 0; i--) {
         card = hand.at(i);
         if (card.getName() === 'The Coin') {
-            card.play(null);
+            card.play({});
         }
     }
 
@@ -156,7 +156,7 @@ var playHandCards = function(player, count) {
         setMana(player, 10, 10);
 
         card = player.getHand().at(0);
-        card.play(null);
+        card.play({});
     }
 };
 
