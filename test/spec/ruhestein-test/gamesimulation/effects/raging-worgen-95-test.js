@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('RagingWorgen95', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,10 @@ describe('RagingWorgen95', function() {
             }
         });
 
-        g.play(g.hand(0, 'Raging Worgen'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Raging Worgen'), 0, '3/3 {ZZZ}');
+        g.test.dealDamage(1, g.battlefield(0, '3/3 {ZZZ}'), '4/2 {Windfury,ZZZ}');
+        g.test.dealDamage(1, g.battlefield(0, '4/2 {Windfury,ZZZ}'), '4/1 {Windfury,ZZZ}');
+        g.test.healDamage(2, g.battlefield(0, '4/1 {Windfury,ZZZ}'), '3/3 {ZZZ}');
     });
 
 });

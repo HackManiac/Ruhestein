@@ -15,8 +15,26 @@ var RagingWorgen95 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "RagingWorgen95"');
+        // nop
     },
+
+    castEnrage: function() {
+        this.setSelfBuffStacks(1);
+    },
+
+    uncastEnrage: function() {
+        this.setSelfBuffStacks(0);
+    },
+
+    castBuff: function(target) {
+        target.setHasWindfury(true);
+        target.modifyCurrentAttack(1);
+    },
+
+    uncastBuff: function(target) {
+        target.setHasWindfury(false);
+        target.modifyCurrentAttack(-1);
+    }
 
 };
 
