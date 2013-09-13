@@ -330,6 +330,10 @@ var GameCard = Card.extend({
         return this.getOwner().getCurrentArmor();
     },
     
+    getEffectId: function() {
+        return this.getCardData().effectId;
+    },
+    
     moveTo: function(destination, destinationIndex) {
         var player = this.getOwner();
         var game = player.getGame();
