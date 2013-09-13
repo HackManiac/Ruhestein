@@ -401,7 +401,9 @@ var GameCard = Card.extend({
         });
     },
 
-    checkCanPlay: function(target) {
+    checkCanPlay: function(playInfo) {
+        var target = playInfo.target;
+
         var info = {
             player: this.getOwner(),
             card: this,
@@ -411,6 +413,7 @@ var GameCard = Card.extend({
             targetLocation: target && target.getLocation(),
             failReason: null,
             combo: this.getGame().getCurrentPlaysThisTurn() > 0,
+            chooseOneIndex: playInfo.chooseOneIndex,
             data: {}
         };
 
@@ -426,6 +429,10 @@ var GameCard = Card.extend({
             if (info.targetCard && info.targetCard.isTargetable() && info.card.canAttack()) {
                 info.attack = true;
             }
+        }
+
+        if (!info.failReason && info.card.hasChooseOneEffect() && (info.chooseOneIndex === undefined)) {
+            info.failReason = 'Must choose one of the card variants';
         }
 
         if (!info.failReason && info.attack) {
@@ -559,22 +566,18 @@ var GameCard = Card.extend({
     },
 
     canPlay: function(playInfo) {
-        var target = playInfo.target;
-
-        var info = this.checkCanPlay(target);
+        var info = this.checkCanPlay(playInfo);
         return info;
     },
 
     play: function(playInfo) {
-        var chooseOneIndex = playInfo.chooseOneIndex;
-        var target = playInfo.target;
         var battlefieldIndex = playInfo.battlefieldIndex;
 
         if (battlefieldIndex === undefined) {
             battlefieldIndex = this.getOwner().getBattlefield().length;
         }
 
-        var info = this.checkCanPlay(target);
+        var info = this.checkCanPlay(playInfo);
         if (info.failReason) {
             throw new Error(this.getName() + ' (' + this.getCardData().effectId + '): ' + info.failReason);
         }
@@ -593,16 +596,14 @@ var GameCard = Card.extend({
                 this.moveTo('secrets');
 
                 this.castEffects(info);
-            } else if (this.hasChooseOneEffect()) {
-                this.castEffects(info);
-
-                this.moveTo('discardPile');
             } else {
                 if (info.location !== 'spawningCards') {
                     this.moveTo('playedCard');
                 }
 
-                if (this.isMinion()) {
+                if (this.hasChooseOneEffect()) {
+                    this.castEffects(info);
+                } else if (this.isMinion()) {
                     this.moveTo('battlefield', battlefieldIndex);
 
                     this.castEffects(info);

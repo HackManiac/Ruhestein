@@ -322,6 +322,7 @@ _.extend(Connector.prototype, {
         var gmTarget = this._getGmCard(gcTarget);
 
         var gmInfo = {
+            chooseOneIndex: gcInfo.chooseOneIndex,
             target: gmTarget,
             battlefieldIndex: gcInfo.battlefieldIndex
         };

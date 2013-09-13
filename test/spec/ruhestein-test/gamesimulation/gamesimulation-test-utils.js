@@ -174,6 +174,69 @@ var setupGameTestEngine = function(info) {
         }
     };
 
+    var playChooseOne = function() {
+        var i = 0, source, chooseOneIndex, target, index, expectedSourceAfter, expectedTargetAfter, expectedIndexAfter;
+        source = arguments [i++] || null;
+        chooseOneIndex = arguments [i++] || 0;
+        if (target === undefined) {
+            target = arguments [i++];
+            if (_.isNumber(target)) {
+                index = target;
+                target = null;
+            } else if (!target) {
+                target = null;
+            }
+        }
+        if (index === undefined) {
+            index = arguments [i++];
+            if (_.isNumber(index)) {
+                // ok
+            } else if (_.isString(index)) {
+                expectedSourceAfter = index;
+                index = null;
+            } else if (!index) {
+                expectedSourceAfter = null;
+                index = null;
+            }
+        }
+        if (expectedSourceAfter === undefined) {
+            expectedSourceAfter = arguments [i++] || null;
+        }
+        if ((expectedSourceAfter === null) && source) {
+            expectedSourceAfter = source.toString();
+        }
+        if (expectedTargetAfter === undefined) {
+            expectedTargetAfter = arguments [i++] || null;
+        }
+        if ((expectedTargetAfter === null) && target) {
+            expectedTargetAfter = target.toString();
+        }
+        if (expectedIndexAfter === undefined) {
+            expectedIndexAfter = arguments [i++];
+        }
+        if (expectedIndexAfter === undefined) {
+            expectedIndexAfter = index;
+        }
+        
+        var playInfo = {
+            chooseOneIndex: chooseOneIndex,
+            target: target,
+            battlefieldIndex: index
+        };
+        
+        var location = source.getLocation();
+        source.play(playInfo);
+        if (expectedSourceAfter) {
+            testUtils.expectCard(source, expectedSourceAfter);
+        }
+        if (expectedTargetAfter) {
+            testUtils.expectCard(target, expectedTargetAfter);
+        }
+        if ((location === 'hand') && (source.getLocation() === 'battlefield') && (expectedIndexAfter !== null)) {
+            expect(source.getGame().getBattlefieldCard(expectedIndexAfter)).to.equal(source);
+        }
+    };
+
     gte = {
         game: null,
 
@@ -190,6 +253,7 @@ var setupGameTestEngine = function(info) {
         oBattlefield: getCardHandler('getOpponentBattlefieldCard'),
 
         play: play,
+        playChooseOne: playChooseOne,
 
         endTurn: function() {
             gcGame.endTurn();
