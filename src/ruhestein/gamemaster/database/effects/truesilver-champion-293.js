@@ -15,7 +15,18 @@ var TruesilverChampion293 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "TruesilverChampion293"');
+        var willPlayCard = function(info) {
+            var hero = this.getPlayer().getHero();
+            if (info.card !== hero) {
+                // nop
+            } else if (!info.attack) {
+                // nop
+            } else {
+                this.healDamage(2, hero);
+            }
+        };
+
+        this.listenToGame('willPlayCard', willPlayCard);
     },
 
 };

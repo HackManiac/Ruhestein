@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('TruesilverChampion293', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Wisp'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Truesilver Champion'
@@ -28,9 +31,11 @@ describe('TruesilverChampion293', function() {
             }
         });
 
-        g.play(g.hand(0, 'Truesilver Champion'), 0, '{}');
+        g.test.dealDamage(29, g.hero('0/30'), '0/1');
+        g.play(g.hand(0, 'Truesilver Champion'), null);
+        g.weapon('4/2 Truesilver Champion');
 
-        // TODO
+        g.play(g.hero('4/1 {}'), g.oBattlefield(0, '1/1'), '4/2 {}', '{Dead}');
     });
 
 });
