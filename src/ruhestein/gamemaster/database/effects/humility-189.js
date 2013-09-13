@@ -14,9 +14,11 @@ var Humility189 = {
         return this.formatDescription('Change a minion\'s Attack to 1.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Humility189"');
-    },
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        target.setCurrentAttack(1);
+    }
 
 };
 
