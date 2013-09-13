@@ -149,6 +149,10 @@ var Effect = Model.extend({
             this.castEffectTrigger();
         }
 
+        if (this.castEnrage && this.uncastEnrage) {
+            this.listenToCard('change:damage', this._enrageDidChangeDamage);
+        }
+
         if (this.castSecret && this.triggerSecret) {
             this.listenToGame('didTriggerSecret', this._secretDidTriggerSecret);
 
@@ -177,6 +181,16 @@ var Effect = Model.extend({
     _effectTriggerDidTriggerEffectTrigger: function(info) {
         if (info.card === this.getCard()) {
             this.triggerEffectTrigger(info);
+        }
+    },
+
+    _enrageDidChangeDamage: function() {
+        var card = this.getCard();
+        var damage = card.getDamage();
+        if (damage > 0) {
+            this.castEnrage(card);
+        } else {
+            this.uncastEnrage(card);
         }
     },
 
@@ -213,6 +227,14 @@ var Effect = Model.extend({
 
     stopListeningToGame: function(eventName, handler) {
         this.stopListening(this.getGame(), eventName, handler);
+    },
+
+    listenToCard: function(eventName, handler) {
+        this.listenTo(this.getCard(), eventName, handler);
+    },
+
+    stopListeningToCard: function(eventName, handler) {
+        this.stopListening(this.getCard(), eventName, handler);
     },
 
     updateEffectedCards: function(cards, added, removed) {
