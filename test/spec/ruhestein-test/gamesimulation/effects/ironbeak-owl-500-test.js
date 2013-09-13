@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('IronbeakOwl500', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Ironbeak Owl'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Ironbeak Owl'), 0, '{}');
-
-        // TODO
+        expect(g.game.getSpellPower()).to.equal(5);
+        g.play(g.hand(0, 'Ironbeak Owl'), g.battlefield(0, '4/12 {ZZZ}'), 1, '{ZZZ}', '{Silenced,ZZZ}');
+        expect(g.game.getSpellPower()).to.equal(0);
     });
 
 });

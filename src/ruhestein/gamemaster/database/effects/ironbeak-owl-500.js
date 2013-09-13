@@ -14,9 +14,11 @@ var IronbeakOwl500 = {
         return this.formatDescription('Battlecry: Silence a minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "IronbeakOwl500"');
-    },
+    targetLocations: 'allBattlefields',
+
+    castBattlecry: function(target) {
+        target.silence();
+    }
 
 };
 
