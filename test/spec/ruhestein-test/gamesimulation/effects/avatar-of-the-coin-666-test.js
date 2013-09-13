@@ -6,10 +6,7 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
-var GameSimulationTestUtils = require('../gamesimulation-test-utils');
+// var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
 
@@ -17,20 +14,20 @@ var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 describe('AvatarOfTheCoin666', function() {
 
-    var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
+    // var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
     it('should work correctly', function() {
-        var g = setupDefaultGameTestEngine({
-            player2: {
-                deck: [
-                    '1 Avatar of the Coin'
-                ],
-            }
-        });
+        // var g = setupDefaultGameTestEngine({
+        //     player2: {
+        //         deck: [
+        //             '1 Avatar of the Coin'
+        //         ],
+        //     }
+        // });
 
-        g.play(g.hand(0, 'Avatar of the Coin'), 0, '{ZZZ}');
+        // g.play(g.hand(0, 'Avatar of the Coin'), 0, '{ZZZ}');
 
-        // TODO
+        // // TODO
     });
 
 });
