@@ -19,7 +19,7 @@ describe('AvatarOfTheCoin666', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,7 +28,7 @@ describe('AvatarOfTheCoin666', function() {
             }
         });
 
-        g.play(g.hand(0, 'Avatar of the Coin'), 0, '{}');
+        g.play(g.hand(0, 'Avatar of the Coin'), 0, '{ZZZ}');
 
         // TODO
     });

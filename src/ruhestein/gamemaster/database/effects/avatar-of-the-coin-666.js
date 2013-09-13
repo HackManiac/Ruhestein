@@ -15,7 +15,7 @@ var AvatarOfTheCoin666 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "AvatarOfTheCoin666"');
+        // nop
     },
 
 };
