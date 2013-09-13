@@ -15,8 +15,8 @@ var CrazyMonkey393 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "CrazyMonkey393"');
-    },
+        throw new Error('No cast implementation for missions set card effect "CrazyMonkey393"');
+    }
 
 };
 

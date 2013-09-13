@@ -15,7 +15,7 @@ var Transcendence299 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Transcendence299"');
+        throw new Error('No cast implementation for missions set card effect "Transcendence299"');
     },
 
 };

@@ -15,8 +15,8 @@ var FlameBurst622 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FlameBurst622"');
-    },
+        throw new Error('No cast implementation for missions set card effect "FlameBurst622"');
+    }
 
 };
 

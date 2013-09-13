@@ -15,7 +15,7 @@ var Stomp105 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Stomp105"');
+        throw new Error('No cast implementation for missions set card effect "Stomp105"');
     },
 
 };

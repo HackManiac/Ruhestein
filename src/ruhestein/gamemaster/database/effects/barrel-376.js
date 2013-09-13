@@ -15,8 +15,8 @@ var Barrel376 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Barrel376"');
-    },
+        throw new Error('No cast implementation for missions set card effect "Barrel376"');
+    }
 
 };
 

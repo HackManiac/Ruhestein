@@ -15,8 +15,8 @@ var WillOfMukla586 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WillOfMukla586"');
-    },
+        throw new Error('No cast implementation for missions set card effect "WillOfMukla586"');
+    }
 
 };
 

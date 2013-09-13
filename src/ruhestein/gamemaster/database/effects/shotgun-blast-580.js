@@ -15,7 +15,7 @@ var ShotgunBlast580 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ShotgunBlast580"');
+        throw new Error('No cast implementation for missions set card effect "ShotgunBlast580"');
     },
 
 };

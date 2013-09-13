@@ -15,8 +15,8 @@ var LegacyOfTheEmperor441 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "LegacyOfTheEmperor441"');
-    },
+        throw new Error('No cast implementation for missions set card effect "LegacyOfTheEmperor441"');
+    }
 
 };
 

@@ -15,8 +15,8 @@ var Bananas156 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Bananas156"');
-    },
+        throw new Error('No cast implementation for missions set card effect "Bananas156"');
+    }
 
 };
 

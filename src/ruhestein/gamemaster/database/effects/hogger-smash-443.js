@@ -15,8 +15,8 @@ var HoggerSMASH443 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "HoggerSMASH443"');
-    },
+        throw new Error('No cast implementation for missions set card effect "HoggerSMASH443"');
+    }
 
 };
 

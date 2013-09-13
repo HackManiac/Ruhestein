@@ -15,8 +15,8 @@ var FlamesOfAzzinoth349 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FlamesOfAzzinoth349"');
-    },
+        throw new Error('No cast implementation for missions set card effect "FlamesOfAzzinoth349"');
+    }
 
 };
 

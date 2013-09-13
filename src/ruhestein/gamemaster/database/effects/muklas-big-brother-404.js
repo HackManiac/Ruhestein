@@ -15,8 +15,8 @@ var MuklasBigBrother404 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MuklasBigBrother404"');
-    },
+        throw new Error('No cast implementation for missions set card effect "MuklasBigBrother404"');
+    }
 
 };
 

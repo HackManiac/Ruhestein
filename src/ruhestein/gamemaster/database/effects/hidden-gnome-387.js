@@ -15,8 +15,8 @@ var HiddenGnome387 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "HiddenGnome387"');
-    },
+        throw new Error('No cast implementation for missions set card effect "HiddenGnome387"');
+    }
 
 };
 

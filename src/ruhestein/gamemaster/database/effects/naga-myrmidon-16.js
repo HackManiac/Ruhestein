@@ -15,7 +15,7 @@ var NagaMyrmidon16 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "NagaMyrmidon16"');
+        throw new Error('No cast implementation for missions set card effect "NagaMyrmidon16"');
     },
 
 };

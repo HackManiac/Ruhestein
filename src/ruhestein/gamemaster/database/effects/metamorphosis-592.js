@@ -15,8 +15,8 @@ var Metamorphosis592 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Metamorphosis592"');
-    },
+        throw new Error('No cast implementation for missions set card effect "Metamorphosis592"');
+    }
 
 };
 
