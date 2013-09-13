@@ -15,8 +15,8 @@ var GuardianOfKings283 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "GuardianOfKings283"');
-    },
+        this.healDamage(6, this.getPlayer().getHero());
+    }
 
 };
 
