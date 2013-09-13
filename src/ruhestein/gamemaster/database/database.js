@@ -98,6 +98,10 @@ _.forEach(effects, function(effect, effectId) {
 
         _wasCast: false,
 
+        _originalCast: originalCast,
+
+        _originalUncast: originalUncast,
+
         cast: wrappedCast,
 
         uncast: wrappedUncast,
