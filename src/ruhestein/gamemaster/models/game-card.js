@@ -800,13 +800,14 @@ var GameCard = Card.extend({
         }
     },
 
-    triggerSecret: function(source) {
+    triggerSecret: function(source, info) {
         this.moveTo('playedCard');
 
         this.getGame().trigger('didTriggerSecret', {
             owner: this.getOwner(),
             card: this,
-            source: source
+            source: source,
+            info: info
         });
 
         this.moveTo('discardPile');
