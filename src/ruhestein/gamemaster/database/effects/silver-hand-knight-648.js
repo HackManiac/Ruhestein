@@ -10,13 +10,23 @@
 
 var SilverHandKnight648 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Squire',
+            attack: 2,
+            health: 2,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Battlecry: Summon a 2/2 Squire.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "SilverHandKnight648"');
-    },
+        var card = this.createNamedCard('summon');
+        this.summonCard(card);
+    }
 
 };
 
