@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,17 @@ describe('Reinforce248', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'paladin',
                 deck: [
-                    '1 Reinforce'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Reinforce'), 0, '{}');
-
-        // TODO
+        g.play(g.heroPower('Reinforce'), null);
+        g.battlefield(0, '1/1 Silver Hand Recruit {ZZZ}');
     });
 
 });
