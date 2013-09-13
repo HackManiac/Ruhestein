@@ -15,7 +15,7 @@ var DEBUG682 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DEBUG682"');
+        throw new Error('No cast implementation for debug effect "DEBUG682"');
     },
 
 };

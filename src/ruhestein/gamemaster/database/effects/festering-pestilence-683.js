@@ -15,7 +15,7 @@ var FesteringPestilence683 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FesteringPestilence683"');
+        throw new Error('No cast implementation for debug effect "FesteringPestilence683"');
     },
 
 };
