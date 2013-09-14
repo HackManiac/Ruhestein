@@ -15,8 +15,8 @@ var Gnoll565 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Gnoll565"');
-    },
+        this.castTaunt();
+    }
 
 };
 

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('Hogger39', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,12 @@ describe('Hogger39', function() {
             }
         });
 
-        g.play(g.hand(0, 'Hogger'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Hogger'), 0, '4/4 {ZZZ}');
+        g.endTurn();
+        g.oBattlefield(1, '2/2 {Taunt,ZZZ}');
+        g.endTurn();
+        g.endTurn();
+        g.oBattlefield(2, '2/2 {Taunt,ZZZ}');
     });
 
 });

@@ -10,13 +10,25 @@
 
 var Hogger39 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Gnoll',
+            attack: 2,
+            health: 2,
+            isToken: true
+        }
+    },
+    
     getDescription: function() {
         return this.formatDescription('At the end of your turn, summon a 2/2 Gnoll with Taunt.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Hogger39"');
-    },
+        this.onEndOfPlayerTurn(function() {
+            var card = this.createNamedCard('summon');
+            this.summonCard(card);
+        });
+    }
 
 };
 
