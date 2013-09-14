@@ -98,7 +98,8 @@ var GameCard = Card.extend({
             newLocation = this.getLocation();
         }
 
-        this.reset();
+        this.uncastEffects();
+        
         this.moveTo('transitioningCards');
 
         this.set('owner', owner);
@@ -817,6 +818,14 @@ var GameCard = Card.extend({
             } else {
                 effect.cast(info);
             }
+        }
+    },
+
+    uncastEffects: function() {
+        var effects = this.getEffects();
+        for (var i = 0, n = effects.length; i < n; i++) {
+            var effect = effects.at(i);
+            effect.reset();
         }
     },
 
