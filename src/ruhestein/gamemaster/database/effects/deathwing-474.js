@@ -14,7 +14,7 @@ var Deathwing474 = {
         return this.formatDescription('Battlecry: Destroy all other minions and discard your hand.');
     },
 
-    cast: function() {
+    castBattlecry: function() {
         var source = this.getCard();
 
         var cards = this.collectCardsByLocation('allBattlefields', function(card) {
