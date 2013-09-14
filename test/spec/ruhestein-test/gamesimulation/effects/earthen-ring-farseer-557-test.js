@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('EarthenRingFarseer557', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,8 @@ describe('EarthenRingFarseer557', function() {
             }
         });
 
-        g.play(g.hand(0, 'Earthen Ring Farseer'), 0, '{}');
-
-        // TODO
+        g.test.dealDamage(10, g.hero('0/30'), '0/20');
+        g.play(g.hand(0, 'Earthen Ring Farseer'), g.hero('0/20'), 0, '3/3 {ZZZ}', '0/23');
     });
 
 });

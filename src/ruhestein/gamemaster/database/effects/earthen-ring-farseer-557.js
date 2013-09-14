@@ -14,9 +14,11 @@ var EarthenRingFarseer557 = {
         return this.formatDescription('Battlecry: Restore 3 Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "EarthenRingFarseer557"');
-    },
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.healDamage(3, target);
+    }
 
 };
 
