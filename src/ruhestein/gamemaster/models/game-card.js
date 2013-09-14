@@ -445,7 +445,7 @@ var GameCard = Card.extend({
             }
         }
 
-        if (!info.failReason && info.card.hasChooseOneEffect() && (info.chooseOneIndex === undefined)) {
+        if (!info.failReason && info.battlecry && info.card.hasChooseOneEffect() && (info.chooseOneIndex === undefined)) {
             info.failReason = 'Must choose one of the card variants';
         }
 
