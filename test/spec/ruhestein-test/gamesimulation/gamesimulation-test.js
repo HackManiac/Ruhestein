@@ -1211,6 +1211,267 @@ describe('GameSimulation', function() {
         });
     });
 
+    // http://www.twitch.tv/ellohime/b/459752803?t=403m46s
+    describe('Ellohime Arena Match', function() {
+        var g, tmpCard, tmpCards;
+
+        it('should play the game correctly', function() {
+            // P2-T1
+            g.endTurn();
+
+            // P1-T1
+            g.endTurn();
+
+            // P2-T2
+            g.play(g.hand(2, '2/2 Pint-Sized Summoner'), 0, '2/2 {ZZZ}');
+            g.endTurn();
+
+            // P1-T2
+            g.hero('0/30 [0]');
+            g.play(g.hand(0, 'Claw'), null, '{Dead}');
+            g.hero('2/30 [2]');
+            g.play(g.hero('2/30 [2]'), g.oBattlefield(0, '2/2 Pint-Sized Summoner'), '2/30 [0]', '{Dead}');
+            g.endTurn();
+            g.oHero('0/30');
+
+            // P2-T3
+            g.play(g.hand(3, '1/4 Demolisher'), 0, '1/4 {EffectTrigger,ZZZ}');
+            g.endTurn();
+
+            // P1-T3
+            g.play(g.hand(0, '2/3 Razorfen Hunter'), 0, '2/3 {ZZZ}');
+            g.battlefield(1, '1/1 Boar {ZZZ}');
+            g.gm.predictRoll(1);  // Demolisher effect => Hero
+            g.hero('0/30');
+            g.endTurn();
+
+            // P2-T4
+            g.oHero('0/28');
+            g.play(g.hand(1, '3/3 Raging Worgen'), 1, '3/3 {ZZZ}');
+            g.play(g.battlefield(0, '1/4 Demolisher'), g.oBattlefield(1, '1/1 Boar'), '1/3', '{Dead}');
+            g.endTurn();
+
+            // P1-T4
+            g.play(g.hand(0, '3/1 Wolfrider'), 1, '3/1 {Charge}');
+            g.play(g.battlefield(1, '3/1 Wolfrider'), g.oBattlefield(1, '3/3 Raging Worgen'), '{Dead}', '{Dead}');
+            g.play(g.battlefield(0, '2/3 Razorfen Hunter'), g.oHero('0/30'), '2/3', '0/28');
+            g.gm.predictRoll(2); // Demolisher effect => battlefield #0
+            g.battlefield(0, '2/3');
+            g.endTurn();
+
+            // P2-T5
+            g.oBattlefield(0, '2/1');
+            g.play(g.hand(4, '4/2 Stormpike Commando'), g.oBattlefield(0, '2/1 Razorfen Hunter'), 1, '4/2 {ZZZ}', '{Dead}');
+            g.play(g.battlefield(0, '1/3 Demolisher'), g.oHero('0/28'), '1/3', '0/27');
+            g.endTurn();
+
+            // P1-T5
+            g.playChooseOne(g.hand(0, '4/4 Druid of the Claw'), 0, 0, '{Dead,ZZZ}');
+            g.battlefield(0, '4/4 {Charge}');
+            g.play(g.battlefield(0, '4/4 Druid of the Claw'), g.oBattlefield(0, '1/3 Demolisher'), '4/3', '{Dead}');
+            g.endTurn();
+
+            // P2-T6
+            g.play(g.hand(0, '4/4 Silver Hand Knight'), 1, '4/4 {ZZZ}');
+            g.battlefield(2, '2/2 Squire');
+            g.play(g.battlefield(0, '4/2 Stormpike Commando'), g.oBattlefield(0, '4/3 Druid of the Claw'), '{Dead}', '{Dead}');
+            g.endTurn();
+
+            // P1-T6
+            g.playChooseOne(g.hand(1, '4/4 Druid of the Claw'), 1, 0, '{Dead,ZZZ}');
+            g.battlefield(0, '4/6 {Taunt,ZZZ}');
+            g.endTurn();
+
+            // P2-T7
+            g.play(g.hand(4, '2/3 Tauren Warrior'), 2, '2/3 {Taunt,ZZZ}');
+            g.play(g.hand(2, '5/1 Magma Rager'), 3, '5/1 {ZZZ}');
+            g.play(g.battlefield(0, '4/4 Silver Hand Knight'), g.oBattlefield(0, '4/6 Druid of the Claw'), '{Dead}', '4/2');
+            g.play(g.battlefield(0, '2/2 Squire'), g.oBattlefield(0, '4/2 Druid of the Claw'), '{Dead}', '{Dead}');
+            g.endTurn();
+
+            // P1-T7
+            g.playChooseOne(g.hand(1, '4/4 Druid of the Claw'), 1, 0, '{Dead,ZZZ}');
+            g.battlefield(0, '4/6 {Taunt,ZZZ}');
+            g.hero('0/27 [0]');
+            g.play(g.heroPower('Shapeshift'), null);
+            g.hero('1/27 [1]');
+            g.endTurn();
+
+            // P2-T8
+            expect(g.game.getHandCardCount()).to.equal(4);
+            g.oBattlefield(0, '4/6 {Taunt}');
+            g.play(g.hand(3, 'Mass Dispel'), null);
+            expect(g.game.getHandCardCount()).to.equal(4);
+            g.oBattlefield(0, '4/6 {Silenced}');
+            g.play(g.hand(1, '1/3 Northshire Cleric'), 2, '1/3 {EffectTrigger,ZZZ}');
+            g.play(g.battlefield(1, '5/1 Magma Rager'), g.oHero('0/27 [1]'), '5/1', '0/23 [0]');
+            g.play(g.battlefield(0, '2/3 Tauren Warrior'), g.oHero('0/23'), '2/3', '0/21');
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/28'), null, '0/30');
+            g.endTurn();
+
+            // P1-T8
+            g.play(g.battlefield(0, '4/6 Druid of the Claw'), g.oBattlefield(0, '2/3 Tauren Warrior'), '4/4', '{Dead}');
+            g.hero('0/21 [0]');
+            g.play(g.heroPower('Shapeshift'), null);
+            g.hero('1/21 [1]');
+            g.play(g.hero('1/21 [1]'), g.oBattlefield(0, '5/1 Magma Rager'), '1/17 [0]', '{Dead}');
+            g.playChooseOne(g.hand(1, 'Mark of Nature'), 1, g.battlefield(0, '4/4 {Silenced}'), '{Dead}', '4/8 {Silenced,Taunt}');
+            g.play(g.hand(1, '3/3 Earthen Ring Farseer'), g.hero('1/17'), 0, '3/3 {ZZZ}', '1/20');
+            g.endTurn();
+
+            // P2-T9
+            g.play(g.hand(3, '2/1 Worgen Infiltrator'), 0, '2/1 {Stealth,ZZZ}');
+            g.play(g.hand(2, '5/4 Booty Bay Bodyguard'), 2, '5/4 {Taunt,ZZZ}');
+            g.play(g.hand(1, '3/2 Youthful Brewmaster'), g.battlefield(0, '2/1 Worgen Infiltrator'), 3, '3/2', null, 2);
+            g.play(g.hand(1, '2/1 Worgen Infiltrator'), 3, '2/1 {Stealth,ZZZ}');
+            g.endTurn();
+
+            // P1-T9
+            g.gm.predictRoll(2); // 2 = oBattlefield(1)
+            g.play(g.hand(1, '3/3 Mind Control Tech'), 0, '3/3 {ZZZ}');
+            g.battlefield(3, '5/4 Booty Bay Bodyguard {Taunt,ZZZ}');
+            g.play(g.battlefield(2, '4/8 Druid of the Claw'), g.oHero('0/30'), '4/8', '0/26');
+            g.play(g.battlefield(1, '3/3 Earthen Ring Farseer'), g.oHero('0/26'), '3/3', '0/23');
+            g.play(g.hand(1, '6/7 Boulderfist Ogre'), 0, '6/7 {ZZZ}');
+            g.endTurn();
+
+            // P2-T10
+            g.play(g.hand(0, '12/12 Deathwing'), 0, '12/12 {ZZZ}');
+            g.oBattlefield(0, null);
+            g.battlefield(1, null);
+            g.hand(0, null);
+            g.endTurn();
+
+            // P1-T10
+            g.play(g.heroPower('Shapeshift'), null);
+            g.play(g.hand(1, '3/3 Faceless Manipulator'), g.oBattlefield(0, '12/12 Deathwing'), 0, '{Dead}');
+            g.battlefield(0, '12/12 Deathwing');
+            g.play(g.hero('1/20 [1]'), g.oHero('0/23'), '1/20 [1]', '0/22');
+            g.endTurn();
+
+            // P2-T11
+            g.play(g.hand(0, '4/5 Windfury Harpy'), 1, '4/5 {Windfury,ZZZ}');
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/22'), null, '0/24');
+            g.play(g.battlefield(0, '12/12 Deathwing'), g.oHero('0/20 [1]'), '12/12', '0/9 [0]');
+            g.endTurn();
+
+            // P1-T11
+            g.play(g.hand(1, '3/3 Faceless Manipulator'), g.oBattlefield(0, '12/12 Deathwing'), 0, '{Dead}');
+            g.battlefield(0, '12/12 Deathwing');
+            g.play(g.battlefield(1, '12/12 Deathwing'), g.oBattlefield(0, '12/12 Deathwing'), '{Dead}', '{Dead}');
+            g.hero('0/9 [0]');
+            g.play(g.heroPower('Shapeshift'), null);
+            g.hero('1/9 [1]');
+            g.play(g.hand(0, 'The Coin'), null);
+            g.play(g.hand(0, '4/4 Dark Iron Dwarf'), g.battlefield(0, '12/12 Deathwing'), 1, '4/4 {ZZZ}', '14/12');
+            g.endTurn();
+
+            // P2-T12
+            g.play(g.hand(0, '0/4 Lightspawn'), 1, '4/4 {ZZZ}');
+            g.play(g.heroPower('Lesser Heal'), g.hero('0/24'), null, '0/26');
+            g.play(g.battlefield(0, '4/5 Windfury Harpy'), g.oHero('0/9 [1]'), '4/5', '0/6 [0]');
+            g.play(g.battlefield(0, '4/5 Windfury Harpy'), g.oHero('0/6'), '4/5', '0/2');
+            g.endTurn();
+
+            // P1-T12
+            g.playChooseOne(g.hand(0, '5/5 Ancient of Lore'), 1, g.hero('0/2'), 0, '5/5 {ZZZ}', '0/10');
+            g.play(g.battlefield(2, '4/4 Dark Iron Dwarf'), g.oBattlefield(1, '4/4 Lightspawn'), '{Dead}', '{Dead}');
+            g.play(g.battlefield(1, '14/12 Deathwing'), g.oBattlefield(0, '4/5 Windfury Harpy'), '14/8', '{Dead}');
+            g.play(g.heroPower('Shapeshift'));
+            g.play(g.hero('1/10 [1]'), g.oHero('0/26'), '1/10 [1]', '0/25');
+            g.endTurn();
+
+            // P2-T13
+            g.play(g.hand(0, 'Mind Control'), g.oBattlefield(1, '14/8 Deathwing'), '{Dead}', '14/8 {ZZZ}');
+            g.play(g.heroPower('Lesser Heal'), g.battlefield(0, '14/8 Deathwing'), null, '14/10');
+            g.endTurn();
+
+            // P1-T13
+            g.play(g.hand(0, '8/8 Ironbark Protector'), 1, '8/8 {Taunt,ZZZ}');
+            g.play(g.battlefield(0, '5/5 Ancient of Lore'), g.oHero('0/25'), '5/5', '0/20');
+            g.play(g.heroPower('Shapeshift'), null);
+            g.play(g.hero('1/10 [2]'), g.oHero('0/20'), '1/10 [2]', '0/19');
+            g.endTurn();
+
+            // P2-T14
+            g.play(g.hand(0, '1/3 Northshire Cleric'), 1, '1/3 {EffectTrigger,ZZZ}');
+            expect(g.game.getHandCardCount()).to.equal(0);
+            g.play(g.heroPower('Lesser Heal'), g.battlefield(0, '14/10 Deathwing'), null, '14/12');
+            expect(g.game.getHandCardCount()).to.equal(1);
+            g.play(g.hand(0, 'Divine Spirit'), g.battlefield(0, '14/12 Deathwing'), '{Dead}', '14/24');
+            g.play(g.battlefield(0, '14/24 Deathwing'), g.oBattlefield(1, '8/8 Ironbark Protector'), '14/16', '{Dead}');
+            g.endTurn();
+
+            // P1-T14
+            g.playChooseOne(g.hand(0, '2/4 Keeper of the Grove'), 1, g.oBattlefield(0, '14/16 Deathwing'), 1, '2/4', '12/12');
+            g.hero('0/10 [2]');
+            g.play(g.heroPower('Shapeshift'), null);
+            g.hero('1/10 [3]');
+            g.play(g.battlefield(0, '5/5 Ancient of Lore'), g.oBattlefield(1, '1/3 Northshire Cleric'), '5/4', '{Dead}');
+            g.play(g.hand(0, '5/4 Ancient Brewmaster'), g.battlefield(0, '5/4 Ancient of Lore'), 0, '5/4', '5/5');
+            g.play(g.hero('1/10 [3]'), g.oHero('0/19'), '1/10 [3]', '0/18');
+            g.endTurn();
+
+            // P2-T15
+            g.play(g.battlefield(0, '12/12 Deathwing'), g.oHero('0/10 [3]'), '12/12', '0/1 [0]');
+            g.play(g.hand(0, 'Holy Nova'), null);
+            g.oHero(null);
+        });
+
+        g = setupGameTestEngine({
+            startingPlayer: 2,
+
+            player1: {
+                'class': 'Druid',
+                deck: [
+                    '1 Claw',
+                    '1 Razorfen Hunter',
+                    '1 Wolfrider',
+                    '1 Druid of the Claw',
+                    '1 Druid of the Claw',
+                    '1 Druid of the Claw',
+                    '1 Mark of Nature',
+                    '1 Earthen Ring Farseer',
+                    '1 Mind Control Tech',
+                    '1 Boulderfist Ogre',
+                    '1 Faceless Manipulator',
+                    '1 Faceless Manipulator',
+                    '1 Dark Iron Dwarf',
+                    '1 Ancient of Lore',
+                    '1 Ironbark Protector',
+                    '1 Keeper of the Grove',
+                    '1 Ancient Brewmaster'
+                ],
+            },
+
+            player2: {
+                'class': 'Priest',
+                deck: [
+                    '1 Silver Hand Knight',
+                    '1 Raging Worgen',
+                    '1 Pint-Sized Summoner',
+                    '1 Deathwing',
+                    '1 Demolisher',
+                    '1 Northshire Cleric',
+                    '1 Magma Rager',
+                    '1 Stormpike Commando',
+                    '1 Youthful Brewmaster',
+                    '1 Tauren Warrior',
+                    '1 Mass Dispel',
+                    '1 Booty Bay Bodyguard',
+                    '1 Worgen Infiltrator',
+                    '1 Silence',
+                    '1 Windfury Harpy',
+                    '1 Lightspawn',
+                    '1 Mind Control',
+                    '1 Northshire Cleric',
+                    '1 Divine Spirit',
+                    '1 Holy Nova'
+                ],
+            }
+        });
+    });
+
     // describe('Game Title', function() {
     //     var g, tmpCard, tmpCards;
 
@@ -1235,5 +1496,4 @@ describe('GameSimulation', function() {
     //         }
     //     });
     // });
-
 });
