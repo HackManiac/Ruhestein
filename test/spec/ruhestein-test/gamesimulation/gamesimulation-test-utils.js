@@ -368,10 +368,13 @@ var setupGameTestEngine = function(info) {
         gte.game = gcGame;
     });
 
-    var postSetupPlayer = function(gmPlayer, info, playerInfo) {
+    var postSetupPlayerPhase1 = function(gmPlayer, info, playerInfo) {
         if (playerInfo.playCards) {
             testUtils.playHandCards(gmPlayer, playerInfo.playCards);
         }
+    };
+
+    var postSetupPlayerPhase2 = function(gmPlayer, info, playerInfo) {
         if (playerInfo.drawCards) {
             testUtils.drawUntilHandCardCountEquals(gmPlayer, playerInfo.drawCards);
         }
@@ -388,8 +391,16 @@ var setupGameTestEngine = function(info) {
 
         simulation.startGame();
 
-        postSetupPlayer(gmPlayer1, info, info.player1);
-        postSetupPlayer(gmPlayer2, info, info.player2);
+        postSetupPlayerPhase1(gmPlayer1, info, info.player1);
+        postSetupPlayerPhase1(gmPlayer2, info, info.player2);
+
+        if (info.endTurnAfterPlayingCards) {
+            gte.endTurn();
+            gte.endTurn();
+        }
+
+        postSetupPlayerPhase2(gmPlayer1, info, info.player1);
+        postSetupPlayerPhase2(gmPlayer2, info, info.player2);
     }
 
     return gte;
@@ -410,8 +421,13 @@ var setupDefaultGameTestEngine = function(info) {
             'class': 'mage',
             deck: [],
 
+            playCards: 0,
+            drawCards: 0,
+
             maxMana: 10,
             currentMana: 10,
+            maxHealth: 30,
+            currentHealth: 30
         });
     };
 
