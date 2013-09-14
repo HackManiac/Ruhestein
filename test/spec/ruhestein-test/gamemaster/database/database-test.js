@@ -154,17 +154,18 @@ describe('Database', function() {
     };
 
     var expectCardEffectImplementation = function(name, getInfo) {
-        var info = getInfo();
+        var info = getInfo(), nameExt;
         if (info.totalCards === 0) {
             it(name, function() {
                 expect(info.totalCards).to.not.equal(0);
             });
         } else if (info.nyiCards.length === 0) {
-            it(name, function() {
+            nameExt = ' (NYI ' + info.nyiCards.length + '/' + info.totalCards + ')';
+            it(name + nameExt, function() {
                 expect(info.nyiCards.length).to.equal(0);
             });
         } else {
-            var nameExt = ' (NYI ' + info.nyiCards.length + '/' + info.totalCards + ': ' + info.nyiCards.join(', ') + ')';
+            nameExt = ' (NYI ' + info.nyiCards.length + '/' + info.totalCards + ': ' + info.nyiCards.join(', ') + ')';
             xit(name + nameExt, function() {
                 expect(info.nyiCards.length).to.equal(0);
             });
@@ -266,12 +267,25 @@ describe('Database', function() {
         });
     });
 
-    // var _ = require('underscore');
+    var _ = require('underscore');
     // var rdb = Ruhestein.gameMaster.RawDatabase;
     // var allEffects = _.uniq(_.map(rdb.cardDataSet, function(cardData) { return cardData.description; })).sort(); 
 
     // var allEffectParts = _.flatten(_.map(allEffects, function(effect) { return effect.split(/\.[\s]*/); }));
     // allEffectParts = _.uniq(_.map(allEffectParts, function(effectPart) { return effectPart.replace(/^(Battlecry: |Combo: )/, '').trim(); })).sort();
     // console.log(allEffects, allEffectParts);
+
+    var findMissingEffectsByFilter = function(missingEffectIds, filter) {
+        var Ruhestein = require('ruhestein');
+        var owner = Ruhestein.gameMaster.Database.mixin({}, {});
+        missingEffectIds = missingEffectIds.split(', ');
+        var missingCardData = _.flatten(_.map(missingEffectIds, function(effectId) {
+            return owner.selectCardDataFromFilter({
+                effectId: effectId
+            });
+        }));
+
+        return _.pluck(_.filter(missingCardData, filter), 'effectId');
+    };
 
 });
