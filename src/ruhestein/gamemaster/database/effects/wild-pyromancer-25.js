@@ -15,8 +15,25 @@ var WildPyromancer25 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WildPyromancer25"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didPlayCard = function(info) {
+            if ((info.player === this.getPlayer()) && info.card.isSpell()) {
+                this.getCard().triggerEffectTrigger();
+            }
+        };
+
+        this.listenToGame('didPlayCard', didPlayCard);
+    },
+
+    triggerEffectTrigger: function() {
+        var cards = this.collectCardsByLocation('allBattlefields');
+        cards.forEach(function(card) {
+            this.dealDamage(1, card);
+        }, this);
+    }
 
 };
 
