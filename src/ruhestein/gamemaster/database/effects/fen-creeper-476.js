@@ -15,8 +15,8 @@ var FenCreeper476 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FenCreeper476"');
-    },
+        this.castTaunt();
+    }
 
 };
 

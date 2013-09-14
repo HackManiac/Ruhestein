@@ -15,8 +15,8 @@ var MogushanWarden346 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MogushanWarden346"');
-    },
+        this.castTaunt();
+    }
 
 };
 

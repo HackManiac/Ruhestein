@@ -15,8 +15,8 @@ var Shieldbearer24 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Shieldbearer24"');
-    },
+        this.castTaunt();
+    }
 
 };
 
