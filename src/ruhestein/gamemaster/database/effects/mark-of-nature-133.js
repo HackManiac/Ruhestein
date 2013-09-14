@@ -14,9 +14,16 @@ var MarkOfNature133 = {
         return this.formatDescription('+4 Health and Taunt.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "MarkOfNature133"');
+    targetLocations: 'battlefield',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    castBuff: function(target) {
+        target.modifyMaxHealth(4);
+        target.setHasTaunt(true);
+    }
 
 };
 

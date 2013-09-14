@@ -14,9 +14,15 @@ var MarkOfNature430 = {
         return this.formatDescription('+4 Attack.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "MarkOfNature430"');
+    targetLocations: 'battlefield',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    castBuff: function(target) {
+        target.modifyCurrentAttack(4);
+    }
 
 };
 

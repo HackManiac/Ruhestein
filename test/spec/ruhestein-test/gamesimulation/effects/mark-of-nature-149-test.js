@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,19 @@ describe('MarkOfNature149', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Mark of Nature'
+                    '1 Wisp',
+                    '2 Mark of Nature'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Mark of Nature'), 0, '{}');
-
-        // TODO
+        g.playChooseOne(g.hand(0, 'Mark of Nature'), 0, g.battlefield(0, '1/1 {ZZZ}'), '{Dead}', '5/1 {ZZZ}');
+        g.playChooseOne(g.hand(0, 'Mark of Nature'), 1, g.battlefield(0, '5/1 {ZZZ}'), '{Dead}', '5/5 {Taunt,ZZZ}');
     });
 
 });

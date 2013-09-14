@@ -36,7 +36,7 @@ var MarkOfNature149 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MarkOfNature149"');
+        // nop
     },
 
 };
