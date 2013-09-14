@@ -14,9 +14,14 @@ var MindControlTech368 = {
         return this.formatDescription('Battlecry: If your opponent has 4 or more minions, take control of one at random.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "MindControlTech368"');
-    },
+    castBattlecry: function() {
+        var count = this.getPlayer().getOpponentBattlefield().length;
+        if (count >= 4) {
+            var index = this.getGame().roll(count) - 1;
+            var card = this.getPlayer().getOpponentBattlefield().at(index);
+            card.setOwner(this.getPlayer());
+        }
+    }
 
 };
 

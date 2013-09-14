@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,30 @@ describe('MindControlTech368', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Wisp',
+                    '1 Bloodfen Raptor',
+                    '2 Malygos'
+                ],
+                playCards: 4
+            },
             player2: {
                 deck: [
-                    '1 Mind Control Tech'
+                    '2 Mind Control Tech'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Mind Control Tech'), 0, '{}');
+        g.oBattlefield(1, '3/2 Bloodfen Raptor');
+        g.gm.predictRoll(2); // 2 => oBattlefield(1)
+        g.play(g.hand(0, 'Mind Control Tech'), 0, '{ZZZ}');
+        g.battlefield(1, '3/2 Bloodfen Raptor');
 
-        // TODO
+        g.play(g.hand(0, 'Mind Control Tech'), 2, '{ZZZ}');
+        g.battlefield(3, null);
     });
 
 });
