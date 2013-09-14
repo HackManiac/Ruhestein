@@ -15,8 +15,8 @@ var SilvermoonGuardian634 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "SilvermoonGuardian634"');
-    },
+        this.castDivineShield();
+    }
 
 };
 

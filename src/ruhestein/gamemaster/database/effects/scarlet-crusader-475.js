@@ -15,8 +15,8 @@ var ScarletCrusader475 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ScarletCrusader475"');
-    },
+        this.castDivineShield();
+    }
 
 };
 
