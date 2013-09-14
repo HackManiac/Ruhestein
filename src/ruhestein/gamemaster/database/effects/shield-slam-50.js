@@ -14,9 +14,12 @@ var ShieldSlam50 = {
         return this.formatDescription('Deal 1 damage to a minion for each Armor you have.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "ShieldSlam50"');
-    },
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        var damage = 1 * this.getPlayer().getCurrentArmor();
+        this.dealDamage(damage, target);
+    }
 
 };
 

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,23 @@ describe('ShieldSlam50', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
+                'class': 'warrior',
                 deck: [
+                    '1 Malygos',
                     '1 Shield Slam'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Shield Slam'), 0, '{}');
+        g.hero('0/30 [0]');
+        g.play(g.heroPower('Armor Up!'), null);
+        g.hero('0/30 [2]');
 
-        // TODO
+        g.play(g.hand(0, 'Shield Slam'), g.battlefield(0, '4/12'), '{Dead}', '4/10');
     });
 
 });
