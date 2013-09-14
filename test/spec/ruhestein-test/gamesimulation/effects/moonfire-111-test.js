@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,16 @@ describe('Moonfire111', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Moonfire'
+                    '1 Keeper of the Grove'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Moonfire'), 0, '{}');
-
-        // TODO
+        g.playChooseOne(g.hand(0, 'Keeper of the Grove'), 0, g.hero(0, '0/30'), 0, '{ZZZ}', '0/28');
     });
 
 });

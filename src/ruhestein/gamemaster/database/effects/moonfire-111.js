@@ -14,9 +14,11 @@ var Moonfire111 = {
         return this.formatDescription('Deal 2 damage.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Moonfire111"');
-    },
+    targetLocations: 'allCharacters',
+
+    cast: function(target) {
+        this.dealDamage(2, target);
+    }
 
 };
 

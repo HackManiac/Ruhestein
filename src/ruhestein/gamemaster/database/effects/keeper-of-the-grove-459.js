@@ -34,8 +34,8 @@ var KeeperOfTheGrove459 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "KeeperOfTheGrove459"');
-    },
+        // nop
+    }
 
 };
 

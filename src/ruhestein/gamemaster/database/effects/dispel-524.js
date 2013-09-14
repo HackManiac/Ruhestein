@@ -14,9 +14,11 @@ var Dispel524 = {
         return this.formatDescription('Silence a minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Dispel524"');
-    },
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        target.silence();
+    }
 
 };
 

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('Dispel524', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Dispel'
+                    '1 Malygos',
+                    '1 Keeper of the Grove'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Dispel'), 0, '{}');
-
-        // TODO
+        expect(g.game.getSpellPower()).to.equal(5);
+        g.playChooseOne(g.hand(0, 'Keeper of the Grove'), 1, g.battlefield(0, '4/12 {ZZZ}'), 1, '{ZZZ}', '4/12 {Silenced,ZZZ}');
+        expect(g.game.getSpellPower()).to.equal(0);
     });
 
 });
