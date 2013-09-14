@@ -14,9 +14,15 @@ var DarkIronDwarf128 = {
         return this.formatDescription('Battlecry: Give a minion +2 Attack.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "DarkIronDwarf128"');
+    targetLocations: 'allBattlefields',
+
+    castBattlecry: function(target) {
+        this.buffCard(target);
     },
+
+    buff: {
+        currentAttack: 2
+    }
 
 };
 
