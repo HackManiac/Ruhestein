@@ -15,8 +15,8 @@ var WindfuryHarpy675 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WindfuryHarpy675"');
-    },
+        this.castWindfury();
+    }
 
 };
 

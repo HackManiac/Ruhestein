@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('WindfuryHarpy675', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,7 @@ describe('WindfuryHarpy675', function() {
             }
         });
 
-        g.play(g.hand(0, 'Windfury Harpy'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Windfury Harpy'), 0, '{Windfury,ZZZ}');
     });
 
 });
