@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,37 @@ describe('Abomination597', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos',
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Abomination'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Abomination'), 0, '{}');
-
-        // TODO
+        g.hero('0/30');
+        g.battlefield(0, '4/12');
+        g.oHero('0/30');
+        g.battlefield(0, '4/12');
+        g.play(g.hand(0, 'Abomination'), 1, '4/4 {Deathrattle,ZZZ}');
+        g.hero('0/30');
+        g.battlefield(0, '4/12');
+        g.oHero('0/30');
+        g.battlefield(0, '4/12');
+        g.test.kill(g.battlefield(1, '4/4'));
+        g.hero('0/28');
+        g.battlefield(0, '4/10');
+        g.oHero('0/28');
+        g.battlefield(0, '4/10');
     });
 
 });

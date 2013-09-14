@@ -15,8 +15,15 @@ var Abomination597 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Abomination597"');
+        // nop
     },
+
+    castDeathrattle: function() {
+        var cards = this.collectCardsByLocation('allCharacters');
+        cards.forEach(function(card) {
+            this.dealDamage(2, card);
+        }, this);
+    }
 
 };
 
