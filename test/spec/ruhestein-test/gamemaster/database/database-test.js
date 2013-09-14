@@ -211,9 +211,12 @@ describe('Database', function() {
     }
 
     var customDecks = [
-        'http://www.hearthpwn.com/deckbuilder/shaman#47:2;146:2;216:2;233:2;246:2;256:2;270:2;310:2;326:2;390:2;435:2;491:2;502:2;636:2;663:2',
-        'http://www.hearthpwn.com/deckbuilder/paladin#23:1;29:1;100:1;108:1;158:2;189:1;247:1;260:2;283:1;293:2;350:2;383:1;394:2;428:2;435:2;500:1;502:2;577:1;604:2;648:2;',
-        // 'http://www.hearthpwn.com/deckbuilder/druid#120:1;154:2;221:1;258:1;282:2;388:2;459:2;463:1;464:2;479:2;495:1;532:2;548:2;587:2;605:1;619:1;620:2;633:2;667:1',
+        'http://www.hearthpwn.com/deckbuilder/rogue#3:1;67:2;92:2;131:2;135:2;157:2;164:2;203:1;205:2;284:2;364:2;382:2;385:2;435:2;471:2;550:2', // Miracle Rogue
+        'http://www.hearthpwn.com/deckbuilder/druid#120:1;154:2;221:1;258:1;282:2;388:2;459:2;463:1;464:2;479:2;495:1;532:2;548:2;587:2;605:1;619:1;620:2;633:2;667:1', // Spike's McDruid Deck
+        'http://www.hearthpwn.com/deckbuilder/shaman#47:2;146:2;216:2;233:2;246:2;256:2;270:2;310:2;326:2;390:2;435:2;491:2;502:2;636:2;663:2', // Micha's Shaman Deck
+        'http://www.hearthpwn.com/deckbuilder/druid#55:2;148:1;165:2;217:1;222:2;266:2;282:2;289:2;311:2;329:2;357:2;420:2;424:2;510:2;532:2;548:2', // Wrath of the Weenies
+        'http://www.hearthpwn.com/deckbuilder/paladin#23:1;29:1;100:1;108:1;158:2;189:1;247:1;260:2;283:1;293:2;350:2;383:1;394:2;428:2;435:2;500:1;502:2;577:1;604:2;648:2;', // Paladin Draw And Damage
+        'http://www.hearthpwn.com/deckbuilder/rogue#67:2;92:2;131:2;135:2;157:2;164:2;205:2;273:2;284:2;364:2;382:2;385:2;435:2;471:2;550:2;', // Draw Engine
     ];
 
     for (i = 0; i < customDecks.length; i++) {
