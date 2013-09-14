@@ -15,8 +15,8 @@ var IronbarkProtector238 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "IronbarkProtector238"');
-    },
+        this.castTaunt();
+    }
 
 };
 
