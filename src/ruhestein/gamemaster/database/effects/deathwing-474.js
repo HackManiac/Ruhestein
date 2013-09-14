@@ -15,8 +15,22 @@ var Deathwing474 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Deathwing474"');
-    },
+        var source = this.getCard();
+
+        var cards = this.collectCardsByLocation('allBattlefields', function(card) {
+            return (card !== source);
+        });
+
+        cards.forEach(function(card) {
+            this.killCard(card);
+        }, this);
+
+        cards = this.collectCardsByLocation('hand');
+
+        cards.forEach(function(card) {
+            card.moveTo('discardPile');
+        });
+    }
 
 };
 
