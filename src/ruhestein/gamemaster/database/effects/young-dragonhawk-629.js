@@ -15,8 +15,8 @@ var YoungDragonhawk629 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "YoungDragonhawk629"');
-    },
+        this.castWindfury();
+    }
 
 };
 

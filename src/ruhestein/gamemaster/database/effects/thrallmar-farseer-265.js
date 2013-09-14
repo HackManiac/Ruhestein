@@ -15,8 +15,8 @@ var ThrallmarFarseer265 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "ThrallmarFarseer265"');
-    },
+        this.castWindfury();
+    }
 
 };
 
