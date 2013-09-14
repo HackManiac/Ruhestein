@@ -15,8 +15,26 @@ var FrothingBerserker69 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FrothingBerserker69"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didDealDamage = function(info) {
+            if (info.card.isMinion()) {
+                this.getCard().triggerEffectTrigger();
+            }
+        };
+
+        this.listenToGame('didDealDamage', didDealDamage);
+    },
+
+    triggerEffectTrigger: function() {
+        this.modifySelfBuffStacks(1);
+    },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 

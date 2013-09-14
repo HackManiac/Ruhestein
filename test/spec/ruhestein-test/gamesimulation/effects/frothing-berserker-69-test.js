@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,32 @@ describe('FrothingBerserker69', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos',
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Frothing Berserker'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Frothing Berserker'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Frothing Berserker'), 1, '1/4 {EffectTrigger,ZZZ}');
+        g.test.dealDamage(2, g.hero('0/30'), '0/28');
+        g.battlefield(1, '1/4');
+        g.test.dealDamage(2, g.battlefield(0, '4/12'), '4/10');
+        g.battlefield(1, '2/4');
+        g.test.dealDamage(2, g.oHero('0/30'), '0/28');
+        g.battlefield(1, '2/4');
+        g.test.dealDamage(2, g.oBattlefield(0, '4/12'), '4/10');
+        g.battlefield(1, '3/4');
     });
 
 });
