@@ -15,7 +15,7 @@ var Abomination597 = {
     },
 
     cast: function() {
-        // nop
+        this.castTaunt();
     },
 
     castDeathrattle: function() {

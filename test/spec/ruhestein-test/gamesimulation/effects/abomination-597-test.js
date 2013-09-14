@@ -37,7 +37,7 @@ describe('Abomination597', function() {
         g.battlefield(0, '4/12');
         g.oHero('0/30');
         g.battlefield(0, '4/12');
-        g.play(g.hand(0, 'Abomination'), 1, '4/4 {Deathrattle,ZZZ}');
+        g.play(g.hand(0, 'Abomination'), 1, '4/4 {Deathrattle,Taunt,ZZZ}');
         g.hero('0/30');
         g.battlefield(0, '4/12');
         g.oHero('0/30');
