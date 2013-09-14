@@ -10,6 +10,27 @@
 
 var Wrath633 = {
 
+    cardFilters: {
+        chooseOneA: {
+            name: 'Wrath',
+            description: 'Deal 3 damage.',
+            isToken: true
+        },
+        chooseOneB: {
+            name: 'Wrath',
+            description: 'Deal 1 damage. Draw a card.',
+            isToken: true
+        }
+    },
+
+    chooseOne: [{
+        filter: 'chooseOneA',
+        target: 'target',
+    }, {
+        filter: 'chooseOneB',
+        target: 'target'
+    }],
+
     getDescription: function() {
         return this.formatDescription('Choose One - Deal 3 damage; or Deal 1 damage and draw a card.');
     },

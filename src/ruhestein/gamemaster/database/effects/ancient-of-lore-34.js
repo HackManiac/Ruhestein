@@ -10,6 +10,25 @@
 
 var AncientOfLore34 = {
 
+    cardFilters: {
+        chooseOneA: {
+            name: 'Ancient Teachings',
+            isToken: true
+        },
+        chooseOneB: {
+            name: 'Ancient Secrets',
+            isToken: true
+        }
+    },
+
+    chooseOne: [{
+        filter: 'chooseOneA',
+        target: 'none',
+    }, {
+        filter: 'chooseOneB',
+        target: 'target'
+    }],
+
     getDescription: function() {
         return this.formatDescription('Choose One - Draw 2 cards; or Restore 8 Health.');
     },

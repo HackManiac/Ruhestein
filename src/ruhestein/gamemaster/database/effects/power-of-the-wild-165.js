@@ -10,6 +10,25 @@
 
 var PowerOfTheWild165 = {
 
+    cardFilters: {
+        chooseOneA: {
+            name: 'Leader of the Pack',
+            isToken: true
+        },
+        chooseOneB: {
+            name: 'Summon a Panther',
+            isToken: true
+        }
+    },
+
+    chooseOne: [{
+        filter: 'chooseOneA',
+        target: 'none',
+    }, {
+        filter: 'chooseOneB',
+        target: 'none'
+    }],
+
     getDescription: function() {
         return this.formatDescription('Choose One - Give your minions +1/+1; or Summon a 3/2 Panther.');
     },

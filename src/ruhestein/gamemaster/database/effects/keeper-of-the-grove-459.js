@@ -10,6 +10,25 @@
 
 var KeeperOfTheGrove459 = {
 
+    cardFilters: {
+        chooseOneA: {
+            name: 'Moonfire',
+            isToken: true
+        },
+        chooseOneB: {
+            name: 'Dispel',
+            isToken: true,
+        }
+    },
+
+    chooseOne: [{
+        filter: 'chooseOneA',
+        target: 'target',
+    }, {
+        filter: 'chooseOneB',
+        target: 'target'
+    }],
+
     getDescription: function() {
         return this.formatDescription('Choose One - Deal 2 damage; or Silence a minion.');
     },

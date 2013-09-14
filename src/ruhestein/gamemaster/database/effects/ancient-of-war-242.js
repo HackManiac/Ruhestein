@@ -10,6 +10,25 @@
 
 var AncientOfWar242 = {
 
+    cardFilters: {
+        chooseOneA: {
+            name: 'Rooted',
+            isToken: true
+        },
+        chooseOneB: {
+            name: 'Uproot',
+            isToken: true
+        }
+    },
+
+    chooseOne: [{
+        filter: 'chooseOneA',
+        target: 'self',
+    }, {
+        filter: 'chooseOneB',
+        target: 'self'
+    }],
+
     getDescription: function() {
         return this.formatDescription('Choose One - Ancient of War gets +5 Health and Taunt; or +5 Attack.');
     },
