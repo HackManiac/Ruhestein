@@ -715,6 +715,7 @@ var GameCard = Card.extend({
         this.setIsDiscarded(false);
         this.setIsFrozen(false);
         this.setIsImmune(false);
+        this.setIsSilenced(false);
         this.setHasCharge(false);
         this.setHasDeathrattle(false);
         this.setHasDivineShield(false);
