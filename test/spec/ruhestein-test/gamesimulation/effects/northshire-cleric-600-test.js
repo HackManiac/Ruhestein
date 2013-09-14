@@ -29,7 +29,7 @@ describe('NorthshireCleric600', function() {
 
         g.test.dealDamage(1, g.battlefield(0, '4/12 Malygos'));
 
-        g.play(g.hand(0, 'Northshire Cleric'), 1, '{ZZZ}');
+        g.play(g.hand(0, 'Northshire Cleric'), 1, '{EffectTrigger,ZZZ}');
         expect(g.game.getHandCardCount()).to.equal(2);
 
         g.test.healDamage(2, g.battlefield(0, '4/11 Malygos'));

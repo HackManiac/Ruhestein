@@ -15,14 +15,22 @@ var NorthshireCleric600 = {
     },
 
     cast: function() {
+        // nop
+    },
+
+    castEffectTrigger: function() {
         var didHealDamage = function(info) {
             if (info.card.isMinion()) {
-                this.getPlayer().drawCard();
+                this.getCard().triggerEffectTrigger();
             }
         };
 
         this.listenToGame('didHealDamage', didHealDamage);
     },
+
+    triggerEffectTrigger: function() {
+        this.getPlayer().drawCard();
+    }
 
 };
 
