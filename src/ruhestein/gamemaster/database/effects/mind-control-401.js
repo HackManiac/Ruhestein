@@ -14,9 +14,11 @@ var MindControl401 = {
         return this.formatDescription('Take control of an enemy minion.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "MindControl401"');
-    },
+    targetLocations: 'opponentBattlefield',
+
+    cast: function(target) {
+        target.setOwner(this.getPlayer());
+    }
 
 };
 
