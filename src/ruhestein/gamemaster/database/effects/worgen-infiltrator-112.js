@@ -15,8 +15,8 @@ var WorgenInfiltrator112 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "WorgenInfiltrator112"');
-    },
+        this.castStealth();
+    }
 
 };
 
