@@ -98,11 +98,24 @@ var GameCard = Card.extend({
             newLocation = this.getLocation();
         }
 
+        this.reset();
         this.moveTo('transitioningCards');
 
         this.set('owner', owner);
 
         this.moveTo(newLocation);
+
+        if (newLocation === 'battlefield') {
+            var info = {
+                summon: true
+            };
+
+            this.castEffects(info);
+
+            if (!this.hasCharge()) {
+                this.setIsAsleep(true);
+            }
+        }
     },
 
     getLocation: function() {
