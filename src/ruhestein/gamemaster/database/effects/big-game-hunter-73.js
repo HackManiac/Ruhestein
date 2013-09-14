@@ -14,9 +14,15 @@ var BigGameHunter73 = {
         return this.formatDescription('Battlecry: Destroy a minion with an Attack of 7 or more.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "BigGameHunter73"');
+    targetLocations: 'allBattlefields',
+
+    targetFilter: function(card) {
+        return (card.getCurrentAttack() >= 7);
     },
+
+    castBattlecry: function(target) {
+        this.killCard(target);
+    }
 
 };
 
