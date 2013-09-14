@@ -14,9 +14,12 @@ var FacelessManipulator450 = {
         return this.formatDescription('Battlecry: Choose a minion and become a copy of it.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "FacelessManipulator450"');
-    },
+    targetLocations: 'allBattlefields',
+
+    castBattlecry: function(target) {
+        var card = this.getPlayer().createCardById(target.getId());
+        this.getCard().transformTo(card);
+    }
 
 };
 

@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,8 +16,14 @@ describe('FacelessManipulator450', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos'
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
                     '1 Faceless Manipulator'
@@ -28,9 +31,8 @@ describe('FacelessManipulator450', function() {
             }
         });
 
-        g.play(g.hand(0, 'Faceless Manipulator'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Faceless Manipulator'), g.oBattlefield(0, '4/12 Malygos'), 0, '{Dead}');
+        g.battlefield(0, '4/12 Malygos {ZZZ}');
     });
 
 });
