@@ -15,8 +15,20 @@ var TaurenWarrior477 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "TaurenWarrior477"');
+        this.castTaunt();
     },
+
+    castEnrage: function() {
+        this.setSelfBuffStacks(1);
+    },
+
+    uncastEnrage: function() {
+        this.setSelfBuffStacks(0);
+    },
+
+    buff: {
+        currentAttack: 3
+    }
 
 };
 
