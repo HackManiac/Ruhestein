@@ -15,8 +15,12 @@ var MassDispel249 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "MassDispel249"');
-    },
+        var cards = this.collectCardsByLocation('opponentBattlefield');
+        cards.forEach(function(card) {
+            card.silence();
+        });
+        this.getPlayer().drawCard();
+    }
 
 };
 
