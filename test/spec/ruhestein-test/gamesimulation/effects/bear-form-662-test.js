@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,17 @@ describe('BearForm662', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Bear Form'
+                    '1 Druid of the Claw'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Bear Form'), 0, '{}');
-
-        // TODO
+        g.playChooseOne(g.hand(0, 'Druid of the Claw'), 1, 0, '{Dead,ZZZ}');
+        g.battlefield(0, '4/6 {Taunt,ZZZ}');
     });
 
 });

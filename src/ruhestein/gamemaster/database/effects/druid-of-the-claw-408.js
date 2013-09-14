@@ -15,8 +15,8 @@ var DruidOfTheClaw408 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DruidOfTheClaw408"');
-    },
+        this.castCharge();
+    }
 
 };
 

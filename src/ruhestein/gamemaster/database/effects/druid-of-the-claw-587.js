@@ -10,13 +10,32 @@
 
 var DruidOfTheClaw587 = {
 
+    cardFilters: {
+        chooseOneA: {
+            name: 'Cat Form',
+            isToken: true
+        },
+        chooseOneB: {
+            name: 'Bear Form',
+            isToken: true
+        }
+    },
+
+    chooseOne: [{
+        filter: 'chooseOneA',
+        target: 'self'
+    }, {
+        filter: 'chooseOneB',
+        target: 'self'
+    }],
+
     getDescription: function() {
         return this.formatDescription('Choose One - Charge; or +2 Health and Taunt.');
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DruidOfTheClaw587"');
-    },
+        // nop
+    }
 
 };
 

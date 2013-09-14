@@ -10,13 +10,29 @@
 
 var BearForm662 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Druid of the Claw',
+            attack: 4,
+            health: 6,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('+2 Health and Taunt.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "BearForm662"');
+    targetLocations: 'battlefield',
+
+    targetFilter: function(card) {
+        return (card.getName() === 'Druid of the Claw');
     },
+
+    cast: function(target) {
+        var card = this.createNamedCard('summon');
+        target.transformTo(card);
+    }
 
 };
 

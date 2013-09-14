@@ -10,13 +10,29 @@
 
 var CatForm287 = {
 
+    cardFilters: {
+        summon: {
+            name: 'Druid of the Claw',
+            attack: 4,
+            health: 4,
+            isToken: true
+        }
+    },
+
     getDescription: function() {
         return this.formatDescription('Charge');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "CatForm287"');
+    targetLocations: 'battlefield',
+
+    targetFilter: function(card) {
+        return (card.getName() === 'Druid of the Claw');
     },
+
+    cast: function(target) {
+        var card = this.createNamedCard('summon');
+        target.transformTo(card);
+    }
 
 };
 

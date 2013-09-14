@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,20 @@ describe('DruidOfTheClaw587', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Druid of the Claw'
+                    '2 Druid of the Claw'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Druid of the Claw'), 0, '{}');
+        g.playChooseOne(g.hand(0, 'Druid of the Claw'), 0, 0, '{Dead,ZZZ}');
+        g.battlefield(0, '4/4 {Charge}');
 
-        // TODO
+        g.playChooseOne(g.hand(0, 'Druid of the Claw'), 1, 1, '{Dead,ZZZ}');
+        g.battlefield(1, '4/6 {Taunt,ZZZ}');
     });
 
 });

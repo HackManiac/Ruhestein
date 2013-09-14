@@ -15,7 +15,7 @@ var DruidOfTheClaw45 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "DruidOfTheClaw45"');
+        this.castTaunt();
     },
 
 };
