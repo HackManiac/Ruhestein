@@ -14,9 +14,16 @@ var DivineSpirit554 = {
         return this.formatDescription('Double a minion\'s Health.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "DivineSpirit554"');
+    targetLocations: 'allBattlefields',
+
+    cast: function(target) {
+        this.buffCard(target);
     },
+
+    castBuff: function(target) {
+        target.modifyMaxHealth(target.getMaxHealth());
+        target.modifyDamage(target.getDamage());
+    }
 
 };
 
