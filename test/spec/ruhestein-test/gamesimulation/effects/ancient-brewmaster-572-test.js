@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('AncientBrewmaster572', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Ancient Brewmaster'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Ancient Brewmaster'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Ancient Brewmaster'), g.battlefield(0, '4/12'), 1, '5/4 {ZZZ}', null, 0);
     });
 
 });
