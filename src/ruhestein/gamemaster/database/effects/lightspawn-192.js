@@ -15,8 +15,19 @@ var Lightspawn192 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "Lightspawn192"');
-    },
+        var _this = this;
+
+        var updateCard = function() {
+            var card = _this.getCard();
+            card.setCurrentAttack(card.getCurrentHealth());
+        };
+
+        this.listenToCard('change:currentHealth', function() {
+            updateCard();
+        });
+
+        updateCard();
+    }
 
 };
 

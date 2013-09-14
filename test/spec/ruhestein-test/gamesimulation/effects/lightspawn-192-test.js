@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,7 +16,7 @@ describe('Lightspawn192', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
@@ -28,9 +25,8 @@ describe('Lightspawn192', function() {
             }
         });
 
-        g.play(g.hand(0, 'Lightspawn'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Lightspawn'), 0, '4/4 {ZZZ}');
+        g.test.dealDamage(1, g.battlefield(0, '4/4'), '3/3');
     });
 
 });
