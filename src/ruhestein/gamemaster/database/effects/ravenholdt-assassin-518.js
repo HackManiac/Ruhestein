@@ -15,8 +15,8 @@ var RavenholdtAssassin518 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "RavenholdtAssassin518"');
-    },
+        this.castStealth();
+    }
 
 };
 
