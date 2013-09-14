@@ -15,8 +15,8 @@ var BluegillWarrior289 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "BluegillWarrior289"');
-    },
+        this.castCharge();
+    }
 
 };
 

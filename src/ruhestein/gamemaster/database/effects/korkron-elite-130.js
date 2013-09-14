@@ -15,8 +15,8 @@ var KorkronElite130 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "KorkronElite130"');
-    },
+        this.castCharge();
+    }
 
 };
 

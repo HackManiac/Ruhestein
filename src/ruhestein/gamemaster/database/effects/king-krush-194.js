@@ -15,8 +15,8 @@ var KingKrush194 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "KingKrush194"');
-    },
+        this.castCharge();
+    }
 
 };
 
