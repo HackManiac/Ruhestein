@@ -74,16 +74,23 @@ var Effect = Model.extend({
         return this.getCard().getGame();
     },
 
-    isChooseOneEffect: false,
+    hasChooseOne: false,
 
-    isSecretEffect: false,
+    hasSecret: false,
 
     targetLocations: null,
 
     targetFilter: null,
 
-    needsTarget: function() {
-        return (this.targetLocations || this.targetFilter);
+    needsTarget: function(info) {
+        var result;
+        if (this.hasChooseOne) {
+            var choice = this.chooseOne [info.chooseOneIndex];
+            result = (choice.target === 'target');
+        } else {
+            result = (this.targetLocations || this.targetFilter);
+        }
+        return result;
     },
     
     canCast: true,
@@ -131,6 +138,15 @@ var Effect = Model.extend({
     },
 
     castCommonEffects: function() {
+        var target, info;
+        if (arguments.length <= 1) {
+            target = null;
+            info = arguments [0];
+        } else {
+            target = arguments [0];
+            info = arguments [1];
+        }
+
         if (this.castBattlecry) {
             this.listenToGame('didPlayCardFromHand', this._battlecryDidPlayCard);
         }
@@ -157,6 +173,27 @@ var Effect = Model.extend({
             this.listenToGame('didTriggerSecret', this._secretDidTriggerSecret);
 
             this.castSecret();
+        }
+
+        if (this.hasChooseOne) {
+            var choice = this.chooseOne [info.chooseOneIndex];
+
+            var card = this.createNamedCard(choice.filter);
+            card.moveTo('spawningCards');
+
+            if (choice.target === 'none') {
+                card.play({});
+            } else if (choice.target === 'self') {
+                card.play({
+                    target: this.getCard()
+                });
+            } else if (choice.target === 'target') {
+                card.play({
+                    target: target
+                });
+            } else {
+                throw new Error('Unexpected choose one target "' + choice.target + '"');
+            }
         }
     },
 

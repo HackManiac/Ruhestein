@@ -470,7 +470,11 @@ var GameCard = Card.extend({
                 for (i = 0, n = effects.length; i < n; i++) {
                     var effect = effects.at(i);
 
-                    var effectNeedsTarget = _.result(effect, 'needsTarget');
+                    var effectNeedsTarget = effect.needsTarget;
+                    if (_.isFunction(effectNeedsTarget)) {
+                        effectNeedsTarget = effectNeedsTarget.call(effect, info);
+                    }
+                    
                     allowsTarget = allowsTarget || effectNeedsTarget;
 
                     if (effect.targetLocations || effect.targetFilter) {
@@ -601,9 +605,7 @@ var GameCard = Card.extend({
                     this.moveTo('playedCard');
                 }
 
-                if (this.hasChooseOneEffect()) {
-                    this.castEffects(info);
-                } else if (this.isMinion()) {
+                if (this.isMinion()) {
                     this.moveTo('battlefield', battlefieldIndex);
 
                     this.castEffects(info);
@@ -793,7 +795,10 @@ var GameCard = Card.extend({
         var effects = this.getEffects();
         for (var i = 0, n = effects.length; i < n; i++) {
             var effect = effects.at(i);
-            var effectNeedsTarget = _.result(effect, 'needsTarget');
+            var effectNeedsTarget = effect.needsTarget;
+            if (_.isFunction(effectNeedsTarget)) {
+                effectNeedsTarget = effectNeedsTarget.call(effect, info);
+            }
             if (effectNeedsTarget) {
                 effect.cast(info.targetCard, info);
             } else {
