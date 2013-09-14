@@ -34,8 +34,8 @@ var AncientOfLore34 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "AncientOfLore34"');
-    },
+        // nop
+    }
 
 };
 

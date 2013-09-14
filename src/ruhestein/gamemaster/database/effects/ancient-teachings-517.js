@@ -15,8 +15,8 @@ var AncientTeachings517 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "AncientTeachings517"');
-    },
+        this.getPlayer().drawCards(2);
+    }
 
 };
 

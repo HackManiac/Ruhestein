@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,18 @@ describe('AncientTeachings517', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Ancient Teachings'
+                    '1 Ancient of Lore'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Ancient Teachings'), 0, '{}');
-
-        // TODO
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.playChooseOne(g.hand(0, 'Ancient of Lore'), 0, 0, '{ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(5);
     });
 
 });

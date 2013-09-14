@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,23 @@ describe('AncientOfLore34', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
             player2: {
                 deck: [
-                    '1 Ancient of Lore'
+                    '2 Ancient of Lore'
                 ],
             }
         });
 
-        g.play(g.hand(0, 'Ancient of Lore'), 0, '{}');
+        expect(g.game.getHandCardCount()).to.equal(4);
+        g.playChooseOne(g.hand(0, 'Ancient of Lore'), 0, 0, '{ZZZ}');
+        expect(g.game.getHandCardCount()).to.equal(5);
 
-        // TODO
+        g.test.replenishMana();
+        
+        g.test.dealDamage(10, g.hero('0/30'), '0/20');
+        g.playChooseOne(g.hand(0, 'Ancient of Lore'), 1, g.hero('0/20'), 1, '{ZZZ}', '0/28');
     });
 
 });
