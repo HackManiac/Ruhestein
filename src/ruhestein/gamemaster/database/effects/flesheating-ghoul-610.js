@@ -15,8 +15,26 @@ var FlesheatingGhoul610 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "FlesheatingGhoul610"');
+        // nop
     },
+
+    castEffectTrigger: function() {
+        var didKillCard = function(info) {
+            if (info.card.isMinion()) {
+                this.getCard().triggerEffectTrigger();
+            }
+        };
+
+        this.listenToGame('didKillCard', didKillCard);
+    },
+
+    triggerEffectTrigger: function() {
+        this.modifySelfBuffStacks(1);
+    },
+
+    buff: {
+        currentAttack: 1
+    }
 
 };
 

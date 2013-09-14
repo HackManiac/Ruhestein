@@ -6,9 +6,6 @@
 
 
 
-var Ruhestein = require('ruhestein');
-
-
 var GameSimulationTestUtils = require('../gamesimulation-test-utils');
 
 
@@ -19,18 +16,28 @@ describe('FlesheatingGhoul610', function() {
 
     var setupDefaultGameTestEngine = GameSimulationTestUtils.setupDefaultGameTestEngine;
 
-    xit('should work correctly', function() {
+    it('should work correctly', function() {
         var g = setupDefaultGameTestEngine({
+            player1: {
+                deck: [
+                    '1 Malygos',
+                ],
+                playCards: 1
+            },
             player2: {
                 deck: [
+                    '1 Malygos',
                     '1 Flesheating Ghoul'
                 ],
+                playCards: 1
             }
         });
 
-        g.play(g.hand(0, 'Flesheating Ghoul'), 0, '{}');
-
-        // TODO
+        g.play(g.hand(0, 'Flesheating Ghoul'), 1, '2/3 {EffectTrigger,ZZZ}');
+        g.test.kill(g.oBattlefield(0));
+        g.battlefield(1, '3/3');
+        g.test.kill(g.battlefield(0));
+        g.battlefield(0, '4/3');
     });
 
 });
