@@ -41,9 +41,9 @@ var Card = {
         return (((location === 'hero') || (location === 'heroPower') || (location === 'battlefield')) && !this.isAsleep());
     },
 
-    isTargetable: function() {
+    isTargetable: function(source) {
         var location = this.getLocation();
-        return (((location === 'hero') || (location === 'battlefield')) && !this.hasStealth());
+        return (((location === 'hero') || (location === 'battlefield')) && (!this.hasStealth() || (this.getOwner() === source.getOwner())));
     },
 
     isBeast: function() {

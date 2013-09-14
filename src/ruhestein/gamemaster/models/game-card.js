@@ -426,7 +426,7 @@ var GameCard = Card.extend({
             }
         }
         if (info.card.isHero() || info.card.isMinion()) {
-            if (info.targetCard && info.targetCard.isTargetable() && info.card.canAttack()) {
+            if (info.targetCard && info.targetCard.isTargetable(info.card) && info.card.canAttack()) {
                 info.attack = true;
             }
         }
@@ -448,9 +448,9 @@ var GameCard = Card.extend({
         }
 
         if (!info.failReason && info.targetCard) {
-            if (info.targetCard.hasStealth()) {
+            if (info.targetCard.hasStealth() && (info.targetCard.getOwner() !== info.player)) {
                 info.failReason = 'Cannot target stealth minion';
-            } else if (!info.targetCard.isTargetable()) {
+            } else if (!info.targetCard.isTargetable(info.card)) {
                 info.failReason = 'Invalid target';
             }
         }
