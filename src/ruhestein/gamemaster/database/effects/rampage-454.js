@@ -14,9 +14,20 @@ var Rampage454 = {
         return this.formatDescription('Give a damaged minion +3/+3.');
     },
 
-    cast: function() {
-        throw new Error('No cast implementation for effect "Rampage454"');
+    targetLocations: 'allBattlefields',
+
+    targetFilter: function(card) {
+        return (card.getDamage() > 0);
     },
+
+    cast: function(target) {
+        this.buffCard(target);
+    },
+
+    buff: {
+        currentAttack: 3,
+        maxHealth: 3
+    }
 
 };
 
