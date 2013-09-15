@@ -25,50 +25,13 @@ describe('GameSimulation', function() {
 
     require('./effects-test');
 
-    xit('should solve puzzle #1', function() {
-        var gte = setupGameTestEngine({
-            startingPlayer: 1,
-
-            player1: {
-                'class': 'druid',
-                deck: [
-                    '2 Abomination',
-                    '2 Ironbark Protector',
-                    '1 Lord of the Arena',
-                    '2 Mogu\'shan Warden',
-                    '1 Sen\'jin Shieldmasta'
-                ],
-                playCards: 8,
-                drawCards: 0,
-            },
-
-            player2: {
-                'class': 'warrior',
-                deck: [
-                    '1 Flesheating Ghoul',
-                    '1 Frothing Berserker',
-                    '1 Gurubashi Berserker',
-                    '1 Mana Addict',
-                    '1 Pint-Sized Summoner',
-                    '1 Wild Pyromancer',
-                    '1 Dire Wolf Alpha',
-                    '1 Ironbeak Owl',
-                    '1 Shield Slam',
-                    '1 Cruel Taskmaster',
-                    '1 Faceless Manipulator',
-                    '1 Big Game Hunter',
-                    '1 Rampage',
-                    '1 Charge',
-                ],
-                playCards: 5,
-                drawCards: 8,
-            }
-        });
+    describe('Hearthpwn puzzle #1', function() {
+        var g, preparePuzzle, tmpCards, tmpCard, tmpInfo;
 
         var numberOfTaunters = function() {
             var count = 0;
-            for (var i = 0, n = gte.game.getOpponentBattlefieldCardCount(); i < n; i++) {
-                var card = gte.game.getOpponentBattlefieldCard(i);
+            for (var i = 0, n = g.game.getOpponentBattlefieldCardCount(); i < n; i++) {
+                var card = g.game.getOpponentBattlefieldCard(i);
                 if (card.hasTaunt()) {
                     count++;
                 }
@@ -76,7 +39,163 @@ describe('GameSimulation', function() {
             return count;
         };
 
+        it('should prepare the puzzle correctly', function() {
+            preparePuzzle();
+        });
 
+        it('should solve the puzzle correctly', function() {
+            expect(g.game.getCurrentMana()).to.equal(10);
+            expect(numberOfTaunters()).to.equal(8);
+
+            // 1) Play Wild Pyromancer.  10 mana remaining.  (free from pint sized summoner)
+            g.play(g.hand(0, '3/2 Wild Pyromancer'), null, '3/2 {EffectTrigger,ZZZ}');
+            expect(g.game.getCurrentMana()).to.equal(10);
+
+            // 2) Use Hero Power. 2 Armor. 8 mana remaining.
+            g.hero('0/1 [0]');
+            g.play(g.heroPower('Armor Up!'), null);
+            g.hero('0/1 [2]');
+            expect(g.game.getCurrentMana()).to.equal(8);
+
+            // 3) Play Ironbeak Owl targetting 1 Abom. 6 mana remaining. 7 Taunters remain.
+            g.play(g.hand(1, 'Ironbeak Owl'), g.oBattlefield(0, 'Abomination {Deathrattle,Taunt}'), '{ZZZ}', '{Silenced}');
+            expect(g.game.getCurrentMana()).to.equal(6);
+            expect(numberOfTaunters()).to.equal(7);
+
+            // 4) Shield Slam the Lord of the Arena.  Wild Pyromancer triggers. 5 mana remaining.
+            tmpCard = g.oBattlefield(4, '6/5 Lord of the Arena');
+            tmpCards = g.game.collectCardsByLocation('allBattlefields');
+            tmpInfo = tmpCards.reduce(function(memo, card) {
+                memo [card.cid] = card.getCurrentHealth();
+                return memo;
+            }, {});
+            g.play(g.hand(1, 'Shield Slam'), tmpCard, '{Dead}', '6/2');
+            tmpCards.forEach(function(card) {
+                var oldHealth = tmpInfo [card.cid];
+                if (card === tmpCard) {
+                    g.test.expectCard(card, '6/2');
+                } else if (oldHealth === 1) {
+                    g.test.expectCard(card, '{Dead}');
+                } else {
+                    expect(card.getCurrentHealth()).to.equal(oldHealth - 1);
+                }
+            });
+            expect(g.game.getCurrentMana()).to.equal(5);
+
+            // 5) Pint Sized Summoner attacks the Sen-jin Shieldmaster. (reduced to 2 Health).
+            g.play(g.battlefield(4, '2/1 Pint-Sized Summoner'), g.oBattlefield(7, '3/4 Sen\'jin Shieldmasta'), '{Dead}', '3/2');
+
+            // 6) Play Big Game Hunter targeting 1 8/8 Protector.  2 mana remaining.  6 Taunters remain.
+            g.play(g.hand(3, '4/2 Big Game Hunter'), g.oBattlefield(2, '8/7 Ironbark Protector'), '{ZZZ}', '{Dead}');
+            expect(g.game.getCurrentMana()).to.equal(2);
+            expect(numberOfTaunters()).to.equal(6);
+
+            // 7) Play Rampage on the Frothing Berserker.  Wild Pyromancer triggers. He dies.  0 mana remaining.
+            tmpCard = g.battlefield(1, '20/3 Frothing Berserker');
+            tmpCards = g.game.collectCardsByLocation('allBattlefields');
+            tmpInfo = tmpCards.reduce(function(memo, card) {
+                memo [card.cid] = card.getCurrentHealth();
+                return memo;
+            }, {});
+            g.play(g.hand(3, 'Rampage'), tmpCard, '{Dead}', '{EffectTrigger}');
+            tmpCards.forEach(function(card) {
+                var oldHealth = tmpInfo [card.cid];
+                if (card === tmpCard) {
+                    g.test.expectCard(card, '{EffectTrigger}');
+                } else if (oldHealth === 1) {
+                    g.test.expectCard(card, '{Dead}');
+                } else {
+                    expect(card.getCurrentHealth()).to.equal(oldHealth - 1);
+                }
+            });
+            expect(g.game.getCurrentMana()).to.equal(0);
+
+            // 8) Mana Addict attacks Mogu #1 for 5, both die.  5 Taunters remain.
+            g.play(g.battlefield(3, '5/1 Mana Addict'), g.oBattlefield(4, '1/5 Mogu\'shan Warden'), '{Dead}', '{Dead}');
+            expect(numberOfTaunters()).to.equal(5);
+
+            // 9) Gurubashi Berserker attacks the second 8/8 protector for 6, both die.  4 Taunters remain.
+            g.play(g.battlefield(2, '8/5 Gurubashi Berserker'), g.oBattlefield(2, '8/6 Ironbark Protector'), '{Dead}', '{Dead}');
+            expect(numberOfTaunters()).to.equal(4);
+
+            // 10) Ghoul attacks Mogu #2 for 6, both die, 3 Taunters remain.
+            g.play(g.battlefield(0, '10/1 Flesheating Ghoul'), g.oBattlefield(3, '1/5 Mogu\'shan Warden'), '{Dead}', '{Dead}');
+            expect(numberOfTaunters()).to.equal(3);
+
+            // 11) Play Charge on BGH. then attack the non-silenced Abom.  It explodes, killing the last 2 remaining taunters with it (who were previously weakened by double pyromancer and either shield slam or an attack from the pint sized summoner).
+            g.play(g.hand(3, 'Charge'), g.battlefield(1, '4/1 Big Game Hunter {ZZZ}'), '{Dead}', '{Charge}');
+            tmpCard = g.hero('0/1 [2]');
+            tmpCards = g.game.collectCardsByLocation('allCharacters');
+            tmpInfo = tmpCards.reduce(function(memo, card) {
+                memo [card.cid] = card.getCurrentHealth();
+                return memo;
+            }, {});
+            g.play(g.battlefield(1, '4/1 Big Game Hunter'), g.oBattlefield(1, '4/2 Abomination'), '{Dead}', '{Dead}');
+            tmpCards.forEach(function(card) {
+                var oldHealth = tmpInfo [card.cid];
+                if (card === tmpCard) {
+                    g.test.expectCard(card, '0/1 [0]');
+                } else if (oldHealth <= 2) {
+                    g.test.expectCard(card, '{Dead}');
+                } else {
+                    expect(card.getCurrentHealth()).to.equal(oldHealth - 2);
+                }
+            });
+            expect(numberOfTaunters()).to.equal(0);
+
+            // 12) Attack enemy hero for 43 damage with Frothing Berserker.
+            g.play(g.battlefield(0, '49/3 Frothing Berserker'), g.oHero('0/28'), '49/3', '{Dead}');
+        });
+
+        preparePuzzle = function() {
+            g = setupGameTestEngine({
+                startingPlayer: 2,
+                endTurnAfterPlayingCards: true,
+
+                player1: {
+                    'class': 'druid',
+                    deck: [
+                        '2 Abomination',
+                        '2 Ironbark Protector',
+                        '1 Lord of the Arena',
+                        '2 Mogu\'shan Warden',
+                        '1 Sen\'jin Shieldmasta'
+                    ],
+                    playCards: 8,
+                    drawCards: 0,
+                    maxMana: 10,
+                    currentMana: 10,
+                    maxHealth: 30,
+                    currentHealth: 30
+                },
+
+                player2: {
+                    'class': 'warrior',
+                    deck: [
+                        '1 Flesheating Ghoul',
+                        '1 Frothing Berserker',
+                        '1 Gurubashi Berserker',
+                        '1 Mana Addict',
+                        '1 Pint-Sized Summoner',
+                        '1 Wild Pyromancer',
+                        '1 Dire Wolf Alpha',
+                        '1 Ironbeak Owl',
+                        '1 Shield Slam',
+                        '1 Cruel Taskmaster',
+                        '1 Faceless Manipulator',
+                        '1 Big Game Hunter',
+                        '1 Rampage',
+                        '1 Charge',
+                    ],
+                    playCards: 5,
+                    drawCards: 9,
+                    maxMana: 10,
+                    currentMana: 10,
+                    maxHealth: 30,
+                    currentHealth: 1
+                }
+            });
+        };
     });
 
     describe('Noxious #1: Priest vs Mage', function() {
