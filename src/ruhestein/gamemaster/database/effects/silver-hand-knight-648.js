@@ -23,7 +23,7 @@ var SilverHandKnight648 = {
         return this.formatDescription('Battlecry: Summon a 2/2 Squire.');
     },
 
-    cast: function() {
+    castBattlecry: function() {
         var card = this.createNamedCard('summon');
         this.summonCard(card);
     }
