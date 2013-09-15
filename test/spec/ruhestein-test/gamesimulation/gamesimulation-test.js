@@ -103,7 +103,7 @@ describe('GameSimulation', function() {
                 if (card === tmpCard) {
                     g.test.expectCard(card, '{EffectTrigger}');
                 } else if (oldHealth === 1) {
-                    g.test.expectCard(card, '{Dead}');
+                    expect(card.isDiscarded()).to.equal(true);
                 } else {
                     expect(card.getCurrentHealth()).to.equal(oldHealth - 1);
                 }
@@ -136,7 +136,7 @@ describe('GameSimulation', function() {
                 if (card === tmpCard) {
                     g.test.expectCard(card, '0/1 [0]');
                 } else if (oldHealth <= 2) {
-                    g.test.expectCard(card, '{Dead}');
+                    expect(card.isDiscarded()).to.equal(true);
                 } else {
                     expect(card.getCurrentHealth()).to.equal(oldHealth - 2);
                 }
