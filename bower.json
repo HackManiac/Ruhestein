@@ -8,6 +8,8 @@
     "jquery": "~1.10.2",
     "backbone": "~1.0.0",
     "underscore": "~1.5.1",
+    "requirejs-text": "~2.0.10",
+    "handlebars": "~1.0.0",
     "chaplin": "~0.10.0",
     "q": "~0.9.6"
   },
