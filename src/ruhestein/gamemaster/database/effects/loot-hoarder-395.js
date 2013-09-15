@@ -15,8 +15,12 @@ var LootHoarder395 = {
     },
 
     cast: function() {
-        throw new Error('No cast implementation for effect "LootHoarder395"');
+        // nop
     },
+
+    castDeathrattle: function() {
+        this.getPlayer().drawCard();
+    }
 
 };
 
