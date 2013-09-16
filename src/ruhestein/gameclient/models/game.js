@@ -186,6 +186,10 @@ var Game = Model.extend({
 
     endTurn: function() {
         this.trigger('!endTurn');
+    },
+
+    concede: function(reason) {
+        this.trigger('!concede', reason);
     }
 
 });

@@ -268,6 +268,12 @@ var Game = Model.extend({
         }
     },
 
+    concede: function(player, reason) {
+        player.getHero().kill();
+
+        this.handleKilledCards();
+    },
+
     endGame: function(winner) {
         var looser = winner && winner.getOpponent();
 
@@ -334,7 +340,7 @@ var Game = Model.extend({
     },
 
     roll: function(max) {
-        return utils.roll(max);
+        return Math.ceil(Math.random() * max) + 1;
     },
 
     chance: function(percent) {

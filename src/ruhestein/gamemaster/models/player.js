@@ -406,6 +406,10 @@ var Player = Model.extend({
 
     endTurn: function() {
         return this.getGame().endTurn(this);
+    },
+
+    concede: function(reason) {
+        this.getGame().concede(this, reason);
     }
 
 });
