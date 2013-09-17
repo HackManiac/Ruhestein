@@ -2,12 +2,17 @@
 
 *A Hearthstone game mechanics simulator written in JavaScript.*
 
-TBD
+Ruhestein initially was developed as a utility to solve Hearthpwn puzzles without having to do all the effect calculations by hand. The solutions that other people came up with were used to design test suites to validate the implementation. The 'Arcane Knowledge' video series by Noxious was also very helpful to get the system working.
+
+After the closed beta started there was plenty of video material of games played. Thoses videos were also used as templates for test suites.
+
+After some time the system supported so many cards and their effects that it was an wasy task to build a server app around it to play game sessions againt other people. This original server app is not part of this repo but will be eventually recreated here as well.
 
 
-You can find the code here TBD.
-You can see the result of the test suite here TBD.
-You can play a game on the server here TBD.
+You can find the code here: https://github.com/HackManiac/Ruhestein  
+You can see the result of the test suite here: http://ruhestein-test.hackmaniac.de  
+You can play a game on the old server code here: http://pre-ruhestein.hackmaniac.de
+
 
 
 ## Current State
@@ -16,19 +21,19 @@ The following aspects are implemented and have corresponding tests to ensure tha
 
 - hooks and helpers for all basis game mechanics (Battlecry, Charge, Choose One, Combo, Deathrattle, Divine Shield, Enrage, Freeze, Overload, Secret, Silence, Spell Power, Stealth, Summon, Taunt, Transform, Windfury)
 - all nine hero powers
-- all cards of the nine basic decks
+- all 84 cards of Basic set
 - some other cards that were needed for simulated games
 
 
 
 ## Architecture
 
-The source is currently grouped into four areas:
+The source is currently grouped into five areas:
 
 
 ### Common
 
-Source: `src/ruhestein/common/...`
+Source: `src/ruhestein/common/...`  
 Tests: `test/spec/ruhestein-test/common/...`
 
 Contains functionality that is shared between multiple parts of the library.
@@ -36,7 +41,7 @@ Contains functionality that is shared between multiple parts of the library.
 
 ### GameMaster
 
-Source: `src/ruhestein/gamemaster/...`
+Source: `src/ruhestein/gamemaster/...`  
 Tests: `test/spec/ruhestein-test/gamemaster/...`
 
 This is where most of the game mechanics logic and the card database is located. GameMaster components have full access to games, players, cards, effects, buffs and so on. In a conventional client-server environment this code would live on the server side.
@@ -47,7 +52,7 @@ It also contains a `Connector` that makes it easy to keep a GameClient variant o
 
 ### GameClient
 
-Source: `src/ruhestein/gameclient/...`
+Source: `src/ruhestein/gameclient/...`  
 Tests: `test/spec/ruhestein-test/gameclient/...`
 
 The GameClient components are basically a stripped-down, read-only variant of some of the GameMaster components. You can perform actions on those components which will be forwarded to the GameMaster component by the `Connector`. In exchange changes to the GameMaster component's property are propagated back to the GameClient component.
@@ -58,10 +63,19 @@ In a conventional client-server environment this code would live on the client-s
 
 ### GameSimulation
 
-Source: `src/ruhestein/gamesimulation/...`
+Source: `src/ruhestein/gamesimulation/...`  
 Tests: `test/spec/ruhestein-test/gamesimulation/...`
 
 The GameSimulation combines GameMaster and GameClient components into a single object. With its helper methods to disable randomness and predict dice rolls it is most suited to simulate games.
+
+
+
+### Server
+
+Source: `src/ruhestein/server/...`  
+Tests: not added yet :(
+
+The early stages of a server app that serves a web UI to players to allow them to play against each other. This is pretty much Work In Progress™.
 
 
 
@@ -69,13 +83,14 @@ The GameSimulation combines GameMaster and GameClient components into a single o
 
 ### Prerequisites
 
-- node
-- grunt
-- 
+This project is developed and known to work correctly under OS X 10.8 and node v0.10.17.
+
 
 ### Preparation
 
-	$ hg clone ....
+	$ sudo npm install -g grunt-cli bower
+	$ git clone https://github.com/HackManiac/Ruhestein
+	$ cd Ruhestein
 	$ npm install
 	$ bower install
 
@@ -92,13 +107,51 @@ Or if you prefer to run the tests in a browser
 ### Running the game server
 
 	$ node bin/start-server.js
+	$ open http://localhost:3000
 
-
-### 
 
 ## Contributing
 
 You can contribute in many different ways.
+
+
+### Simulating games
+
+All existing game simulations are located in `test/spec/ruhestein-test/gamesimulation/gamesimulation-test.js`. The structure is mostly the same:
+
+	describe('Game Name', function() {
+	    var g, tmpCard, tmpCards;
+
+	    it('should play the game correctly', function() {
+	    	// TODO: insert player actions here until...
+
+	        g.oHero(null); // opponent's hero is dead
+	    });
+
+	    g = setupGameTestEngine({
+	        startingPlayer: 2,
+
+	        player1: {
+	            'class': 'Druid',
+	            deck: [
+	                '1 Claw',
+	                '1 Razorfen Hunter',
+	                // ...
+	            ],
+	        },
+
+	        player2: {
+	            'class': 'Priest',
+	            deck: [
+	                '1 Silver Hand Knight',
+	                '1 Raging Worgen',
+	                // ...
+	            ],
+	        }
+	    });
+	});
+
+The game simulations are wrapped in a test suite declaration (done with Mocha's `describe`). The `setupGameTestEngine` is a helper function defined in `test/spec/ruhestein-test/gamesimulation/gamesimulation-test-utils.js`. Calling this function sets up a special wrapper object that internally uses the `GameSimulation` class to do the hard work. The 
 
 
 ### Implementing card effects
@@ -275,12 +328,19 @@ Call the `castWindfury` helper during the `cast` method of the effect. This will
 	It's WoW's german localization for the Hearthstone item.
 
 
+- **The web UI is ugly, can't you make it nicer?**
+
+	My focus is on the mechanics, not on the visuals. And well, we all get a nicer version of this game once the original goes live, don't we?
+
+
 - **Is Blizzard okay with this project using their IP?**
 
-	Well, I tried to contact them several times but did not get any reply back. That either means that they were to busy to aswer or that they don't mind. In case they do mind I will be contacted nevertheless :)
+	Well, I tried to contact them several times but did not get any reply back. That either means that they were to busy to answer or that they don't mind. In case they do mind I will be contacted nevertheless :)
 
 
 
 ## Credits and Legal Notes
+
+Thanks to Blizzard and especially Team 5 for making this incredible game! You guys rock!
 
 Hearthstone is a trademark, and Warcraft, Battle.net and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc.  in the U.S., and/or other countries. All other trademarks referenced herein are the properties of their respective owners.
