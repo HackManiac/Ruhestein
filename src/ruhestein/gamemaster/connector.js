@@ -183,6 +183,7 @@ _.extend(Connector.prototype, {
         gmPlayer.on('!requestCardChoice', this._requestCardChoice, this);
 
         gcGame.on('!endTurn', this._endTurn, this);
+        gcGame.on('!concede', this._concede, this);
     },
 
     _setupCardBinding: function(gmCard, gcCard) {
@@ -313,6 +314,10 @@ _.extend(Connector.prototype, {
 
     _endTurn: function() {
         this._gmPlayer.endTurn();
+    },
+
+    _concede: function(reason) {
+        this._gmPlayer.concede(reason);
     },
 
     _playCard: function(gcSource, gcInfo, callback) {
