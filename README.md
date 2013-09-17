@@ -151,7 +151,47 @@ All existing game simulations are located in `test/spec/ruhestein-test/gamesimul
 	    });
 	});
 
-The game simulations are wrapped in a test suite declaration (done with Mocha's `describe`). The `setupGameTestEngine` is a helper function defined in `test/spec/ruhestein-test/gamesimulation/gamesimulation-test-utils.js`. Calling this function sets up a special wrapper object that internally uses the `GameSimulation` class to do the hard work. The 
+The game simulations are wrapped in a test suite declaration (done with Mocha's `describe`). The `setupGameTestEngine` is a helper function defined in `test/spec/ruhestein-test/gamesimulation/gamesimulation-test-utils.js`. Calling this function sets up a special wrapper object that internally uses the `GameSimulation` class to do the hard work. The simulation will already have its randomness disabled all will draw card in the order listed in the `deck` array.
+
+Before being able to play a card you need to get a reference to it. There are several helper functions on the game test engine object to get such a card reference.
+
+	g.hero(optionalExpectedDescription)                         // player's hero
+	g.heroPower(optionalExpectedDescription)                    // player's hero power
+	g.weapon(optionalExpectedDescription)                       // player's weapon
+	g.hand(requiredIndex, optionalExpectedDescription)          // player's hand card
+	g.battlefield(requiredIndex, optionalExpectedDescription)   // player's battlefield card
+
+	g.oHero(optionalExpectedDescription)                        // opponent's hero
+	g.oHeroPower(optionalExpectedDescription)                   // opponent's hero power
+	g.oWeapon(optionalExpectedDescription)                      // opponent's hero weapon
+	g.oBattlefield(requiredIndex, optionalExpectedDescription)  // opponents's battlefield card
+	
+Some of the functions take a required index in the range of `0` to `count - 1`. All functions accept an optional expected card description. If this argument is given an AssertionError is thrown if the card's description does not match the expected description.
+
+If you have a card you can play it or use it as a target for another card:
+
+	// optionalESCDAP = optional expected source card description after play
+	// optionalETCDAP = optional expected target card description after play
+	// optionalEBFIAP = optional expected battlefield index after play
+
+	g.play(sourceCard, targetCard, optionalESCDAP, optionalETCDAP);
+	g.play(sourceCard, battlefieldIndex, optionalESCDAP, optionalEBFIAP);
+	g.play(sourceCard, targetCard, battlefieldIndex, optionalESCDAP, optionalETCDAP, optionalEBFIAP);
+
+Some examples are:
+
+	g.play(g.hand(1, '3/2 Bloodfen Raptor'), 0);
+
+Excepts that the second card in the player's hand is a Bloodfen Raptor. If it is that card play it to battlefield to left most position.
+
+	g.play(g.battlefield(0, '3/2 Bloodfen Raptor'), g.oBattlefield(0, '1/3 Northshire Cleric'), '3/1', '{Dead}');
+
+Expects that the left most card on the player's battlefield is a Bloodfen Raptor and the left most card on the opponent's battlefield is a Northshire Cleric. Then attack the Northshire Cleric with the Bloodfen Raptor, expecting the Raptor to drops to '3/1' and the Cleric is dead afterwards.
+
+If the current player wants to end her turn just call:
+
+	g.endTurn();
+
 
 
 ### Implementing card effects
